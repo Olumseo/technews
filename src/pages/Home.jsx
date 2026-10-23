@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { articleBySlug, bySection, latest, lineStyle, sectionBySlug } from '../data/articles.js'
+import { articleBySlug, bySection, latest, sectionBySlug } from '../data/articles.js'
 import Story, { SectionHead } from '../components/Story.jsx'
 import { LatestTimeline, Markets, MostRead, Newsletter, WorldClock } from '../components/Widgets.jsx'
 import { initials } from '../lib.js'
@@ -37,7 +37,7 @@ export default function Home() {
       <Markets />
 
       <section className="container block">
-        <SectionHead title="Asia and Singapore" to="/section/asia" linkLabel="More from Asia" line="asia" />
+        <SectionHead title="Asia and Singapore" to="/section/asia" linkLabel="More from Asia" />
         <div className="split">
           <Story article={asiaLead} variant="feature" dek />
           <div className="split__list">
@@ -50,7 +50,7 @@ export default function Home() {
         <div className="container">
           <div className="band__head">
             <h2 id="band-title" className="band__title">Where our reporters are right now</h2>
-            <p className="band__lede">Six bureaus, six time zones. Singapore is the first stop on the line.</p>
+            <p className="band__lede">We report from six cities. Here is the local time in each one.</p>
           </div>
           <WorldClock />
           <div className="band__grid">
@@ -62,7 +62,7 @@ export default function Home() {
       </section>
 
       <section className="container block">
-        <SectionHead title="Opinion" to="/section/opinion" linkLabel="All opinion" line="opinion" />
+        <SectionHead title="Opinion" to="/section/opinion" linkLabel="All opinion" />
         <div className="opinion">
           {opinion.map((a) => (
             <article key={a.slug} className="opinion__item">
@@ -89,8 +89,8 @@ export default function Home() {
         {rails.map((slug) => {
           const items = bySection(slug).slice(0, 3)
           return (
-            <div key={slug} className="rail" style={lineStyle(slug)}>
-              <SectionHead title={sectionBySlug(slug).name} to={`/section/${slug}`} line={slug} />
+            <div key={slug} className="rail">
+              <SectionHead title={sectionBySlug(slug).name} to={`/section/${slug}`} />
               <Story article={items[0]} variant="card" kicker={false} />
               {items.slice(1).map((a) => <Story key={a.slug} article={a} variant="compact" kicker={false} />)}
             </div>
@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       <section className="container block">
-        <SectionHead title="Life and weekend" to="/section/life" linkLabel="More from Life" line="life" />
+        <SectionHead title="Life and weekend" to="/section/life" linkLabel="More from Life" />
         <div className="cards cards--4 cards--flush">
           {life.map((a) => <Story key={a.slug} article={a} variant="card" />)}
         </div>

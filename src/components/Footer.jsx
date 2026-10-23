@@ -4,9 +4,6 @@ import { SECTIONS } from '../data/articles.js'
 export default function Footer() {
   return (
     <footer className="site-footer">
-      <div className="footer__line" aria-hidden="true">
-        {SECTIONS.map((s) => <span key={s.slug} style={{ background: s.color }} />)}
-      </div>
       <div className="container">
         <div className="footer__grid">
           <div className="footer__about">

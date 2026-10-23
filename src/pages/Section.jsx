@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { bySection, latest, lineStyle, sectionBySlug } from '../data/articles.js'
+import { bySection, latest, sectionBySlug } from '../data/articles.js'
 import Story from '../components/Story.jsx'
 import { LatestTimeline } from '../components/Widgets.jsx'
 import NotFound from './NotFound.jsx'
@@ -13,8 +13,7 @@ export default function Section() {
 
   return (
     <>
-      <header className="container section-hero" style={lineStyle(slug)}>
-        <p className="section-hero__line"><span className="section-hero__code">{section.code}</span>{section.line}</p>
+      <header className="container section-hero">
         <h1 className="section-hero__title">{section.name}</h1>
         <p className="section-hero__blurb">{section.blurb}</p>
       </header>

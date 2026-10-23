@@ -16,7 +16,7 @@ export function Markets() {
               <span className="markets__change">
                 <span aria-hidden="true">{m.change >= 0 ? '▲' : '▼'}</span>
                 <span className="sr-only">{m.change >= 0 ? 'up' : 'down'}</span>
-                {Math.abs(m.change).toFixed(2)}%
+                {m.change >= 0 ? '+' : '−'}{Math.abs(m.change).toFixed(2)}%
               </span>
             </li>
           ))}

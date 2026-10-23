@@ -3,6 +3,9 @@ const base = { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke
 export const SearchIcon = () => (
   <svg {...base}><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
 )
+export const MenuIcon = () => (
+  <svg {...base}><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+)
 export const CloseIcon = () => (
   <svg {...base}><path d="M6 6l12 12M18 6 6 18" /></svg>
 )
