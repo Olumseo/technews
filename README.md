@@ -26,6 +26,6 @@ npm run preview
 - Search overlay (press `/`), a light/dark theme toggle and a mobile menu
 - Fonts: Newsreader for headlines and body text, Schibsted Grotesk for the interface
 
-Story content lives in `src/data/articles.js`. All stories, people and market figures are fictional placeholders, and the images come from picsum.photos. Replace them with your CMS or API.
+Story content lives in `src/data/articles.js`. All stories, people and market figures are fictional placeholders, Photos come from Unsplash and are free to use under the Unsplash License. Replace the stories with your CMS or API.
 
 `vercel.json` sets up the SPA rewrites needed to deploy on Vercel.

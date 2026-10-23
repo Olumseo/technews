@@ -115,7 +115,7 @@ export default function Article() {
         </header>
 
         <figure className="container article__figure">
-          <img src={article.image.replace('1400/900', '1800/1000')} alt={article.caption} />
+          <img src={article.hero} alt={article.caption} />
           <figcaption>{article.caption}</figcaption>
         </figure>
 

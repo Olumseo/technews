@@ -12,9 +12,11 @@ export const SECTIONS = [
   { slug: 'life', name: 'Life', blurb: 'Food, design, culture and how we live now.' },
 ]
 
-const img = (seed, w = 1400, h = 900) => `https://picsum.photos/seed/${seed}/${w}/${h}`
+// Photos from Unsplash (free to use under the Unsplash License).
+export const photo = (id, w = 1400, h = 900) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
 
-export const ARTICLES = [
+const STORIES = [
   {
     slug: 'malacca-strait-record-traffic',
     section: 'asia',
@@ -24,8 +26,8 @@ export const ARTICLES = [
     role: 'Regional correspondent',
     minutesAgo: 18,
     read: 7,
-    image: img('1n-malacca-port'),
-    caption: 'Container ships queue off the western anchorage before dawn.',
+    photo: '1578575437130-527eed3abbec',
+    caption: 'Cargo ships berthed along the container terminal.',
     quote: 'We are running a motorway at rush hour, every hour, with ships the length of four football fields.',
     body: [
       'Before sunrise on Thursday, the radar screens at the regional vessel traffic centre showed something its operators had never seen before: 327 ships moving through the Strait of Malacca in a single 24-hour window, the highest daily count since records began.',
@@ -44,8 +46,8 @@ export const ARTICLES = [
     role: 'Diplomatic editor',
     minutesAgo: 42,
     read: 5,
-    image: img('1n-envoys-coast'),
-    caption: 'Delegates leave the final session of the preparatory talks.',
+    photo: '1613026113231-ba81a6e4dd01',
+    caption: 'Waves break against a rocky shoreline.',
     body: [
       'Negotiators emerged from three days of closed-door talks on Wednesday night with a draft text for a fund dedicated to sea walls, mangrove restoration and managed retreat in low-lying island states.',
       'The draft sets out how money would be disbursed but stops short of naming contribution levels, a point several delegates described as the real fight still to come.',
@@ -61,8 +63,8 @@ export const ARTICLES = [
     role: 'Europe correspondent',
     minutesAgo: 95,
     read: 4,
-    image: img('1n-europe-rail'),
-    caption: 'A night train pulls into a central European station.',
+    photo: '1787847976037-c50c2653c9f6',
+    caption: 'An electric locomotive waits at a platform on a sunny morning.',
     body: [
       'A coalition of national rail operators has agreed to sell through-tickets across 30 countries from next spring, ending the long-standing headache of piecing together long journeys from separate bookings.',
       'The scheme’s most important clause is a passenger guarantee: if one leg runs late and a connection is missed, the next available service is covered at no extra cost.',
@@ -78,8 +80,8 @@ export const ARTICLES = [
     role: 'Diplomatic editor',
     minutesAgo: 210,
     read: 4,
-    image: img('1n-canal-locks'),
-    caption: 'A bulk carrier moves through the locks at low water.',
+    photo: '1650900426337-0f7c0e0f86ea',
+    caption: 'A cargo ship docked near the canal approach.',
     body: [
       'Canal authorities will limit daily transits to 24 vessels from next week, citing a dry season that arrived early and hard.',
       'Shipping lines serving Asia and the US east coast are weighing longer routes, which could add up to 10 days to some voyages.',
@@ -95,8 +97,8 @@ export const ARTICLES = [
     role: 'Indonesia correspondent',
     minutesAgo: 64,
     read: 5,
-    image: img('1n-jakarta-metro'),
-    caption: 'Commuters board on the first morning of service.',
+    photo: '1688525138876-652b04859861',
+    caption: 'A train crosses an elevated section between office towers.',
     body: [
       'Commuters packed the first trains on Jakarta’s east–west line on Friday morning, two months earlier than the date officials had promised.',
       'The line cuts the journey across the capital from roughly two hours by road to 48 minutes, according to the operator.',
@@ -112,8 +114,8 @@ export const ARTICLES = [
     role: 'Tokyo bureau chief',
     minutesAgo: 140,
     read: 6,
-    image: img('1n-tokyo-office'),
-    caption: 'Prefectural office staff during a midweek lunch break.',
+    photo: '1600506451234-9e555c0c8d05',
+    caption: 'Staff gather around a meeting table.',
     body: [
       'Three prefectures have begun letting civil servants compress their working week into four days, part of a wider effort to keep staff in a shrinking labour market.',
       'Early surveys show resignations among younger employees falling by almost a third compared with the same period last year.',
@@ -129,8 +131,8 @@ export const ARTICLES = [
     role: 'Business correspondent',
     minutesAgo: 300,
     read: 6,
-    image: img('1n-chip-plant'),
-    caption: 'Technicians inspect wafers at an assembly plant outside Hanoi.',
+    photo: '1587845323226-bad89242c735',
+    caption: 'A silicon wafer carrying hundreds of chip dies.',
     body: [
       'A fresh round of commitments has made northern Vietnam one of the fastest-growing chip assembly and test hubs outside East Asia.',
       'Officials are now trying to move up the value chain, offering incentives for companies that bring design and engineering roles alongside factory jobs.',
@@ -146,8 +148,8 @@ export const ARTICLES = [
     role: 'Housing reporter',
     minutesAgo: 30,
     read: 5,
-    image: img('1n-rooftop-farm'),
-    caption: 'Leafy greens growing on a trial rooftop in the north-east.',
+    photo: '1727099079513-952d40de9d78',
+    caption: 'Leafy greens growing under cover at a trial urban farm.',
     body: [
       'Forty public housing blocks in Punggol and Tengah will host rooftop farms from the middle of next year under a pilot announced on Friday.',
       'Operators will be chosen by tender, and residents of each block will be offered produce at a discount before it reaches the open market.',
@@ -163,8 +165,8 @@ export const ARTICLES = [
     role: 'Transport correspondent',
     minutesAgo: 120,
     read: 4,
-    image: img('1n-airport-terminal'),
-    caption: 'The roof frame over the first phase of the new terminal.',
+    photo: '1787059526580-b8e654ba2d44',
+    caption: 'The glass dome at Jewel, beside the existing terminals.',
     body: [
       'Builders have completed the roof frame over the first phase of the new terminal, a key point in a project that will eventually handle 50 million passengers a year.',
       'The terminal is designed to be built in stages so capacity can be matched to demand, a lesson learned from the slump in travel earlier in the decade.',
@@ -180,8 +182,8 @@ export const ARTICLES = [
     role: 'Housing reporter',
     minutesAgo: 260,
     read: 3,
-    image: img('1n-hawker-centre'),
-    caption: 'Lunch crowd at a hawker centre in the west.',
+    photo: '1739857554154-80c15b7b1af7',
+    caption: 'The lunch crowd at a hawker centre.',
     body: [
       'Twenty-five hawker centres will be fitted with reflective roof coatings and high-volume fans before the dry season begins in February.',
       'Trials at two centres last year lowered peak dining-area temperatures by about 3°C.',
@@ -197,8 +199,8 @@ export const ARTICLES = [
     role: 'Business correspondent',
     minutesAgo: 12,
     read: 3,
-    image: img('1n-trading-floor'),
-    caption: 'Screens at a trading desk in the financial district.',
+    photo: '1560221328-12fe60f83ab8',
+    caption: 'A trading screen tracks the morning’s moves.',
     body: [
       'Regional markets opened higher on Friday after US inflation data came in slightly below forecasts, reviving hopes of further rate cuts early next year.',
       'Semiconductor stocks led the advance, while bank shares were flat as investors waited for quarterly earnings next week.',
@@ -214,8 +216,8 @@ export const ARTICLES = [
     role: 'Business correspondent',
     minutesAgo: 180,
     read: 3,
-    image: img('1n-currency-notes'),
-    caption: 'Currency notes at a money changer in Raffles Place.',
+    photo: '1580519542036-c47de6196ba5',
+    caption: 'Banknotes from around the region and beyond.',
     body: [
       'Currencies across Southeast Asia traded in narrow ranges on Friday as investors positioned ahead of a cluster of central bank meetings.',
       'Most economists expect policy to stay on hold, though a minority see room for a cut in at least one market.',
@@ -231,8 +233,8 @@ export const ARTICLES = [
     role: 'Technology editor',
     minutesAgo: 55,
     read: 6,
-    image: img('1n-ai-lab'),
-    caption: 'Researchers at the lab where the model was trained.',
+    photo: '1677442136019-21780ecad995',
+    caption: 'The model was trained on text in 11 regional languages.',
     quote: 'A model that cannot understand Singlish or Bahasa is a model that misses half the conversation.',
     body: [
       'A consortium of universities and research agencies has released an AI language model trained specifically on languages spoken across Southeast Asia, from Thai and Tagalog to Tamil.',
@@ -250,8 +252,8 @@ export const ARTICLES = [
     role: 'Technology editor',
     minutesAgo: 400,
     read: 5,
-    image: img('1n-battery-cells'),
-    caption: 'Prototype sodium-ion cells on a test bench.',
+    photo: '1550041473-d296a3a8a18a',
+    caption: 'A technician opens up a handset to reach its battery.',
     body: [
       'Sodium is about a thousand times more abundant than lithium, and batteries built from it are less prone to overheating.',
       'Until recently their low energy density kept them out of phones. A new generation of cathode materials is closing that gap.',
@@ -267,8 +269,8 @@ export const ARTICLES = [
     role: 'Transport correspondent',
     minutesAgo: 520,
     read: 4,
-    image: img('1n-ocean-cable'),
-    caption: 'A cable-laying ship off the coast of Western Australia.',
+    photo: '1604869515882-4d10fa4b0492',
+    caption: 'Light travels through strands of optical fibre.',
     body: [
       'Data began flowing through a new subsea cable between Singapore and Perth this week, adding a second high-capacity route between the two countries.',
       'The cable follows a path designed to steer clear of the anchorages where ship anchors have damaged lines in the past.',
@@ -284,8 +286,8 @@ export const ARTICLES = [
     role: 'Climate correspondent',
     minutesAgo: 150,
     read: 6,
-    image: img('1n-mangrove-forest'),
-    caption: 'Young mangroves planted along a restored shoreline.',
+    photo: '1589556183130-530470785fab',
+    caption: 'Mangrove roots tangle in calm, dark water.',
     body: [
       'For decades, mangroves in Southeast Asia were cleared faster than they could grow back. New satellite analysis suggests that trend has finally reversed.',
       'Community planting schemes and stricter limits on shrimp farming account for most of the gain.',
@@ -301,8 +303,8 @@ export const ARTICLES = [
     role: 'Climate correspondent',
     minutesAgo: 600,
     read: 8,
-    image: img('1n-city-heat-street'),
-    caption: 'A coated stretch of road in the trial district at midday.',
+    photo: '1612698977733-6a35ecd94b5f',
+    caption: 'Pedestrians on a sunlit street in the trial district.',
     body: [
       'At 2pm on a cloudless afternoon, the asphalt on an untreated street nearby measured 61°C. Two blocks away, on a coated road, it was 47°C.',
       'The trial is testing how far simple surface changes can lower temperatures where people actually walk and wait.',
@@ -318,8 +320,8 @@ export const ARTICLES = [
     role: 'Columnist',
     minutesAgo: 240,
     read: 5,
-    image: img('1n-slow-street'),
-    caption: 'An evening on a pedestrianised street.',
+    photo: '1728494141437-ee81f251d56b',
+    caption: 'A shophouse street lined with small businesses.',
     body: [
       'Every city plan I have read in the past decade promises to shave minutes off journeys. Few promise to make the minutes themselves better.',
       'The places people love most, the old shophouse rows and the void decks where neighbours linger, are not efficient. They are generous.',
@@ -335,8 +337,8 @@ export const ARTICLES = [
     role: 'Contributing writer',
     minutesAgo: 480,
     read: 6,
-    image: img('1n-sea-horizon'),
-    caption: 'Fishing boats returning at dusk.',
+    photo: '1491655275136-b70f977cb5da',
+    caption: 'Fishing boats moored in open water.',
     body: [
       'Most of Southeast Asia’s trade, data and protein crosses water. Yet regional diplomacy still treats the sea as a backdrop rather than the stage.',
       'The countries that invest in shared maritime rules now will set the terms of the region’s economy for a generation.',
@@ -352,8 +354,8 @@ export const ARTICLES = [
     role: 'Columnist',
     minutesAgo: 900,
     read: 4,
-    image: img('1n-classroom-debate'),
-    caption: 'Students during a debate class.',
+    photo: '1509062522246-3755977927d7',
+    caption: 'Students follow a teacher’s presentation.',
     body: [
       'Our schools are superb at producing students who can find the right answer. They are less good at producing adults who can disagree without falling out.',
       'Structured debate, taught early and often, is one of the cheapest ways to change that.',
@@ -369,8 +371,8 @@ export const ARTICLES = [
     role: 'Sports reporter',
     minutesAgo: 75,
     read: 3,
-    image: img('1n-sailing-regatta'),
-    caption: 'The 49er crew rounds the final mark.',
+    photo: '1501771924607-209f42a6e7e4',
+    caption: 'Boats line up during a regatta.',
     body: [
       'Two Singapore crews booked their places at next year’s world championships after a dramatic final day of racing.',
       'Coaches credit training among container ships and ferries for sharpening the squad’s tactics in crowded fleets.',
@@ -386,8 +388,8 @@ export const ARTICLES = [
     role: 'Sports reporter',
     minutesAgo: 700,
     read: 4,
-    image: img('1n-padel-court'),
-    caption: 'An evening game on a rooftop court.',
+    photo: '1658723826297-fe4d1b1e6600',
+    caption: 'Padel rackets and balls on a court.',
     body: [
       'Padel, a cross between tennis and squash, has become one of the city’s fastest-growing sports, with waiting lists at most clubs.',
       'Operators have found an unlikely home for courts: the top decks of car parks, which are flat, open and underused after dark.',
@@ -403,8 +405,8 @@ export const ARTICLES = [
     role: 'Food writer',
     minutesAgo: 360,
     read: 6,
-    image: img('1n-hawker-food'),
-    caption: 'A plate of char kway teow, fresh from the wok.',
+    photo: '1681262392875-eab4e1f2e79e',
+    caption: 'A hawker waits for the next order at his stall.',
     body: [
       'Every month we eat our way across the island so you don’t have to queue for the wrong thing.',
       'This month’s standout is a char kway teow stall now run by the founder’s daughter, who has kept the wok hei and cut the grease.',
@@ -420,8 +422,8 @@ export const ARTICLES = [
     role: 'Food writer',
     minutesAgo: 820,
     read: 5,
-    image: img('1n-kopitiam-cafe'),
-    caption: 'Morning regulars at a refurbished coffee shop.',
+    photo: '1757122977917-2e223f84f381',
+    caption: 'A morning regular at a neighbourhood coffee shop.',
     body: [
       'A wave of renovations is changing how the city’s coffee shops look, if not how they taste.',
       'Designers are reviving terrazzo floors, marble tables and hand-painted signs from the 1960s.',
@@ -429,6 +431,12 @@ export const ARTICLES = [
     ],
   },
 ]
+
+export const ARTICLES = STORIES.map((a) => ({
+  ...a,
+  image: photo(a.photo),
+  hero: photo(a.photo, 2000, 1125),
+}))
 
 export const BREAKING = [
   'Malacca Strait records its busiest day on record, with 327 vessel movements',
