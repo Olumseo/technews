@@ -4,6 +4,9 @@ import { SECTIONS } from '../data/articles.js'
 export default function Footer() {
   return (
     <footer className="site-footer">
+      <div className="footer__line" aria-hidden="true">
+        {SECTIONS.map((s) => <span key={s.slug} style={{ background: s.color }} />)}
+      </div>
       <div className="container">
         <div className="footer__grid">
           <div className="footer__about">
@@ -36,7 +39,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <p className="footer__mark" aria-hidden="true">TNS</p>
+        <p className="footer__mark" aria-hidden="true">Tech News Singapore</p>
         <p className="footer__legal">© {new Date().getFullYear()} Tech News Singapore. A design demo. All stories on this site are fictional.</p>
       </div>
     </footer>

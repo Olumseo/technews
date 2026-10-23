@@ -1,15 +1,16 @@
 // Demo content. Every story, figure and reporter here is fictional.
 
+// Each section rides a Singapore MRT line: `code` and `color` follow the line, `on` is the text colour on it.
 export const SECTIONS = [
-  { slug: 'world', name: 'World', blurb: 'Diplomacy, conflict and the decisions shaping the planet, reported from a Singapore desk.' },
-  { slug: 'asia', name: 'Asia', blurb: 'From Jakarta to Tokyo, the region that sets the pace of the century.' },
-  { slug: 'singapore', name: 'Singapore', blurb: 'Housing, transport, policy and the everyday life of a city-state.' },
-  { slug: 'business', name: 'Business', blurb: 'Markets, trade and the companies moving money through the region.' },
-  { slug: 'tech', name: 'Tech', blurb: 'Chips, cables, AI and the people building Southeast Asia’s digital economy.' },
-  { slug: 'climate', name: 'Climate', blurb: 'Heat, water and adaptation on the frontline of a warming equator.' },
-  { slug: 'opinion', name: 'Opinion', blurb: 'Arguments worth having, from our columnists and guest writers.' },
-  { slug: 'sport', name: 'Sport', blurb: 'Results, rivalries and the stories behind them.' },
-  { slug: 'life', name: 'Life', blurb: 'Food, design, culture and how we live now.' },
+  { slug: 'world', name: 'World', code: 'NS', line: 'North–South line', color: '#D42E12', on: '#fff', blurb: 'Diplomacy, conflict and the decisions shaping the planet, reported from a Singapore desk.' },
+  { slug: 'asia', name: 'Asia', code: 'EW', line: 'East–West line', color: '#009645', on: '#fff', blurb: 'From Jakarta to Tokyo, the region that sets the pace of the century.' },
+  { slug: 'singapore', name: 'Singapore', code: 'CC', line: 'Circle line', color: '#FA9E0D', on: '#000', blurb: 'Housing, transport, policy and the everyday life of a city-state.' },
+  { slug: 'business', name: 'Business', code: 'DT', line: 'Downtown line', color: '#005EC4', on: '#fff', blurb: 'Markets, trade and the companies moving money through the region.' },
+  { slug: 'tech', name: 'Tech', code: 'NE', line: 'North East line', color: '#9900AA', on: '#fff', blurb: 'Chips, cables, AI and the people building Southeast Asia’s digital economy.' },
+  { slug: 'climate', name: 'Climate', code: 'TE', line: 'Thomson–East Coast line', color: '#9D5B25', on: '#fff', blurb: 'Heat, water and adaptation on the frontline of a warming equator.' },
+  { slug: 'opinion', name: 'Opinion', code: 'BP', line: 'Bukit Panjang LRT', color: '#748477', on: '#fff', blurb: 'Arguments worth having, from our columnists and guest writers.' },
+  { slug: 'sport', name: 'Sport', code: 'JR', line: 'Jurong Region line', color: '#0099AA', on: '#fff', blurb: 'Results, rivalries and the stories behind them.' },
+  { slug: 'life', name: 'Life', code: 'CR', line: 'Cross Island line', color: '#97C616', on: '#000', blurb: 'Food, design, culture and how we live now.' },
 ]
 
 // Photos from Unsplash (free to use under the Unsplash License).
@@ -465,6 +466,10 @@ export const CITIES = [
 ]
 
 export const sectionBySlug = (slug) => SECTIONS.find((s) => s.slug === slug)
+export const lineStyle = (slug) => {
+  const s = sectionBySlug(slug)
+  return s ? { '--c': s.color, '--on': s.on } : undefined
+}
 export const articleBySlug = (slug) => ARTICLES.find((a) => a.slug === slug)
 export const bySection = (slug) => ARTICLES.filter((a) => a.section === slug)
 export const latest = (n = 6) => [...ARTICLES].sort((a, b) => a.minutesAgo - b.minutesAgo).slice(0, n)

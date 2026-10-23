@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ARTICLES, sectionBySlug } from '../data/articles.js'
+import { ARTICLES, lineStyle, sectionBySlug } from '../data/articles.js'
 import { CloseIcon, SearchIcon } from './Icons.jsx'
 
 export default function SearchOverlay({ onClose }) {
@@ -54,7 +54,7 @@ export default function SearchOverlay({ onClose }) {
           {results.map((a, i) => (
             <li key={a.slug} role="option" aria-selected={i === active}>
               <button className={i === active ? 'is-active' : ''} onMouseEnter={() => setActive(i)} onClick={() => go(a)}>
-                <span className={`kicker kicker--${a.section}`}>{sectionBySlug(a.section).name}</span>
+                <span className="tag" style={lineStyle(a.section)}>{sectionBySlug(a.section).name}</span>
                 <span className="search__title">{a.title}</span>
               </button>
             </li>

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import { sectionBySlug } from '../data/articles.js'
+import { lineStyle, sectionBySlug } from '../data/articles.js'
 import { timeAgo } from '../lib.js'
 
 export function Kicker({ article }) {
   const section = sectionBySlug(article.section)
-  return <span className={`kicker kicker--${article.section}`}>{section?.name}</span>
+  return <span className="tag" style={lineStyle(article.section)}>{section?.name}</span>
 }
 
 export function Byline({ article, showAuthor = true }) {
@@ -41,9 +41,9 @@ export default function Story({ article, variant = 'card', dek = false, kicker =
   )
 }
 
-export function SectionHead({ title, to, linkLabel, children }) {
+export function SectionHead({ title, to, linkLabel, line, children }) {
   return (
-    <div className="section-head">
+    <div className="section-head" style={line ? lineStyle(line) : undefined}>
       <h2 className="section-head__title">{to ? <Link to={to}>{title}</Link> : title}</h2>
       {children}
       {to && linkLabel && <Link to={to} className="section-head__more">{linkLabel}</Link>}
