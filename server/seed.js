@@ -1,6 +1,6 @@
 // Resets the database and loads sample creators and stories.
 // Run with: npm run seed
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs'
 import { randomBytes } from 'node:crypto'
 import { join } from 'node:path'
 import { db, ROOT } from './db.js'
@@ -39,6 +39,10 @@ const between = (a, b) => Math.round(a + rand() * (b - a))
 
 db.exec('DELETE FROM sessions; DELETE FROM articles; DELETE FROM users;')
 
+// Uploaded photos belonged to the stories just deleted, so clear them too.
+const UPLOADS = join(ROOT, 'uploads')
+for (const f of readdirSync(UPLOADS)) if (f !== '.gitkeep') unlinkSync(join(UPLOADS, f))
+
 const credentials = []
 const insertUser = db.prepare(
   `INSERT INTO users (name, slug, email, role, title, bio, password_hash, is_sample, created_at)
@@ -57,6 +61,9 @@ for (const c of CREATORS) {
   ids[c.name] = Number(lastInsertRowid)
   credentials.push([c.name, 'creator', email(c.name), pass])
 }
+
+// The newsroom's own creators publish without review; people who sign up later start untrusted.
+db.exec('UPDATE users SET trusted = 1')
 
 // Round-robin each section's stories across the creators who cover it.
 const turn = {}

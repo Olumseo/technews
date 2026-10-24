@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth.jsx'
 import { usePageTitle } from '../lib.js'
 
@@ -35,7 +35,7 @@ export default function Login() {
     <section className="container auth">
       <div className="auth__card">
         <h1 className="auth__title">Creator sign-in</h1>
-        <p className="auth__lede">Sign in to write, publish and edit stories. Accounts are set up by the newsroom.</p>
+        <p className="auth__lede">Sign in to write, publish and edit your stories. New here? <Link to="/join" className="text-link">Become a creator</Link></p>
         <form className="form" onSubmit={submit} noValidate>
           <div className="form__row">
             <label htmlFor="login-email">Email address</label>

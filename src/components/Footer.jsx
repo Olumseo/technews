@@ -20,6 +20,9 @@ export default function Footer() {
           <div>
             <h2 className="footer__head">Read more</h2>
             <ul>
+              <li><Link to="/join">Become a creator</Link></li>
+              <li><Link to="/creators">Our creators</Link></li>
+              <li><Link to="/guidelines">Creator guidelines</Link></li>
               <li><Link to="/breaking">Breaking news</Link></li>
               <li><Link to="/newsletters">Newsletters</Link></li>
               <li><a href="/rss.xml">RSS feed</a></li>

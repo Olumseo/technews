@@ -1,8 +1,8 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { normalize, useApi } from '../api.js'
 import Story from '../components/Story.jsx'
 import { Loading, LoadError } from '../components/State.jsx'
-import { initials, usePageTitle } from '../lib.js'
+import { initials, shortDate, usePageTitle } from '../lib.js'
 import NotFound from './NotFound.jsx'
 
 export default function Author() {
@@ -23,7 +23,11 @@ export default function Author() {
         <span className="avatar avatar--lg" aria-hidden="true">{initials(author.name)}</span>
         <div>
           <h1 className="profile__name">{author.name}</h1>
-          <p className="profile__role">{author.role}</p>
+          <p className="profile__role">
+            {author.role !== 'Community contributor' && author.role}
+            {author.community && <Link to="/guidelines" className="community-badge">Community contributor</Link>}
+          </p>
+          {author.joinedAt && <p className="profile__joined">Writing for Tech News Singapore since {shortDate(new Date(author.joinedAt))}</p>}
           {author.bio && <p className="profile__bio">{author.bio}</p>}
         </div>
       </header>

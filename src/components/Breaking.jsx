@@ -16,7 +16,7 @@ function readDismissed() {
 }
 
 // Red bar under the menu. Cycles through current breaking stories; readers can hide it for this visit.
-export function BreakingBanner({ items }) {
+export function BreakingBanner({ items, fallback = null }) {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const [dismissed, setDismissed] = useState(readDismissed)
@@ -31,7 +31,7 @@ export function BreakingBanner({ items }) {
   }, [paused, stories.length])
 
   // A newer breaking story brings the banner back even if an older one was dismissed.
-  if (!stories.length || dismissed === newest) return null
+  if (!stories.length || dismissed === newest) return fallback
   const story = stories[index % stories.length]
 
   const dismiss = () => {

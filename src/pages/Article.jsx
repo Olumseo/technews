@@ -117,6 +117,15 @@ export default function Article() {
     <>
       <div className="progress" style={{ transform: `scaleX(${progress})` }} aria-hidden="true" />
       <article className="article">
+        {article.preview && (
+          <div className={`preview-bar${article.status === 'rejected' ? ' preview-bar--rejected' : ''}`} role="status">
+            <div className="container">
+              {article.status === 'rejected'
+                ? <><strong>Not approved.</strong> {article.reviewNote} Only you and editors can see this story. <Link to={`/studio/edit/${article.slug}`}>Edit and resubmit</Link></>
+                : <><strong>In review.</strong> Only you and editors can see this story until it is approved.</>}
+            </div>
+          </div>
+        )}
         <header className="container article__head">
           <nav className="crumbs" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
@@ -131,7 +140,10 @@ export default function Article() {
               <span className="avatar avatar--sm" aria-hidden="true">{initials(article.author)}</span>
               <div>
                 <p className="article__by">By <Link to={`/author/${article.authorSlug}`} className="article__name">{article.author}</Link></p>
-                <p className="article__role">{article.role}</p>
+                <p className="article__role">
+                  {article.role !== 'Community contributor' && article.role}
+                  {article.community && <Link to="/guidelines" className="community-badge">Community contributor</Link>}
+                </p>
               </div>
             </div>
             <p className="article__time">

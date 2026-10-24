@@ -54,12 +54,12 @@ export function loadUser(req, _res, next) {
   if (token) {
     const row = db
       .prepare(
-        `SELECT u.id, u.name, u.slug, u.email, u.role, u.title
+        `SELECT u.id, u.name, u.slug, u.email, u.role, u.title, u.bio, u.trusted
            FROM sessions s JOIN users u ON u.id = s.user_id
-          WHERE s.token_hash = ? AND s.expires_at > ?`
+          WHERE s.token_hash = ? AND s.expires_at > ? AND u.status = 'active'`
       )
       .get(sha(token), new Date().toISOString())
-    if (row) req.user = { ...row }
+    if (row) req.user = { ...row, trusted: Boolean(row.trusted) || row.role === 'admin' }
   }
   next()
 }
@@ -69,15 +69,37 @@ export function requireAuth(req, res, next) {
   next()
 }
 
-// Simple in-memory limiter for login attempts: 8 tries per 15 minutes per IP.
-const attempts = new Map()
-export function loginLimiter(req, res, next) {
-  const key = req.ip
-  const now = Date.now()
-  const entry = attempts.get(key) || { count: 0, reset: now + 15 * 60e3 }
-  if (now > entry.reset) Object.assign(entry, { count: 0, reset: now + 15 * 60e3 })
-  entry.count += 1
-  attempts.set(key, entry)
-  if (entry.count > 8) return res.status(429).json({ error: 'Too many sign-in attempts. Wait 15 minutes and try again.' })
+export function requireAdmin(req, res, next) {
+  if (!req.user) return res.status(401).json({ error: 'Sign in to continue.' })
+  if (req.user.role !== 'admin') return res.status(403).json({ error: 'Only newsroom admins can do this.' })
   next()
+}
+
+// Simple in-memory limiter per IP address.
+function limiter(max, windowMs, message) {
+  const hits = new Map()
+  return (req, res, next) => {
+    const now = Date.now()
+    const entry = hits.get(req.ip) || { count: 0, reset: now + windowMs }
+    if (now > entry.reset) Object.assign(entry, { count: 0, reset: now + windowMs })
+    entry.count += 1
+    hits.set(req.ip, entry)
+    if (entry.count > max) return res.status(429).json({ error: message })
+    next()
+  }
+}
+
+export const loginLimiter = limiter(8, 15 * 60e3, 'Too many sign-in attempts. Wait 15 minutes and try again.')
+// Sign-up attempts (including typos) are capped loosely; accounts actually created are capped tightly.
+export const signupLimiter = limiter(30, 60 * 60e3, 'Too many sign-up attempts from this connection. Try again in an hour.')
+
+const created = new Map()
+export function canCreateAccount(ip) {
+  const now = Date.now()
+  const recent = (created.get(ip) || []).filter((t) => now - t < 24 * 3600e3)
+  created.set(ip, recent)
+  return recent.length < 5
+}
+export function recordAccount(ip) {
+  created.get(ip)?.push(Date.now()) ?? created.set(ip, [Date.now()])
 }
