@@ -122,6 +122,7 @@ export default function Article() {
             <Link to="/">Home</Link>
             <span aria-hidden="true">/</span>
             <Link to={`/section/${section.slug}`} className="tag">{section.name}</Link>
+            {article.breaking && <Link to="/breaking" className="tag tag--breaking">Breaking</Link>}
           </nav>
           <h1 className={`article__title${article.section === 'opinion' ? ' is-opinion' : ''}`}>{article.title}</h1>
           <p className="article__dek">{article.dek}</p>

@@ -5,12 +5,13 @@ import { randomBytes } from 'node:crypto'
 import { join } from 'node:path'
 import { db, ROOT } from './db.js'
 import { hashPassword } from './auth.js'
-import { photoFor } from './photos.js'
+import { photoFor, photoUrl } from './photos.js'
 import { isSection, slugify } from '../src/data/site.js'
 
 const DATA = join(ROOT, 'server', 'seed-data')
 const stories = JSON.parse(readFileSync(join(DATA, 'stories-2026.json'), 'utf8'))
 const columns = JSON.parse(readFileSync(join(DATA, 'opinion.json'), 'utf8'))
+const breaking = JSON.parse(readFileSync(join(DATA, 'breaking.json'), 'utf8'))
 
 // Sample creator accounts. These are fictional people: replace them with real staff before launch.
 const CREATORS = [
@@ -82,8 +83,8 @@ function views(published) {
 
 const insertArticle = db.prepare(
   `INSERT INTO articles (slug, section, title, dek, body, image_url, caption, quote, source_name, source_url,
-                         author_id, read_minutes, views, is_sample, published_at, updated_at)
-   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)`
+                         author_id, read_minutes, views, is_sample, published_at, updated_at, breaking_until)
+   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, ?)`
 )
 const taken = new Set()
 function slugFor(title) {
@@ -102,7 +103,21 @@ for (const s of [...stories, ...columns].sort((a, b) => a.date.localeCompare(b.d
     slugFor(s.title), s.section, s.title, s.dek, JSON.stringify(s.body), photoFor(s.photo_topic),
     s.caption || '', s.quote || null, s.source_name || null, s.source_url || null,
     s.section === 'opinion' ? ids['Rebecca Teo'] : authorFor(s.section),
-    Math.max(2, Math.ceil(words / 200)), views(when), when.toISOString(), when.toISOString()
+    Math.max(2, Math.ceil(words / 200)), views(when), when.toISOString(), when.toISOString(), null
+  )
+  count++
+}
+
+// Breaking stories keep their real publish times and stay flagged for 24 hours after seeding.
+// Editors set or clear the flag from the studio; it expires on its own.
+const breakingUntil = new Date(Date.now() + 24 * 3600e3).toISOString()
+for (const s of breaking) {
+  const when = new Date(s.published) > new Date() ? new Date(Date.now() - 30 * 60e3) : new Date(s.published)
+  const words = s.body.join(' ').split(/\s+/).length
+  insertArticle.run(
+    slugFor(s.title), s.section, s.title, s.dek, JSON.stringify(s.body), s.photo_id ? photoUrl(s.photo_id) : photoFor(s.photo_topic),
+    s.caption || '', null, s.source_name, s.source_url, authorFor(s.section),
+    Math.max(2, Math.ceil(words / 200)), views(when), when.toISOString(), when.toISOString(), breakingUntil
   )
   count++
 }

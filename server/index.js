@@ -40,8 +40,11 @@ app.use('/api', (req, res, next) => {
 
 const ARTICLE_COLUMNS = `
   a.slug, a.section, a.title, a.dek, a.body, a.image_url, a.caption, a.quote,
-  a.source_name, a.source_url, a.read_minutes, a.views, a.published_at, a.updated_at,
+  a.source_name, a.source_url, a.read_minutes, a.views, a.published_at, a.updated_at, a.breaking_until,
   u.name AS author_name, u.slug AS author_slug, u.title AS author_title`
+
+const BREAKING_HOURS = 12
+const isBreaking = (row) => Boolean(row.breaking_until && row.breaking_until > new Date().toISOString())
 
 function toArticle(row, { full = false } = {}) {
   const article = {
@@ -58,6 +61,7 @@ function toArticle(row, { full = false } = {}) {
     views: row.views,
     publishedAt: row.published_at,
     source: row.source_name ? { name: row.source_name, url: row.source_url } : null,
+    breaking: isBreaking(row),
   }
   if (full) {
     article.body = JSON.parse(row.body)
@@ -82,6 +86,15 @@ app.get('/api/home', (_req, res) => {
     new Date(Date.now() - 45 * 864e5).toISOString()
   )
   res.json({ latest, mostRead })
+})
+
+app.get('/api/breaking', (_req, res) => {
+  const items = list(
+    `SELECT ${ARTICLE_COLUMNS} FROM articles a JOIN users u ON u.id = a.author_id
+      WHERE a.breaking_until > ? ORDER BY a.published_at DESC LIMIT 20`,
+    new Date().toISOString()
+  )
+  res.json({ items })
 })
 
 app.get('/api/articles', (req, res) => {
@@ -207,6 +220,7 @@ function readArticleInput(body) {
     quote: clean(body.quote, 300) || null,
     source_name: clean(body.sourceName, 80) || null,
     source_url: clean(body.sourceUrl, 500) || null,
+    breaking: body.breaking === 'true' || body.breaking === 'on',
     paragraphs: clean(body.body, 20000).split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean),
   }
   const errors = {}
@@ -217,6 +231,8 @@ function readArticleInput(body) {
   if (input.source_url && !/^https?:\/\//i.test(input.source_url)) errors.sourceUrl = 'The source link must start with http:// or https://.'
   return { input, errors }
 }
+
+const breakingUntil = () => new Date(Date.now() + BREAKING_HOURS * 3600e3).toISOString()
 
 const readMinutes = (paragraphs) => Math.max(2, Math.ceil(paragraphs.join(' ').split(/\s+/).length / 200))
 
@@ -258,7 +274,7 @@ app.get('/api/studio/articles/:slug', requireAuth, (req, res) => {
     article: {
       slug: row.slug, section: row.section, title: row.title, dek: row.dek, caption: row.caption,
       quote: row.quote || '', sourceName: row.source_name || '', sourceUrl: row.source_url || '',
-      body: JSON.parse(row.body).join('\n\n'), image: row.image_url,
+      body: JSON.parse(row.body).join('\n\n'), image: row.image_url, breaking: isBreaking(row),
     },
   })
 })
@@ -274,11 +290,12 @@ app.post('/api/studio/articles', requireAuth, upload.single('image'), (req, res)
   const slug = uniqueSlug(input.title)
   db.prepare(
     `INSERT INTO articles (slug, section, title, dek, body, image_url, caption, quote, source_name, source_url,
-                           author_id, read_minutes, published_at, updated_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+                           author_id, read_minutes, published_at, updated_at, breaking_until)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).run(
     slug, input.section, input.title, input.dek, JSON.stringify(input.paragraphs), `/uploads/${req.file.filename}`,
-    input.caption, input.quote, input.source_name, input.source_url, req.user.id, readMinutes(input.paragraphs), now, now
+    input.caption, input.quote, input.source_name, input.source_url, req.user.id, readMinutes(input.paragraphs), now, now,
+    input.breaking ? breakingUntil() : null
   )
   res.status(201).json({ slug })
 })
@@ -296,12 +313,14 @@ app.put('/api/studio/articles/:slug', requireAuth, upload.single('image'), (req,
   }
   const image = req.file ? `/uploads/${req.file.filename}` : row.image_url
   if (req.file) removeUpload(row.image_url)
+  // Keep an existing breaking window running; start a new one only when the flag is switched on.
+  const breaking = input.breaking ? (isBreaking(row) ? row.breaking_until : breakingUntil()) : null
   db.prepare(
     `UPDATE articles SET section = ?, title = ?, dek = ?, body = ?, image_url = ?, caption = ?, quote = ?,
-            source_name = ?, source_url = ?, read_minutes = ?, updated_at = ? WHERE id = ?`
+            source_name = ?, source_url = ?, read_minutes = ?, updated_at = ?, breaking_until = ? WHERE id = ?`
   ).run(
     input.section, input.title, input.dek, JSON.stringify(input.paragraphs), image, input.caption, input.quote,
-    input.source_name, input.source_url, readMinutes(input.paragraphs), new Date().toISOString(), row.id
+    input.source_name, input.source_url, readMinutes(input.paragraphs), new Date().toISOString(), breaking, row.id
   )
   res.json({ slug: row.slug })
 })
@@ -373,7 +392,7 @@ app.get('/sitemap.xml', (req, res) => {
     `${base}/`,
     ...SECTIONS.map((s) => `${base}/section/${s.slug}`),
     ...authors.map((a) => `${base}/author/${a.slug}`),
-    ...['about', 'contact', 'corrections', 'privacy', 'newsletters'].map((p) => `${base}/${p}`),
+    ...['breaking', 'about', 'contact', 'corrections', 'privacy', 'newsletters'].map((p) => `${base}/${p}`),
   ]
   res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

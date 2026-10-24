@@ -35,11 +35,13 @@ export const PHOTOS = {
   motorsport: ['1699138346782-8a8b211c3da2', '1571826856387-b633b9ebd93d'],
 }
 
+export const photoUrl = (id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1600&h=1000&q=80`
+
 const used = {}
 // Rotates through a topic's photos so neighbouring stories don't repeat the same image.
 export function photoFor(topic) {
   const list = PHOTOS[topic] || PHOTOS.city
   used[topic] = (used[topic] || 0) + 1
   const id = list[(used[topic] - 1) % list.length]
-  return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1600&h=1000&q=80`
+  return photoUrl(id)
 }

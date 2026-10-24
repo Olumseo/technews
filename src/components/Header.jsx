@@ -5,6 +5,7 @@ import { useApi } from '../api.js'
 import { useAuth } from '../auth.jsx'
 import { formatClock, formatDate, useNow } from '../lib.js'
 import { SearchIcon, CloudIcon, MenuIcon, CloseIcon } from './Icons.jsx'
+import { BreakingBanner } from './Breaking.jsx'
 
 const LINKS = [{ to: '/', name: 'Home' }, ...SECTIONS.map((s) => ({ to: `/section/${s.slug}`, name: s.name }))]
 
@@ -35,6 +36,8 @@ export default function Header({ onSearch }) {
   const now = useNow()
   const { user } = useAuth()
   const weather = useApi('/api/weather').data
+  const breaking = useApi('/api/breaking').data?.items || []
+  const links = breaking.length ? [LINKS[0], { to: '/breaking', name: 'Breaking', hot: true }, ...LINKS.slice(1)] : LINKS
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
@@ -83,8 +86,8 @@ export default function Header({ onSearch }) {
             Menu
           </button>
           <ul className="nav__links">
-            {LINKS.map((l) => (
-              <li key={l.to}><NavLink to={l.to} end={l.to === '/'}>{l.name}</NavLink></li>
+            {links.map((l) => (
+              <li key={l.to}><NavLink to={l.to} end={l.to === '/'} className={l.hot ? 'is-hot' : undefined}>{l.name}</NavLink></li>
             ))}
           </ul>
           <button className="nav__button nav__search" onClick={onSearch}>
@@ -95,15 +98,15 @@ export default function Header({ onSearch }) {
         {menuOpen && (
           <div id="nav-panel" className="nav__panel">
             <ul className="container">
-              {LINKS.map((l) => (
-                <li key={l.to}><NavLink to={l.to} end={l.to === '/'}>{l.name}</NavLink></li>
+              {links.map((l) => (
+                <li key={l.to}><NavLink to={l.to} end={l.to === '/'} className={l.hot ? 'is-hot' : undefined}>{l.name}</NavLink></li>
               ))}
             </ul>
           </div>
         )}
       </nav>
 
-      <Ticker />
+      {breaking.length ? <BreakingBanner items={breaking} /> : <Ticker />}
     </header>
   )
 }
