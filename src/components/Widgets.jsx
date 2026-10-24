@@ -1,31 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CITIES, MARKETS } from '../data/site.js'
+import { CITIES } from '../data/site.js'
 import { formatClock, publishedAt, useNow } from '../lib.js'
-
-export function Markets() {
-  return (
-    <section className="markets" aria-label="Markets">
-      <div className="container markets__inner">
-        <h2 className="markets__title">Markets</h2>
-        <ul className="markets__list">
-          {MARKETS.map((m) => (
-            <li key={m.name} className={m.change >= 0 ? 'is-up' : 'is-down'}>
-              <span className="markets__name">{m.name}</span>
-              <span className="markets__value">{m.value}</span>
-              <span className="markets__change">
-                <span aria-hidden="true">{m.change >= 0 ? '▲' : '▼'}</span>
-                <span className="sr-only">{m.change >= 0 ? 'up' : 'down'}</span>
-                {m.change >= 0 ? '+' : '−'}{Math.abs(m.change).toFixed(2)}%
-              </span>
-            </li>
-          ))}
-        </ul>
-        <span className="markets__note">Illustrative data</span>
-      </div>
-    </section>
-  )
-}
 
 export function WorldClock() {
   const now = useNow(15000)

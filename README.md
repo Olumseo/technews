@@ -37,6 +37,14 @@ npm start
 | Sign-in, sessions and passwords | `server/auth.js` |
 | Seed script and archive data | `server/seed.js`, `server/seed-data/` |
 
+### Feeds and sharing
+
+- `/rss.xml`: the 30 latest stories
+- `/sitemap.xml`: every page, for search engines
+- `/robots.txt`: keeps the studio, sign-in and API out of search results
+- In production (`npm start`), each story page's HTML includes its own title, description and Open Graph image, so shared links show a preview card. Set `SITE_URL` (for example `https://technews.sg`) so these links are absolute.
+- The header's weather is live Singapore data from Open-Meteo, cached on the server for 15 minutes.
+
 ### API
 
 Public:

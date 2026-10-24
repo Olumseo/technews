@@ -73,6 +73,28 @@ function CopyLink() {
   )
 }
 
+// Plain share links (no tracking scripts). WhatsApp and Telegram first: they're how most people share news in Singapore.
+function ShareBar({ article }) {
+  const url = typeof window !== 'undefined' ? window.location.href : ''
+  const text = article.title
+  const links = [
+    ['WhatsApp', `https://wa.me/?text=${encodeURIComponent(`${text} ${url}`)}`],
+    ['Telegram', `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`],
+    ['X', `https://x.com/intent/post?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`],
+    ['Facebook', `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`],
+    ['LinkedIn', `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`],
+    ['Email', `mailto:?subject=${encodeURIComponent(text)}&body=${encodeURIComponent(url)}`],
+  ]
+  return (
+    <div className="share" aria-label="Share this story">
+      <span className="share__label">Share</span>
+      {links.map(([name, href]) => (
+        <a key={name} className="share__link" href={href} target="_blank" rel="noopener noreferrer">{name}</a>
+      ))}
+    </div>
+  )
+}
+
 export default function Article() {
   const { slug } = useParams()
   const { data, error, loading, reload } = useApi(`/api/articles/${slug}`)
@@ -85,6 +107,8 @@ export default function Article() {
 
   const article = normalize(data.article)
   const more = data.related.map(normalize)
+  const byAuthor = (data.byAuthor || []).map(normalize)
+  const credit = article.image.includes('images.unsplash.com') ? 'Photo: Unsplash' : ''
   const section = sectionBySlug(article.section)
   const [first, ...paras] = article.body
   const edited = new Date(article.updatedAt) - new Date(article.publishedAt) > 10 * 60e3
@@ -105,7 +129,7 @@ export default function Article() {
             <div className="article__author">
               <span className="avatar avatar--sm" aria-hidden="true">{initials(article.author)}</span>
               <div>
-                <Link to={`/author/${article.authorSlug}`} className="article__name">{article.author}</Link>
+                <p className="article__by">By <Link to={`/author/${article.authorSlug}`} className="article__name">{article.author}</Link></p>
                 <p className="article__role">{article.role}</p>
               </div>
             </div>
@@ -123,7 +147,12 @@ export default function Article() {
 
         <figure className="container article__figure">
           <img src={article.image} alt={article.caption || ''} />
-          {article.caption && <figcaption>{article.caption}</figcaption>}
+          {(article.caption || credit) && (
+            <figcaption>
+              {article.caption}
+              {credit && <span className="article__credit">{credit}</span>}
+            </figcaption>
+          )}
         </figure>
 
         <div className="container article__body">
@@ -143,6 +172,23 @@ export default function Article() {
               Source: <a href={article.source.url} target="_blank" rel="noopener noreferrer">{article.source.name}</a>. This summary is written in our own words; read the original report for full details.
             </p>
           )}
+          <ShareBar article={article} />
+          <aside className="author-box" aria-label="About the author">
+            <span className="avatar" aria-hidden="true">{initials(article.author)}</span>
+            <div>
+              <p className="author-box__name"><Link to={`/author/${article.authorSlug}`}>{article.author}</Link></p>
+              <p className="author-box__role">{article.role}</p>
+              {article.authorBio && <p className="author-box__bio">{article.authorBio}</p>}
+              {byAuthor.length > 0 && (
+                <>
+                  <p className="author-box__more">More from {article.author.split(' ')[0]}</p>
+                  <ul className="author-box__list">
+                    {byAuthor.map((a) => <li key={a.slug}><Link to={`/article/${a.slug}`}>{a.title}</Link></li>)}
+                  </ul>
+                </>
+              )}
+            </div>
+          </aside>
         </div>
       </article>
 

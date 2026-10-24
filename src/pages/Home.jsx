@@ -2,19 +2,22 @@ import { Link } from 'react-router-dom'
 import { sectionBySlug } from '../data/site.js'
 import { normalize, useApi } from '../api.js'
 import Story, { SectionHead } from '../components/Story.jsx'
-import { LatestTimeline, Markets, MostRead, Newsletter, WorldClock } from '../components/Widgets.jsx'
+import { LatestTimeline, MostRead, Newsletter, WorldClock } from '../components/Widgets.jsx'
 import { Loading, LoadError } from '../components/State.jsx'
 import { initials, usePageTitle } from '../lib.js'
 
-// Hands out stories newest-first without showing the same one twice on the page.
+// Hands out stories newest-first without showing the same story, or the same photo, twice on the page.
 function picker(stories) {
   const used = new Set()
+  const photos = new Set()
   return (test, n) => {
     const out = []
-    for (const a of stories) {
-      if (out.length === n) break
-      if (!used.has(a.slug) && test(a)) {
+    for (const pass of [true, false]) {
+      for (const a of stories) {
+        if (out.length === n) break
+        if (used.has(a.slug) || !test(a) || (pass && photos.has(a.image))) continue
         used.add(a.slug)
+        photos.add(a.image)
         out.push(a)
       }
     }
@@ -63,8 +66,6 @@ export default function Home() {
         {secondary.map((a) => <Story key={a.slug} article={a} variant="card" />)}
       </section>
 
-      <Markets />
-
       {asiaLead && (
         <section className="container block">
           <SectionHead title="Asia and Singapore" to="/section/asia" linkLabel="More from Asia" />
@@ -80,8 +81,8 @@ export default function Home() {
       <section className="band" aria-labelledby="band-title">
         <div className="container">
           <div className="band__head">
-            <h2 id="band-title" className="band__title">Where our reporters are right now</h2>
-            <p className="band__lede">We report from six cities. Here is the local time in each one.</p>
+            <h2 id="band-title" className="band__title">World clock</h2>
+            <p className="band__lede">The time now in the cities that move the news.</p>
           </div>
           <WorldClock />
           <div className="band__grid">
