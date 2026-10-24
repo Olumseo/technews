@@ -64,6 +64,38 @@ export function Privacy() {
   )
 }
 
+export function Guidelines() {
+  return (
+    <InfoPage
+      title="Creator guidelines"
+      lede="Anyone can write for Tech News Singapore. These rules keep the site trustworthy for readers and fair for every creator."
+    >
+      <h2>Be accurate</h2>
+      <ul>
+        <li>Only report what you can check. If a detail is unconfirmed, say so, or leave it out.</li>
+        <li>Link to your sources. If you’re summarising someone else’s reporting, name the outlet and link to the original.</li>
+        <li>Fix mistakes quickly. Edit your story in the studio and tell readers what changed.</li>
+      </ul>
+      <h2>Use your own words and your own photos</h2>
+      <ul>
+        <li>Don’t copy other people’s articles. Short quotes are fine if you credit them.</li>
+        <li>Only upload photos you took or have permission to use, and say where they came from in the caption.</li>
+        <li>Don’t pass off AI-written or AI-generated content as your own reporting.</li>
+      </ul>
+      <h2>Be fair and safe</h2>
+      <ul>
+        <li>No hate, harassment or content that targets private individuals.</li>
+        <li>No scams, spam, hidden advertising or paid posts you don’t disclose.</li>
+        <li>Don’t publish private information, such as someone’s address or phone number.</li>
+      </ul>
+      <h2>How review works</h2>
+      <p>An editor reads every new creator’s stories before they go live, usually within a day. If something needs to change, the story comes back to you with a note. After a few approved stories, editors can let you publish instantly.</p>
+      <p>Only trusted creators can flag a story as breaking news. Editors can remove stories or suspend accounts that break these rules.</p>
+      <p><Link to="/join">Create a creator account</Link> or <Link to="/contact">contact the newsroom</Link> with questions.</p>
+    </InfoPage>
+  )
+}
+
 const TOPICS = ['A story tip', 'A correction', 'Newsletters', 'Something else']
 
 export function Contact() {

@@ -9,11 +9,13 @@ import Article from './pages/Article.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Author from './pages/Author.jsx'
 import Newsletters from './pages/Newsletters.jsx'
-import { About, Contact, Corrections, Privacy } from './pages/Info.jsx'
+import { About, Contact, Corrections, Guidelines, Privacy } from './pages/Info.jsx'
 import BackToTop from './components/BackToTop.jsx'
 import Login from './pages/Login.jsx'
 import BreakingPage from './pages/BreakingPage.jsx'
-import { StudioEditor, StudioHome } from './pages/Studio.jsx'
+import { StudioCreators, StudioEditor, StudioHome, StudioProfile, StudioReview } from './pages/Studio.jsx'
+import Join from './pages/Join.jsx'
+import Creators from './pages/Creators.jsx'
 import { AuthProvider, RequireAuth } from './auth.jsx'
 
 function ScrollToTop() {
@@ -57,6 +59,12 @@ export default function App() {
           <Route path="/corrections" element={<Corrections />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/creators" element={<Creators />} />
+          <Route path="/guidelines" element={<Guidelines />} />
+          <Route path="/studio/profile" element={<RequireAuth><StudioProfile /></RequireAuth>} />
+          <Route path="/studio/review" element={<RequireAuth admin><StudioReview /></RequireAuth>} />
+          <Route path="/studio/creators" element={<RequireAuth admin><StudioCreators /></RequireAuth>} />
           <Route path="/studio" element={<RequireAuth><StudioHome /></RequireAuth>} />
           <Route path="/studio/new" element={<RequireAuth><StudioEditor /></RequireAuth>} />
           <Route path="/studio/edit/:slug" element={<RequireAuth><StudioEditor key="edit" /></RequireAuth>} />

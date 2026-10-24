@@ -15,7 +15,7 @@ npm run dev
 - Site: http://localhost:5173
 - API: http://localhost:5174
 
-`npm run seed` resets the database, then loads 12 sample creator accounts, 1 admin and the 2026 story archive. It writes the sample logins to `server/seed-credentials.local.md`. That file is git-ignored; don't commit it.
+`npm run seed` resets the database and deletes uploaded photos, then loads 12 sample creator accounts, 1 admin and the 2026 story archive. It writes the sample logins to `server/seed-credentials.local.md`. That file is git-ignored; don't commit it.
 
 ## Production
 
@@ -36,6 +36,17 @@ npm start
 | Database schema | `server/db.js` (SQLite file in `data/technews.db`) |
 | Sign-in, sessions and passwords | `server/auth.js` |
 | Seed script and archive data | `server/seed.js`, `server/seed-data/` |
+
+### Creator marketplace
+
+Anyone can open a creator account at `/join` and publish through the studio.
+
+- **New creators are reviewed.** Stories from community creators wait in the admin's **Review** queue (`/studio/review`) until an editor approves them or sends them back with a note. Creators see each story's status (Published, In review, Not approved) in their studio, and editing a story sends it back for review.
+- **Trusted creators publish instantly.** The admin can trust, untrust, suspend or reinstate accounts at `/studio/creators`. Only trusted creators and admins can flag breaking news. Suspending an account hides its stories and signs it out. The seeded newsroom creators start as trusted.
+- **Readers can tell who wrote what.** Stories by community creators carry a "Community contributor" label. `/creators` lists newsroom and community creators, and `/guidelines` sets out the rules creators agree to.
+- **Spam protection:** a hidden honeypot field, at most 30 sign-up attempts an hour and 5 new accounts a day per IP address, plus the existing CSRF header check.
+- **Instant publishing for everyone:** set `REQUIRE_REVIEW=false`. Not recommended for a public site.
+- **Email:** new accounts are not email-verified yet, because the site has no email service. Add verification before opening sign-up widely.
 
 ### Breaking news
 
@@ -64,13 +75,20 @@ Public:
 
 Sign-in:
 
-- `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`
+- `POST /api/auth/signup`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`
 
 Signed-in creators only (creators can change their own stories; admins can change any):
+
+- `PUT /api/studio/profile`: name, short description and bio
 
 - `GET /api/studio/articles`: my stories
 - `POST /api/studio/articles`: publish (multipart form with an `image` file)
 - `GET /api/studio/articles/:slug`, `PUT /api/studio/articles/:slug`, `DELETE /api/studio/articles/:slug`
+
+Admins only:
+
+- `GET /api/studio/review`, `POST /api/studio/review/:slug/approve`, `POST /api/studio/review/:slug/reject` (with a `note`)
+- `GET /api/studio/creators`, `PATCH /api/studio/creators/:slug` (`trusted`, `status`)
 
 Security notes:
 

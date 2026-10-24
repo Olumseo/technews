@@ -65,3 +65,12 @@ if (!columns.includes('breaking_until')) {
   db.exec('ALTER TABLE articles ADD COLUMN breaking_until TEXT')
 }
 db.exec('CREATE INDEX IF NOT EXISTS articles_breaking ON articles (breaking_until)')
+
+// Open sign-up: accounts can be suspended, and only trusted creators publish without review.
+const userColumns = db.prepare('PRAGMA table_info(users)').all().map((c) => c.name)
+if (!userColumns.includes('status')) db.exec(`ALTER TABLE users ADD COLUMN status TEXT NOT NULL DEFAULT 'active'`)
+if (!userColumns.includes('trusted')) db.exec('ALTER TABLE users ADD COLUMN trusted INTEGER NOT NULL DEFAULT 0')
+// Stories are 'published', 'pending' (waiting for review) or 'rejected'.
+if (!columns.includes('status')) db.exec(`ALTER TABLE articles ADD COLUMN status TEXT NOT NULL DEFAULT 'published'`)
+if (!columns.includes('review_note')) db.exec('ALTER TABLE articles ADD COLUMN review_note TEXT')
+db.exec('CREATE INDEX IF NOT EXISTS articles_status ON articles (status, published_at DESC)')

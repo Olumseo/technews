@@ -68,7 +68,9 @@ export default function Header({ onSearch }) {
           )}
         </div>
         <div className="topbar__actions">
-          {user && <Link className="btn btn--ghost" to="/studio">Studio</Link>}
+          {user
+            ? <Link className="btn btn--ghost" to="/studio">Studio</Link>
+            : <Link className="btn btn--ghost topbar__join" to="/join">Write for us</Link>}
           <Link className="btn btn--solid" to="/newsletters">Subscribe</Link>
         </div>
       </div>
@@ -106,7 +108,7 @@ export default function Header({ onSearch }) {
         )}
       </nav>
 
-      {breaking.length ? <BreakingBanner items={breaking} /> : <Ticker />}
+      {breaking.length ? <BreakingBanner items={breaking} fallback={<Ticker />} /> : <Ticker />}
     </header>
   )
 }
