@@ -30,7 +30,12 @@ export default function Story({ article, variant = 'card', dek = false, kicker =
         </Link>
       )}
       <div className="story__body">
-        {kicker && <Kicker article={article} />}
+        {(kicker || article.breaking) && (
+          <p className="story__labels">
+            {article.breaking && <span className="tag tag--breaking">Breaking</span>}
+            {kicker && <Kicker article={article} />}
+          </p>
+        )}
         <Heading className="story__title">
           <Link to={href}>{article.title}</Link>
         </Heading>

@@ -77,6 +77,7 @@ export function StudioHome() {
             {items.map((a) => (
               <div key={a.slug} className="studio-table__row" role="row">
                 <span role="cell" className="studio-table__title">
+                  {a.breaking && <span className="tag tag--breaking">Breaking</span>}
                   <Link to={`/article/${a.slug}`}>{a.title}</Link>
                   {user.role === 'admin' && <span className="studio-table__by">by {a.author}</span>}
                 </span>
@@ -98,7 +99,7 @@ export function StudioHome() {
   )
 }
 
-const EMPTY = { title: '', dek: '', section: '', body: '', caption: '', quote: '', sourceName: '', sourceUrl: '' }
+const EMPTY = { title: '', dek: '', section: '', body: '', caption: '', quote: '', sourceName: '', sourceUrl: '', breaking: false }
 
 export function StudioEditor() {
   const { slug } = useParams()
@@ -141,7 +142,7 @@ export function StudioEditor() {
     setBusy(true)
     setMessage('')
     const body = new FormData()
-    Object.entries(form).forEach(([k, v]) => body.append(k, v ?? ''))
+    Object.entries(form).forEach(([k, v]) => body.append(k, typeof v === 'boolean' ? String(v) : v ?? ''))
     if (file) body.append('image', file)
     try {
       const res = await api(editing ? `/api/studio/articles/${slug}` : '/api/studio/articles', { method: editing ? 'PUT' : 'POST', form: body })
@@ -211,6 +212,14 @@ export function StudioEditor() {
             {field('sourceName', 'Source name (optional)', <input {...a11y('sourceName')} value={form.sourceName} onChange={set('sourceName')} placeholder="Reuters" maxLength={80} />)}
             {field('sourceUrl', 'Source link (optional)', <input {...a11y('sourceUrl')} type="url" value={form.sourceUrl} onChange={set('sourceUrl')} placeholder="https://" maxLength={500} />)}
           </div>
+
+          <label className={`switch${form.breaking ? ' is-on' : ''}`}>
+            <input type="checkbox" checked={form.breaking} onChange={(e) => setForm({ ...form, breaking: e.target.checked })} />
+            <span className="switch__text">
+              <span className="switch__title">Breaking news</span>
+              <span className="switch__hint">Shows the story in the red banner and the Breaking section for 12 hours. Use it only for major, developing news.</span>
+            </span>
+          </label>
 
           <div className="form__actions">
             <button className="btn btn--solid" type="submit" disabled={busy}>{busy ? 'Saving…' : editing ? 'Save changes' : 'Publish story'}</button>

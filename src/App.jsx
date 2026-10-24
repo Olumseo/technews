@@ -12,6 +12,7 @@ import Newsletters from './pages/Newsletters.jsx'
 import { About, Contact, Corrections, Privacy } from './pages/Info.jsx'
 import BackToTop from './components/BackToTop.jsx'
 import Login from './pages/Login.jsx'
+import BreakingPage from './pages/BreakingPage.jsx'
 import { StudioEditor, StudioHome } from './pages/Studio.jsx'
 import { AuthProvider, RequireAuth } from './auth.jsx'
 
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/section/:slug" element={<Section />} />
           <Route path="/article/:slug" element={<Article />} />
           <Route path="/author/:slug" element={<Author />} />
+          <Route path="/breaking" element={<BreakingPage />} />
           <Route path="/newsletters" element={<Newsletters />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

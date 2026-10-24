@@ -4,6 +4,7 @@ import { normalize, useApi } from '../api.js'
 import Story, { SectionHead } from '../components/Story.jsx'
 import { LatestTimeline, MostRead, Newsletter, WorldClock } from '../components/Widgets.jsx'
 import { Loading, LoadError } from '../components/State.jsx'
+import { BreakingSection } from '../components/Breaking.jsx'
 import { initials, usePageTitle } from '../lib.js'
 
 // Hands out stories newest-first without showing the same story, or the same photo, twice on the page.
@@ -31,10 +32,13 @@ const isNews = (a) => a.section !== 'opinion'
 export default function Home() {
   usePageTitle(null)
   const { data, error, loading, reload } = useApi('/api/home')
+  const breaking = useApi('/api/breaking').data?.items || []
   if (loading && !data) return <Loading />
   if (error) return <LoadError error={error} onRetry={reload} />
 
-  const stories = data.latest.map(normalize)
+  // Breaking stories get their own block, so the rest of the page starts with other news.
+  const breakingSlugs = new Set(breaking.map((a) => a.slug))
+  const stories = data.latest.map(normalize).filter((a) => !breakingSlugs.has(a.slug))
   const mostRead = data.mostRead.map(normalize)
   const take = picker(stories)
 
@@ -49,6 +53,8 @@ export default function Home() {
 
   return (
     <>
+      <BreakingSection items={breaking} />
+
       {lead && (
         <section className="container hero" aria-label="Top story">
           <Story article={lead} variant="hero" dek as="h1" />

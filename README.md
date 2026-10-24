@@ -37,6 +37,13 @@ npm start
 | Sign-in, sessions and passwords | `server/auth.js` |
 | Seed script and archive data | `server/seed.js`, `server/seed-data/` |
 
+### Breaking news
+
+- Creators flag a story as breaking with the **Breaking news** switch in the studio. The flag lasts 12 hours (`breaking_until` in the database), then the story becomes a normal story again.
+- While anything is breaking, a red banner replaces the "Latest" ticker on every page, the home page opens with a Breaking news block, and a red **Breaking** link appears in the menu.
+- `/breaking` lists current breaking stories, newest first. Readers can hide the banner for the rest of their visit.
+- `npm run seed` loads the stories in `server/seed-data/breaking.json` and flags them for 24 hours. They are real news from 22–24 October 2026, each linked to its source; replace them with current stories when you reseed later.
+
 ### Feeds and sharing
 
 - `/rss.xml`: the 30 latest stories
@@ -50,6 +57,7 @@ npm start
 Public:
 
 - `GET /api/home`: latest stories and most read
+- `GET /api/breaking`: stories flagged as breaking right now
 - `GET /api/articles?section=&q=&limit=&offset=`: story lists and search
 - `GET /api/articles/:slug`: one story plus related stories (counts a read)
 - `GET /api/authors`, `GET /api/authors/:slug`: creators and their stories

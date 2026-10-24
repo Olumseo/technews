@@ -57,3 +57,11 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS articles_section ON articles (section, published_at DESC);
   CREATE INDEX IF NOT EXISTS articles_author ON articles (author_id, published_at DESC);
 `)
+
+// Migrations for databases created before a column existed.
+const columns = db.prepare('PRAGMA table_info(articles)').all().map((c) => c.name)
+if (!columns.includes('breaking_until')) {
+  // A story counts as breaking news until this time (ISO string); NULL means not breaking.
+  db.exec('ALTER TABLE articles ADD COLUMN breaking_until TEXT')
+}
+db.exec('CREATE INDEX IF NOT EXISTS articles_breaking ON articles (breaking_until)')
