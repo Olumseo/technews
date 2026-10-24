@@ -20,7 +20,7 @@ export default function Footer() {
           <div>
             <h2 className="footer__head">Read more</h2>
             <ul>
-              <li><a href="#newsletter">Newsletters</a></li>
+              <li><Link to="/newsletters">Newsletters</Link></li>
               <li><Link to="/section/opinion">Opinion</Link></li>
               <li><Link to="/section/climate">Climate desk</Link></li>
               <li><Link to="/section/tech">Tech desk</Link></li>
@@ -29,10 +29,10 @@ export default function Footer() {
           <div>
             <h2 className="footer__head">About</h2>
             <ul>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Contact the newsroom</a></li>
-              <li><a href="#">Corrections</a></li>
-              <li><a href="#">Privacy</a></li>
+              <li><Link to="/about">About us</Link></li>
+              <li><Link to="/contact">Contact the newsroom</Link></li>
+              <li><Link to="/corrections">Corrections</Link></li>
+              <li><Link to="/privacy">Privacy</Link></li>
             </ul>
           </div>
         </div>

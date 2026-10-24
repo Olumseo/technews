@@ -7,6 +7,10 @@ import Home from './pages/Home.jsx'
 import Section from './pages/Section.jsx'
 import Article from './pages/Article.jsx'
 import NotFound from './pages/NotFound.jsx'
+import Author from './pages/Author.jsx'
+import Newsletters from './pages/Newsletters.jsx'
+import { About, Contact, Corrections, Privacy } from './pages/Info.jsx'
+import BackToTop from './components/BackToTop.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -41,10 +45,17 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/section/:slug" element={<Section />} />
           <Route path="/article/:slug" element={<Article />} />
+          <Route path="/author/:slug" element={<Author />} />
+          <Route path="/newsletters" element={<Newsletters />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/corrections" element={<Corrections />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
+      <BackToTop />
       {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
     </>
   )

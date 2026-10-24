@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { articleBySlug, bySection, latest, sectionBySlug } from '../data/articles.js'
+import { articleBySlug, authorSlug, bySection, latest, sectionBySlug } from '../data/articles.js'
 import Story from '../components/Story.jsx'
 import { LinkIcon, PauseIcon, PlayIcon } from '../components/Icons.jsx'
-import { initials, publishedAt, timeAgo } from '../lib.js'
+import { initials, publishedAt, timeAgo, usePageTitle } from '../lib.js'
 import NotFound from './NotFound.jsx'
 
 function useReadingProgress() {
@@ -76,10 +76,7 @@ export default function Article() {
   const article = articleBySlug(slug)
   const progress = useReadingProgress()
 
-  useEffect(() => {
-    if (article) document.title = `${article.title} | Tech News Singapore`
-    return () => { document.title = 'Tech News Singapore' }
-  }, [article])
+  usePageTitle(article?.title)
 
   if (!article) return <NotFound />
 
@@ -93,14 +90,18 @@ export default function Article() {
       <div className="progress" style={{ transform: `scaleX(${progress})` }} aria-hidden="true" />
       <article className="article">
         <header className="container article__head">
-          <Link to={`/section/${section.slug}`} className="tag">{section.name}</Link>
+          <nav className="crumbs" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <Link to={`/section/${section.slug}`} className="tag">{section.name}</Link>
+          </nav>
           <h1 className={`article__title${article.section === 'opinion' ? ' is-opinion' : ''}`}>{article.title}</h1>
           <p className="article__dek">{article.dek}</p>
           <div className="article__meta">
             <div className="article__author">
               <span className="avatar avatar--sm" aria-hidden="true">{initials(article.author)}</span>
               <div>
-                <p className="article__name">{article.author}</p>
+                <Link to={`/author/${authorSlug(article.author)}`} className="article__name">{article.author}</Link>
                 <p className="article__role">{article.role}</p>
               </div>
             </div>

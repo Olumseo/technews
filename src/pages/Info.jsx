@@ -1,0 +1,135 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { usePageTitle } from '../lib.js'
+
+function InfoPage({ title, lede, children }) {
+  usePageTitle(title)
+  return (
+    <article className="container info">
+      <header className="info__head">
+        <h1 className="info__title">{title}</h1>
+        {lede && <p className="info__lede">{lede}</p>}
+      </header>
+      <div className="info__body">{children}</div>
+    </article>
+  )
+}
+
+export function About() {
+  return (
+    <InfoPage
+      title="About us"
+      lede="Tech News Singapore reports on technology, business and the world from a city at the crossroads of Asia."
+    >
+      <h2>What we cover</h2>
+      <p>We focus on the stories that shape daily life in Singapore and the region: how people work, travel, pay, build and adapt. We follow technology closely, but we write for everyone, not only for experts.</p>
+      <h2>How we work</h2>
+      <ul>
+        <li>We explain what happened, why it matters and what happens next.</li>
+        <li>We name our sources whenever we can, and tell you when we cannot.</li>
+        <li>We correct mistakes quickly and openly on our <Link to="/corrections">corrections page</Link>.</li>
+        <li>We keep news and opinion clearly apart. Opinion pieces are labelled.</li>
+      </ul>
+      <h2>Our newsroom</h2>
+      <p>Our reporters are based in Singapore, Jakarta, Tokyo, Sydney, Dubai, London and New York. Every reporter has a page listing their stories, linked from their name on each article.</p>
+      <p className="info__note">This website is a design demo. The newsroom, reporters and stories are fictional.</p>
+    </InfoPage>
+  )
+}
+
+export function Corrections() {
+  return (
+    <InfoPage
+      title="Corrections"
+      lede="When we get something wrong, we fix it and say so. Here are our most recent corrections."
+    >
+      <ul className="corrections">
+        <li>
+          <p className="corrections__date">22 October 2026</p>
+          <p>An earlier version of a story on <Link to="/article/jakarta-mrt-line-opens-early">Jakarta’s new MRT line</Link> gave the number of stations as 19. It is 21.</p>
+        </li>
+        <li>
+          <p className="corrections__date">20 October 2026</p>
+          <p>A caption in <Link to="/article/hawker-centre-cool-roofs">our story on hawker centre roofs</Link> named the wrong centre. It has been corrected.</p>
+        </li>
+        <li>
+          <p className="corrections__date">17 October 2026</p>
+          <p>A market report misstated the closing level of the Hang Seng index. The correct figure has been added.</p>
+        </li>
+      </ul>
+      <h2>Spotted a mistake?</h2>
+      <p>Tell us on the <Link to="/contact">contact page</Link>. Please include the story’s headline and what you think is wrong.</p>
+    </InfoPage>
+  )
+}
+
+export function Privacy() {
+  return (
+    <InfoPage title="Privacy" lede="A short, plain explanation of what this site does with your information.">
+      <h2>What we collect</h2>
+      <p>If you sign up for a newsletter, we store your email address and which newsletters you chose. We do not sell it or share it with advertisers.</p>
+      <h2>Cookies</h2>
+      <p>This site does not use advertising or tracking cookies.</p>
+      <h2>Your choices</h2>
+      <p>Every newsletter has an unsubscribe link at the bottom. You can also ask us to delete your details at any time through the <Link to="/contact">contact page</Link>.</p>
+      <p className="info__note">This website is a design demo, so the forms on it do not send or store anything.</p>
+    </InfoPage>
+  )
+}
+
+const TOPICS = ['A story tip', 'A correction', 'Newsletters', 'Something else']
+
+export function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', topic: TOPICS[0], message: '' })
+  const [errors, setErrors] = useState({})
+  const [sent, setSent] = useState(false)
+
+  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value })
+
+  const submit = (e) => {
+    e.preventDefault()
+    const next = {}
+    if (!form.name.trim()) next.name = 'Enter your name.'
+    if (!/^\S+@\S+\.\S+$/.test(form.email)) next.email = 'Enter an email address like name@example.com.'
+    if (form.message.trim().length < 10) next.message = 'Write at least a sentence so we know how to help.'
+    setErrors(next)
+    if (!Object.keys(next).length) setSent(true)
+  }
+
+  return (
+    <InfoPage title="Contact the newsroom" lede="Send us a story tip, report a mistake or ask a question. We read every message.">
+      {sent ? (
+        <div className="form-done" role="status">
+          <h2>Thanks, {form.name.split(' ')[0]}</h2>
+          <p>This is a demo site, so your message was not sent anywhere. On the real site, a member of the newsroom would reply to {form.email}.</p>
+          <button className="btn btn--ghost" onClick={() => { setSent(false); setForm({ ...form, message: '' }) }}>Write another message</button>
+        </div>
+      ) : (
+        <form className="form" onSubmit={submit} noValidate>
+          <div className="form__row">
+            <label htmlFor="c-name">Your name</label>
+            <input id="c-name" value={form.name} onChange={set('name')} aria-invalid={!!errors.name} aria-describedby="c-name-err" autoComplete="name" />
+            {errors.name && <p id="c-name-err" className="form__error">{errors.name}</p>}
+          </div>
+          <div className="form__row">
+            <label htmlFor="c-email">Email address</label>
+            <input id="c-email" type="email" value={form.email} onChange={set('email')} aria-invalid={!!errors.email} aria-describedby="c-email-err" autoComplete="email" />
+            {errors.email && <p id="c-email-err" className="form__error">{errors.email}</p>}
+          </div>
+          <div className="form__row">
+            <label htmlFor="c-topic">What is it about?</label>
+            <select id="c-topic" value={form.topic} onChange={set('topic')}>
+              {TOPICS.map((t) => <option key={t}>{t}</option>)}
+            </select>
+          </div>
+          <div className="form__row">
+            <label htmlFor="c-msg">Message</label>
+            <textarea id="c-msg" rows={6} value={form.message} onChange={set('message')} aria-invalid={!!errors.message} aria-describedby="c-msg-err" />
+            {errors.message && <p id="c-msg-err" className="form__error">{errors.message}</p>}
+          </div>
+          <button className="btn btn--solid" type="submit">Send message</button>
+        </form>
+      )}
+    </InfoPage>
+  )
+}

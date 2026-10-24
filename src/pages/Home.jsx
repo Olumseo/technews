@@ -12,10 +12,10 @@ export default function Home() {
   const secondary = pick('coastal-adaptation-fund-draft', 'jakarta-mrt-line-opens-early', 'vietnam-chip-packaging-boom', 'sailors-qualify-world-championships')
   const [asiaLead, ...asiaRest] = pick('japan-four-day-week-trial', 'changi-t5-structural-milestone', 'hawker-centre-cool-roofs', 'europe-single-rail-ticket')
   const features = pick('reflective-streets-cooling-trial', 'mangrove-restoration-outpacing-loss', 'undersea-cable-singapore-australia')
-  const opinion = bySection('opinion')
+  const opinion = bySection('opinion').slice(0, 3)
   const mostRead = pick('hawker-stalls-worth-queue', 'malacca-strait-record-traffic', 'sodium-batteries-phones', 'padel-car-park-rooftops', 'kopitiam-design-refresh')
   const rails = ['business', 'tech', 'world']
-  const life = [...bySection('life'), ...pick('padel-car-park-rooftops', 'panama-canal-crossings-cap')]
+  const life = bySection('life')
 
   return (
     <>

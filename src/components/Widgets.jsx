@@ -93,7 +93,7 @@ export function Newsletter() {
       <h2 id="newsletter-title" className="newsletter__title">The TNS Morning Brief</h2>
       <p className="newsletter__lede">Five stories that matter, in your inbox by 7am Singapore time. Read it in four minutes, over your kopi.</p>
       {state === 'done' ? (
-        <p className="newsletter__done" role="status">You’re subscribed. Check {email} to confirm.</p>
+        <p className="newsletter__done" role="status">Thanks for subscribing. This is a demo site, so no email will be sent to {email}.</p>
       ) : (
         <form className="newsletter__form" onSubmit={submit} noValidate>
           <label htmlFor="nl-email" className="sr-only">Email address</label>
@@ -112,6 +112,7 @@ export function Newsletter() {
           </p>
         </form>
       )}
+      <Link to="/newsletters" className="newsletter__more">See all newsletters</Link>
     </section>
   )
 }

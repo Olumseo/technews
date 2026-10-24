@@ -51,7 +51,7 @@ export default function Header({ onSearch }) {
           <span className="topbar__time">{formatClock(now)} SGT</span>
           <span className="topbar__weather"><CloudIcon /> 31°C</span>
         </div>
-        <a className="btn btn--solid topbar__subscribe" href="#newsletter">Subscribe</a>
+        <Link className="btn btn--solid topbar__subscribe" to="/newsletters">Subscribe</Link>
       </div>
 
       <nav className={`nav${scrolled ? ' is-scrolled' : ''}`} aria-label="Sections">

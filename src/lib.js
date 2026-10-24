@@ -36,6 +36,15 @@ export function useNow(interval = 30000) {
   return now
 }
 
+const SITE = 'Tech News Singapore'
+
+export function usePageTitle(title) {
+  useEffect(() => {
+    document.title = title ? `${title} | ${SITE}` : SITE
+    return () => { document.title = SITE }
+  }, [title])
+}
+
 export function initials(name) {
   return name
     .split(' ')
@@ -44,11 +53,3 @@ export function initials(name) {
     .join('')
 }
 
-export function storage(key, value) {
-  try {
-    if (value === undefined) return localStorage.getItem(key)
-    localStorage.setItem(key, value)
-  } catch {
-    return null
-  }
-}

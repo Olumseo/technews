@@ -1,5 +1,6 @@
-import { useParams } from 'react-router-dom'
-import { bySection, latest, sectionBySlug } from '../data/articles.js'
+import { Link, useParams } from 'react-router-dom'
+import { SECTIONS, bySection, latest, sectionBySlug } from '../data/articles.js'
+import { usePageTitle } from '../lib.js'
 import Story from '../components/Story.jsx'
 import { LatestTimeline } from '../components/Widgets.jsx'
 import NotFound from './NotFound.jsx'
@@ -7,6 +8,7 @@ import NotFound from './NotFound.jsx'
 export default function Section() {
   const { slug } = useParams()
   const section = sectionBySlug(slug)
+  usePageTitle(section?.name)
   if (!section) return <NotFound />
 
   const [lead, ...rest] = bySection(slug)
@@ -27,6 +29,14 @@ export default function Section() {
         </div>
         <aside className="section-layout__side">
           <LatestTimeline items={latest(8).filter((a) => a.section !== slug).slice(0, 6)} />
+          <nav className="side-sections" aria-label="Other sections">
+            <h2 className="side-sections__title">Other sections</h2>
+            <ul>
+              {SECTIONS.filter((s) => s.slug !== slug).map((s) => (
+                <li key={s.slug}><Link to={`/section/${s.slug}`}>{s.name}</Link></li>
+              ))}
+            </ul>
+          </nav>
         </aside>
       </section>
     </>
