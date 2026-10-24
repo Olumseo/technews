@@ -211,7 +211,7 @@ a.tag:hover { text-decoration: underline; }
 .markets { margin-top: clamp(48px, 6vw, 72px); background: var(--surface); }
 .markets__inner { display: flex; align-items: center; gap: 28px; padding-block: 16px; }
 .markets__title { font-size: var(--step--1); font-weight: 700; flex-shrink: 0; }
-.markets__list { display: flex; gap: 8px 36px; flex: 1; overflow-x: auto; scrollbar-width: none; }
+.markets__list { position: relative; display: flex; gap: 8px 36px; flex: 1; overflow-x: auto; scrollbar-width: none; }
 .markets__list li { display: grid; grid-template-columns: auto auto; column-gap: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .markets__name { grid-column: 1 / -1; font-size: 0.8125rem; color: var(--ink-3); }
 .markets__value { font-weight: 600; }

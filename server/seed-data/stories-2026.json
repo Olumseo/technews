@@ -840,6 +840,286 @@
     "photo_topic": "nature"
   },
   {
+    "title": "Trump declares Iran ceasefire over after new US and Iranian attacks",
+    "dek": "Strikes and counter-strikes followed attacks on ships in the Strait of Hormuz, putting talks between Washington and Tehran at risk.",
+    "section": "world",
+    "date": "2026-07-08",
+    "body": [
+      "US President Donald Trump said on July 8 that the ceasefire with Iran was over, speaking at a NATO summit in Ankara. US Central Command said it struck more than 80 targets after Iranian attacks on three ships in the Strait of Hormuz. Iran's Revolutionary Guards said they had hit US military sites in Bahrain and Kuwait.",
+      "The truce had followed a memorandum signed weeks earlier that was meant to end the fighting, lift a US naval blockade and reopen the strait. Before the war began in February, about a fifth of the world's daily oil trade passed through Hormuz, so renewed fighting raises risks for energy prices and shipping, including for import-dependent Asian economies.",
+      "Trump said US negotiators could keep talking even as he threatened more strikes and a possible return of the naval blockade. The US Treasury also revoked a waiver that had allowed some Iranian crude sales. Gulf states condemned the attacks on Bahrain and Kuwait, and mediators worked in the following days to calm tensions and revive talks."
+    ],
+    "source_name": "Al Jazeera",
+    "source_url": "https://www.aljazeera.com/news/2026/7/8/trump-says-ceasefire-over-after-us-iran-trade-attacks",
+    "photo_topic": "energy"
+  },
+  {
+    "title": "OpenAI launches GPT-5.6 family in three sizes aimed at coding and business",
+    "dek": "The new Sol, Terra and Luna models arrive across ChatGPT, Codex and the API, alongside a workplace assistant called ChatGPT Work.",
+    "section": "tech",
+    "date": "2026-07-09",
+    "body": [
+      "OpenAI released GPT-5.6 on July 9 as a family of three models. Sol is the flagship, Terra sits in the middle and Luna is the low-cost option. All three are available in ChatGPT, the Codex coding tool and OpenAI's developer API. The company also introduced ChatGPT Work, an assistant for drafting documents, spreadsheets and presentations.",
+      "OpenAI is pitching the release at enterprise work, software development and scientific research, areas where it competes most directly with Anthropic. It says Sol is its strongest coding model so far and uses far fewer tokens on coding tasks, which can cut costs for companies running large workloads. It also described GPT-5.6 as its most capable model yet for cybersecurity defence.",
+      "API prices range from US$1 per million input tokens for Luna to US$5 for Sol. TechCrunch noted that the Trump administration had earlier sought to restrict the model's rollout over worries about misuse of its cyber abilities. The benchmark claims came from OpenAI, and wider independent testing will show how the models perform in everyday use."
+    ],
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
+    "photo_topic": "ai"
+  },
+  {
+    "title": "Singapore economy grows 5.7% in second quarter on strong AI-driven chip demand",
+    "dek": "Advance estimates show manufacturing expanded 12.2 per cent from a year earlier, led by electronics and precision engineering.",
+    "section": "singapore",
+    "date": "2026-07-14",
+    "body": [
+      "Singapore's economy grew 5.7 per cent year on year in the second quarter of 2026, according to advance estimates released by the Ministry of Trade and Industry on July 14. That was slower than the 6.3 per cent recorded in the first quarter. On a quarter-on-quarter, seasonally adjusted basis, the economy grew 1.1 per cent.",
+      "Manufacturing drove the growth, expanding 12.2 per cent from a year earlier. Electronics and precision engineering benefited from strong AI-related demand for semiconductors and chipmaking equipment. Not every industry gained: chemicals output fell because of feedstock disruptions linked to the conflict in the Middle East, and biomedical manufacturing also shrank.",
+      "The advance figures are based mainly on April and May data and can be revised. In a later update on August 11, the ministry said growth for the quarter was 5.9 per cent and raised its full-year 2026 forecast to between 4.5 and 5.5 per cent, up from 2 to 4 per cent earlier."
+    ],
+    "source_name": "Ministry of Trade and Industry",
+    "source_url": "https://www.mti.gov.sg/newsroom/singapore-s-gdp-grew-by-5-7-per-cent-in-the-second-quarter-of-2026/",
+    "photo_topic": "markets"
+  },
+  {
+    "title": "Mira Murati's Thinking Machines releases Inkling, its first open-weight AI model",
+    "dek": "The large model can be downloaded and customised, and is meant as a base for organisations that want AI tuned to their own needs.",
+    "section": "tech",
+    "date": "2026-07-15",
+    "body": [
+      "Thinking Machines Lab, the start-up founded by former OpenAI chief technology officer Mira Murati, released its first in-house model, Inkling, on July 15. It is open-weight, meaning outside developers can download and modify it. The mixture-of-experts model has 975 billion parameters in total, of which about 41 billion are active for any given task.",
+      "Inkling was trained on text, images, audio and video, though for now it answers only in text and code. The company openly says it is not the strongest model available, and instead pitches it as a starting point that firms can fine-tune through Tinker, its customisation platform. The approach reflects a bet that tailored models will matter more than one general system.",
+      "The release adds to a crowded field of open models, many of them from Chinese labs. Thinking Machines said it used some open models, including Moonshot AI's Kimi K2.5, to generate early training data, and trained Inkling entirely on Nvidia hardware. The company has about 200 staff and earlier previewed research on AI that copes with being interrupted mid-conversation."
+    ],
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/",
+    "photo_topic": "ai"
+  },
+  {
+    "title": "Databricks valued at US$188 billion in new Coatue-led funding round",
+    "dek": "The data and AI software company signed a term sheet that lifts its valuation well above the US$134 billion set earlier this year.",
+    "section": "business",
+    "date": "2026-07-16",
+    "body": [
+      "Databricks said on July 16 that it had signed a term sheet for a strategic funding round valuing the company at US$188 billion, Reuters reported. Existing investor Coatue is leading the round, which includes both new and existing backers. The Wall Street Journal, citing people familiar with the matter, put the size of the round at about US$3 billion.",
+      "The jump shows how strongly investors still back firms that help businesses use AI on their own data. Earlier this year Databricks raised about US$5 billion at a US$134 billion valuation, so the new figure marks a rise of roughly 40 per cent within months. The company itself has not said how much the round will raise.",
+      "Databricks expects the round to close later in the northern summer. The company sells software that lets organisations store and analyse large amounts of data and build AI tools on top of it. Its rising valuation is being watched as a sign of how much investors are willing to pay for enterprise AI businesses."
+    ],
+    "source_name": "Reuters (via The Star)",
+    "source_url": "https://www.thestar.com.my/tech/tech-news/2026/07/17/databricks-valued-at-188-billion-after-coatue-led-investment-wsj-reports",
+    "photo_topic": "datacentre"
+  },
+  {
+    "title": "Japan protests Chinese live-fire drill inside its claimed waters near Okinotori",
+    "dek": "Beijing rejected the complaint, saying the remote Pacific outcrop is a rock that cannot have an exclusive economic zone.",
+    "section": "asia",
+    "date": "2026-07-19",
+    "body": [
+      "Japan said a Chinese navy destroyer fired machine guns at a floating target during a drill inside Japan's claimed exclusive economic zone near Okinotori on July 19. The Chinese ship was sailing with a Russian vessel as part of a wider joint exercise. Tokyo lodged a protest, saying such activity could endanger ships in the area.",
+      "It was the first time Japan had publicly disclosed a Chinese live-fire drill in its economic zone, a sign of worsening ties between the neighbours. China's foreign ministry called the protest unreasonable and said Okinotori is a rock, not an island, so it cannot generate an exclusive economic zone under the UN law of the sea.",
+      "Okinotori is a tiny reef roughly halfway between Okinawa and Guam. Japan's claim to the waters around it is not recognised by China, South Korea or Taiwan. Relations between Tokyo and Beijing have been strained since late 2025, when Prime Minister Sanae Takaichi said a Taiwan crisis could involve Japan."
+    ],
+    "source_name": "The Maritime Executive",
+    "source_url": "https://maritime-executive.com/article/japan-protests-chinese-live-fire-drill-inside-its-eez",
+    "photo_topic": "sea"
+  },
+  {
+    "title": "Spain beat Argentina 1-0 in extra time to win the 2026 World Cup",
+    "dek": "Substitute Ferran Torres scored the only goal in New Jersey, giving Spain its second men's world title.",
+    "section": "sport",
+    "date": "2026-07-19",
+    "body": [
+      "Spain won the 2026 FIFA World Cup on July 19, beating defending champions Argentina 1-0 after extra time at MetLife Stadium in New Jersey. Substitute Ferran Torres scored in the 106th minute. Argentina played all of extra time with ten men after Enzo Fernandez was sent off for a second yellow card in stoppage time.",
+      "It is Spain's second men's World Cup, after its win in 2010, and makes it the first country to hold the men's and women's titles at the same time. Spain conceded only one goal in eight matches, a record for a champion. Coach Luis de la Fuente, 65, became the oldest coach to win the tournament.",
+      "The final capped the first World Cup to feature 48 teams, hosted across the United States, Canada and Mexico. Argentina goalkeeper Emiliano Martinez made 12 saves, the most in a World Cup final, as Spain dominated possession and chances. For Lionel Messi, the match was expected to be his last World Cup appearance."
+    ],
+    "source_name": "CBS News",
+    "source_url": "https://www.cbsnews.com/news/2026-fifa-world-cup-final-spain-argentina-sunday/",
+    "photo_topic": "football"
+  },
+  {
+    "title": "EU adopts 21st sanctions package against Russia, targeting shadow fleet and banks",
+    "dek": "The package adds 41 more vessels to the blacklist and widens restrictions on dozens of financial institutions.",
+    "section": "world",
+    "date": "2026-07-23",
+    "body": [
+      "The European Union adopted its 21st package of sanctions against Russia on July 23. It adds 41 vessels from Russia's so-called shadow fleet, on top of 632 already listed, and makes 218 new designations of people and organisations. The measures also widen bans on dealings with Russian banks and target several oil refineries.",
+      "The shadow fleet refers to tankers that help Russia keep selling oil despite Western price caps. By adding ships and the firms that service them, including refuelling vessels and a crewing agency, the EU aims to cut revenue that funds the war in Ukraine. The package also targets crypto services that could be used to get around sanctions.",
+      "The EU paused the automatic adjustment of its oil price cap until July 2027, with an interim review planned. Three Russian refineries and one in Belarus were targeted. Moscow has condemned growing European action against its ships, and in August President Vladimir Putin warned that Russia would retaliate if its vessels were seized."
+    ],
+    "source_name": "Hill Dickinson",
+    "source_url": "https://www.hilldickinson.com/our-view/articles/eu-adopts-21st-package-of-sanctions-against-russia/",
+    "photo_topic": "diplomacy"
+  },
+  {
+    "title": "US Federal Reserve holds rates steady as three officials vote for a hike",
+    "dek": "The central bank kept its benchmark range at 3.50 to 3.75 per cent, citing inflation that remains above its 2 per cent goal.",
+    "section": "business",
+    "date": "2026-07-29",
+    "body": [
+      "The US Federal Reserve left its benchmark interest rate unchanged at 3.50 to 3.75 per cent on July 29. The decision passed by nine votes to three. Cleveland Fed president Beth Hammack, Minneapolis's Neel Kashkari and Dallas's Lorie Logan dissented, saying they would have preferred a quarter-point increase instead of a hold.",
+      "Three dissents in favour of raising rates signal growing worry inside the Fed about inflation. The central bank said the economy is expanding at a solid pace, but prices are still rising faster than its 2 per cent target, partly because of energy supply shocks. US rate moves tend to affect borrowing costs, currencies and investment flows across Asia, including Singapore.",
+      "The Fed's statement linked part of the uncertainty to the conflict in the Middle East, which has pushed up energy costs. It said job gains have kept pace with growth in the labour force and unemployment has barely changed. Markets will now watch inflation data closely for signs of whether the next move is a rise."
+    ],
+    "source_name": "US Federal Reserve",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+    "photo_topic": "markets"
+  },
+  {
+    "title": "Nepal's prime minister appeals for calm after deadly religious clashes in the south",
+    "dek": "Curfews were imposed in several districts after unrest between Hindu and Muslim groups spread from Sunsari near the Indian border.",
+    "section": "asia",
+    "date": "2026-07-31",
+    "body": [
+      "Nepal's Prime Minister Balendra Shah urged citizens to show restraint after clashes between Hindu and Muslim groups in the south left three people dead. The violence began in a village in Sunsari district, near the Indian border, after a dispute over loud music and religious flags during a Hindu procession. Authorities imposed curfews across the affected districts.",
+      "The unrest was an early test for Shah, who used his first major national address to call for patience from citizens, religious communities, political parties and the media. Officials moved to stop the violence from spreading, and the prime minister warned against people spreading rumours and hate speech online.",
+      "Shah promised a fair and transparent investigation and said those responsible would face justice. Police said they were working to restore order while trying to limit the use of force. The unrest also spread to neighbouring Siraha district, where a protest went ahead despite a curfew and one of the deaths occurred."
+    ],
+    "source_name": "Al Jazeera",
+    "source_url": "https://www.aljazeera.com/news/2026/7/31/nepals-pm-urges-calm-as-three-people-killed-after-hindu-muslim-unrest",
+    "photo_topic": "city"
+  },
+  {
+    "title": "Spider-Man: Brand New Day sets record for biggest North American opening weekend",
+    "dek": "The Sony film earned US$360 million in its first weekend, narrowly passing Avengers: Endgame.",
+    "section": "life",
+    "date": "2026-08-03",
+    "body": [
+      "Spider-Man: Brand New Day took in US$360 million in North American cinemas over its opening weekend, the biggest debut on record, Sony Pictures said on August 3. The film, starring Tom Holland and Zendaya, overtook the US$357 million earned by Avengers: Endgame in 2019. Its worldwide opening reached US$932 million.",
+      "The record is a boost for cinemas, which have been working to win back audiences in the streaming era. Sunday estimates had put the film just short of the record, but final figures added about US$5 million. The comparison with Endgame is not adjusted for inflation, so older hits sold more tickets at lower prices.",
+      "The film helped make August 2026 the strongest August ever at the North American box office, with takings passing US$1 billion before the month ended. Its global opening still fell short of the record of about US$1.22 billion set by Endgame. Superhero films remain among the most reliable draws for cinema audiences worldwide."
+    ],
+    "source_name": "ABC News",
+    "source_url": "https://abcnews.com/culture/story/spider-man-brand-new-day-biggest-opening-weekend-135310254",
+    "photo_topic": "city"
+  },
+  {
+    "title": "Jeff Dean and fellow Google veterans leave to found AI science start-up Discovery Loop",
+    "dek": "The new company aims to use AI to run and automate scientific experiments at very large scale.",
+    "section": "tech",
+    "date": "2026-08-05",
+    "body": [
+      "Jeff Dean, one of Google's best-known engineers, is leaving the company to start an AI firm called Discovery Loop, TechCrunch reported on August 5. He is joined by senior engineer Sanjay Ghemawat, Google Brain founding member Quoc Le and Google DeepMind scientist Oriol Vinyals. Dean is expected to lead the company, which is set up as a public benefit corporation.",
+      "Discovery Loop wants to speed up research by running thousands of experiments at once and automating the full cycle of testing and learning. The exit of such senior figures is a notable moment for Google, which has relied on them for some of its most important research and engineering work. It also shows top researchers turning to start-ups to chase ambitious goals.",
+      "The first funding round is co-led by Radical Ventures and Khosla Ventures, with Kleiner Perkins, Lightspeed and Doerr Capital also taking part. Alphabet, Google's parent company, is listed among the backers, though the size of the round was not disclosed. The company is also interested in AI that helps build more capable AI, a goal drawing growing attention."
+    ],
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
+    "photo_topic": "office"
+  },
+  {
+    "title": "Typhoon Dolphin hits eastern China after more than one million people evacuated",
+    "dek": "The strongest storm to strike China this year made landfall in Zhejiang, disrupting flights in Shanghai after battering Okinawa.",
+    "section": "climate",
+    "date": "2026-08-09",
+    "body": [
+      "Typhoon Dolphin made landfall near Yuhuan in China's eastern Zhejiang province on the evening of August 9, with sustained winds of about 151km/h near its centre, Reuters reported. More than one million people were moved to safety across eastern China, including over 900,000 in the city of Wenzhou. Shanghai cancelled about 1,500 flights.",
+      "Dolphin was the most powerful tropical cyclone to hit China so far this year. Before reaching the mainland, it swept through Japan's Okinawa prefecture, injuring six people and cutting power to more than 50,000 buildings. Heavy rain raised the risk of floods and landslides in China's busy coastal provinces, where forecasters warned of very high rainfall totals.",
+      "The storm came during a summer of extreme weather across Asia, with record heat in Japan and South Korea and deadly monsoon floods in South Asia. Scientists say warmer oceans can give tropical storms more energy and moisture, making intense rainfall more likely when they reach land. Authorities later downgraded Dolphin to a tropical storm."
+    ],
+    "source_name": "Reuters (via The Kathmandu Post)",
+    "source_url": "https://kathmandupost.com/world/2026/08/10/typhoon-dolphin-hits-china-s-east-coast-over-1-million-evacuated",
+    "photo_topic": "storm"
+  },
+  {
+    "title": "Google unveils Pixel 11 phones with new Tensor G6 chip and higher starting prices",
+    "dek": "The four-model line-up went on sale on August 20, with entry prices up US$100 but double the base storage.",
+    "section": "tech",
+    "date": "2026-08-12",
+    "body": [
+      "Google announced its Pixel 11 range at its Made by Google event in New York on August 12. The line-up includes the Pixel 11, 11 Pro, 11 Pro XL and 11 Pro Fold, all powered by the new Tensor G6 chip. US prices start at US$899 for the standard model and rise to US$1,899 for the foldable.",
+      "Entry prices rose by US$100 compared with last year, though the base phone now starts with 256GB of storage. Early reviews praised the display and cameras but said the Tensor G6 still trails rival chips from Apple and Qualcomm, especially in graphics. Google tunes its chips for photo processing and on-device AI features rather than raw speed.",
+      "The phones went on sale on August 20 in markets served by the Google Store. The Pro and Pro XL now start with 12GB of memory, down from 16GB last year, which some reviewers flagged as a step back. Pixel phones also serve as Google's main showcase for new Android and Gemini AI features."
+    ],
+    "source_name": "Khaleej Times",
+    "source_url": "https://www.khaleejtimes.com/tech/google-pixel-11-review",
+    "photo_topic": "phone"
+  },
+  {
+    "title": "Putin warns Russia will retaliate if European states seize its ships",
+    "dek": "The Russian leader called such seizures piracy as the EU steps up action against tankers suspected of evading sanctions.",
+    "section": "world",
+    "date": "2026-08-12",
+    "body": [
+      "Russian President Vladimir Putin said on August 12 that Russia would respond in kind if European countries began seizing Russian merchant vessels, Reuters reported. Speaking while observing navy drills in Russia's far east, he said any response would not be limited to the waters where ships were taken. He described such seizures as piracy and robbery.",
+      "The warning raises the risk of confrontation at sea between Russia and European navies. The EU has been widening sanctions on hundreds of shadow fleet vessels and has detained some ships and crews for checks. Tit-for-tat seizures could disrupt commercial shipping, a concern for trading hubs such as Singapore that depend on open sea lanes.",
+      "The commander of Russia's Pacific Fleet said his forces were ready to inspect and detain ships linked to hostile states. Russia's foreign ministry accused the EU of misusing a Mediterranean naval mission to board a tanker earlier in August. Some European governments are studying tougher maritime enforcement against ships suspected of dodging sanctions."
+    ],
+    "source_name": "Reuters (via Internazionale)",
+    "source_url": "https://www.internazionale.it/ultime-notizie-reuters/2026/08/12/putin-says-russia-will-respond-in-kind-if-eu-nations-seize-russian-vessels",
+    "photo_topic": "shipping"
+  },
+  {
+    "title": "July 2026 ranks among the hottest months on record as oceans hit new highs",
+    "dek": "The World Meteorological Organization said heat, drought, wildfires and floods marked the northern hemisphere summer.",
+    "section": "climate",
+    "date": "2026-08-12",
+    "body": [
+      "The World Meteorological Organization said on August 12 that July 2026 was either tied for the warmest July on record or the second warmest, depending on the dataset. US agency NOAA ranked it joint first with July 2024, while Europe's Copernicus service put it second, about 1.47C above pre-industrial levels. Global sea surface temperatures were the highest for any July.",
+      "The four warmest Julys on record have all come in the past four years, underlining the long-term warming trend. North America, Africa and Asia each had their warmest July, according to NOAA, while Western Europe had its hottest June and July combined. Japan and South Korea reported record heat in the first week of August.",
+      "The WMO also pointed to severe floods, including monsoon flooding in Bangladesh and India and repeated flooding in South Korea. It noted El Nino conditions in the tropical Pacific that are expected to strengthen, which can push global temperatures higher. The agency said reliable forecasts and early warnings are needed to limit the damage."
+    ],
+    "source_name": "World Meteorological Organization",
+    "source_url": "https://wmo.int/media/news/record-breaking-heat-and-extreme-weather-continue",
+    "photo_topic": "nature"
+  },
+  {
+    "title": "Amazon plans to expand Prime Air drone deliveries to nearly 500 US cities",
+    "dek": "The retailer says its drone network will grow about six-fold by the end of 2026, with deliveries in as little as 30 minutes.",
+    "section": "tech",
+    "date": "2026-08-19",
+    "body": [
+      "Amazon said on August 19 that its Prime Air drone delivery service will reach nearly 500 US cities by the end of 2026, about six times its current footprint. The service runs in seven states, including Arizona, Florida and Texas, with Georgia, Ohio, Illinois, Idaho and New York due to follow. Eleven new locations are set to launch soon.",
+      "Drone delivery has been slow to scale because of safety rules and public concern. Amazon operates under the same federal certification used by commercial air carriers and says its drones continuously scan the airspace to avoid obstacles. The service has faced scrutiny after past incidents, including drones striking a crane boom in Arizona and crashing into an apartment building.",
+      "Nearly all items weighing about 2.3kg or less are eligible. Prime members get free drone delivery on orders of US$50 or more, while smaller orders carry a fee. Amazon faces competition from Walmart and Alphabet's Wing, which run a rival network and added seven markets in June, including Phoenix, Philadelphia and the San Francisco Bay Area."
+    ],
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/08/19/amazons-prime-air-is-taking-off-in-nearly-500-u-s-cities/",
+    "photo_topic": "city"
+  },
+  {
+    "title": "US and South Korea cut annual military drills short at Trump's request",
+    "dek": "The Ulchi Freedom Shield exercise was reduced from 11 days to five, and a planned counter-attack phase was dropped.",
+    "section": "asia",
+    "date": "2026-08-19",
+    "body": [
+      "South Korea's military said on August 19 that this year's Ulchi Freedom Shield exercise with the United States would end on August 21 instead of August 27. The drills, which began on August 17, were cut from 11 days to five after US President Donald Trump ordered a large reduction in American participation.",
+      "Shortening a major combined exercise while it is under way is highly unusual. Trump's order was reportedly tied to his good relationship with North Korean leader Kim Jong Un, whom he wants to meet in person. South Korea's foreign minister told parliament that officials in neither country knew about the order in advance.",
+      "The second phase, which was to cover counter-attack operations, was cancelled, and some field training was scaled back or turned into simulations. The Pentagon said essential readiness goals would be preserved. South Korean President Lee Jae Myung stressed that the drills are defensive, while North Korean state media again criticised them."
+    ],
+    "source_name": "AAP (via The Canberra Times)",
+    "source_url": "https://www.canberratimes.com.au/story/9333328/us-south-korea-drills-to-be-cut-short-after-trump-order/",
+    "photo_topic": "diplomacy"
+  },
+  {
+    "title": "National Day Rally 2026: more childcare leave and lower preschool fees for families",
+    "dek": "PM Lawrence Wong announced up to 12 days of childcare leave a year and a new support package worth almost S$70,000 per child.",
+    "section": "singapore",
+    "date": "2026-08-23",
+    "body": [
+      "Prime Minister Lawrence Wong delivered his National Day Rally on August 23 at ITE Headquarters in Ang Mo Kio. Working parents of Singaporean children aged 12 and below will get eight to 12 days of childcare leave a year, depending on how many children they have. The government will pay for all statutory child-related leave, up to set limits.",
+      "A new SG Child Support Package will give each Singaporean child almost S$70,000 in direct support by adulthood, including a S$10,000 baby gift and yearly child credits. Full-day childcare fees at government-supported preschools are set to fall to S$150 a month, and infant care to S$300, regardless of household income.",
+      "The fee cuts will be phased in over several years as more operators join the government-supported network. Wong also said Singapore will speed up AI adoption with stronger safeguards for workers, and that social media platforms must bring in more reliable age checks. He added that foreign manpower will continue to be managed carefully."
+    ],
+    "source_name": "Human Resources Online",
+    "source_url": "https://www.humanresourcesonline.net/national-day-rally-2026-ai-advances-increased-childcare-leave-stronger-family-support-among-key-workforce-measures-announced",
+    "photo_topic": "school"
+  },
+  {
+    "title": "Nvidia revenue doubles to US$96.2 billion as demand for AI data centres surges",
+    "dek": "The chipmaker's quarterly sales rose 106 per cent from a year earlier, and it forecast about US$108 billion for the next quarter.",
+    "section": "business",
+    "date": "2026-08-26",
+    "body": [
+      "Nvidia reported revenue of US$96.2 billion for the quarter ended July 26, up 106 per cent from a year earlier and 18 per cent from the previous quarter. Its data centre business, which sells chips and systems used to train and run AI, brought in US$89 billion of that total. The results were released on August 26.",
+      "Nvidia's results are a key gauge of how much cloud providers and large companies are spending on AI infrastructure. Chief executive Jensen Huang said demand was accelerating and that the company's new Vera Rubin platform is now in full production. Strong demand also matters for Asian supply chains that make, package and assemble AI chips and servers.",
+      "For the current quarter, Nvidia expects revenue of about US$108 billion, give or take 2 per cent, excluding any data centre sales to China. It returned about US$26 billion to shareholders during the quarter and announced partnerships with financial firms to help customers pay for large computing purchases over time."
+    ],
+    "source_name": "Nvidia (SEC filing)",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000073/q2fy27pr.htm",
+    "photo_topic": "chips"
+  },
+  {
     "title": "John Ternus takes over as Apple chief executive from Tim Cook",
     "dek": "The long-time hardware engineering chief formally became Apple’s CEO on 1 September, ending Tim Cook’s 15 years in the role. Cook stays on as executive chairman.",
     "section": "tech",
