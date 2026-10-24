@@ -16,7 +16,7 @@ function Ticker() {
   return (
     <div className="ticker" role="region" aria-label="Breaking news">
       <div className="container ticker__inner">
-        <span className="ticker__live"><span className="pulse" aria-hidden="true" />Live</span>
+        <span className="ticker__live"><span className="pulse" aria-hidden="true" />Latest</span>
         <div className="ticker__viewport">
           <ul className="ticker__track">
             {items.map((a, i) => (
@@ -34,6 +34,7 @@ function Ticker() {
 export default function Header({ onSearch }) {
   const now = useNow()
   const { user } = useAuth()
+  const weather = useApi('/api/weather').data
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
@@ -57,7 +58,11 @@ export default function Header({ onSearch }) {
         <div className="topbar__meta">
           <span>{formatDate(now)}</span>
           <span className="topbar__time">{formatClock(now)} SGT</span>
-          <span className="topbar__weather"><CloudIcon /> 31°C</span>
+          {weather && (
+            <span className="topbar__weather" title="Current weather in Singapore">
+              <CloudIcon /> {weather.temperature}°C{weather.text && `, ${weather.text.toLowerCase()}`}
+            </span>
+          )}
         </div>
         <div className="topbar__actions">
           {user && <Link className="btn btn--ghost" to="/studio">Studio</Link>}

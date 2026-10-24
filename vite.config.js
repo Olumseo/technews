@@ -7,6 +7,9 @@ export default defineConfig({
     proxy: {
       '/api': 'http://localhost:5174',
       '/uploads': 'http://localhost:5174',
+      '/rss.xml': 'http://localhost:5174',
+      '/sitemap.xml': 'http://localhost:5174',
+      '/robots.txt': 'http://localhost:5174',
     },
   },
 })

@@ -21,6 +21,7 @@ export default function Footer() {
             <h2 className="footer__head">Read more</h2>
             <ul>
               <li><Link to="/newsletters">Newsletters</Link></li>
+              <li><a href="/rss.xml">RSS feed</a></li>
               <li><Link to="/section/opinion">Opinion</Link></li>
               <li><Link to="/section/climate">Climate desk</Link></li>
               <li><Link to="/section/tech">Tech desk</Link></li>

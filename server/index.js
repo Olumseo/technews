@@ -1,11 +1,11 @@
 import express from 'express'
 import multer from 'multer'
 import { randomBytes } from 'node:crypto'
-import { existsSync, mkdirSync, unlinkSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, unlinkSync } from 'node:fs'
 import { join, basename } from 'node:path'
 import { db, ROOT } from './db.js'
 import { createSession, destroySession, loadUser, loginLimiter, requireAuth, verifyPassword } from './auth.js'
-import { isSection, slugify } from '../src/data/site.js'
+import { isSection, sectionBySlug, slugify, SECTIONS } from '../src/data/site.js'
 
 const PORT = Number(process.env.PORT) || 5174
 const UPLOADS = join(ROOT, 'uploads')
@@ -110,7 +110,7 @@ app.get('/api/articles', (req, res) => {
 
 app.get('/api/articles/:slug', (req, res) => {
   const row = db
-    .prepare(`SELECT ${ARTICLE_COLUMNS}, a.id FROM articles a JOIN users u ON u.id = a.author_id WHERE a.slug = ?`)
+    .prepare(`SELECT ${ARTICLE_COLUMNS}, a.id, a.author_id, u.bio AS author_bio FROM articles a JOIN users u ON u.id = a.author_id WHERE a.slug = ?`)
     .get(req.params.slug)
   if (!row) return res.status(404).json({ error: 'Story not found.' })
   db.prepare('UPDATE articles SET views = views + 1 WHERE id = ?').run(row.id)
@@ -119,7 +119,12 @@ app.get('/api/articles/:slug', (req, res) => {
       WHERE a.section = ? AND a.slug != ? ORDER BY a.published_at DESC LIMIT 3`,
     row.section, row.slug
   )
-  res.json({ article: toArticle(row, { full: true }), related })
+  const byAuthor = list(
+    `SELECT ${ARTICLE_COLUMNS} FROM articles a JOIN users u ON u.id = a.author_id
+      WHERE a.author_id = ? AND a.slug != ? ORDER BY a.published_at DESC LIMIT 3`,
+    row.author_id, row.slug
+  )
+  res.json({ article: { ...toArticle(row, { full: true }), authorBio: row.author_bio }, related, byAuthor })
 })
 
 app.get('/api/authors', (_req, res) => {
@@ -309,14 +314,122 @@ app.delete('/api/studio/articles/:slug', requireAuth, (req, res) => {
   res.json({ ok: true })
 })
 
+/* ---------- Weather (Open-Meteo, cached for 15 minutes) ---------- */
+
+const WEATHER_TEXT = [
+  [[0], 'Clear'], [[1, 2], 'Partly cloudy'], [[3], 'Cloudy'], [[45, 48], 'Fog'],
+  [[51, 53, 55, 56, 57], 'Drizzle'], [[61, 63, 65, 66, 67], 'Rain'], [[80, 81, 82], 'Showers'], [[95, 96, 99], 'Thunderstorms'],
+]
+let weatherCache = { at: 0, data: null }
+
+app.get('/api/weather', async (_req, res) => {
+  if (Date.now() - weatherCache.at < 15 * 60e3 && weatherCache.data) return res.json(weatherCache.data)
+  try {
+    const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=1.2897&longitude=103.8501&current=temperature_2m,weather_code&timezone=Asia%2FSingapore', { signal: AbortSignal.timeout(4000) })
+    const { current } = await r.json()
+    const text = WEATHER_TEXT.find(([codes]) => codes.includes(current.weather_code))?.[1] || ''
+    weatherCache = { at: Date.now(), data: { temperature: Math.round(current.temperature_2m), text } }
+    res.json(weatherCache.data)
+  } catch {
+    res.status(503).json({ error: 'Weather is unavailable right now.' })
+  }
+})
+
+/* ---------- Feeds, sitemap and link previews ---------- */
+
+const siteUrl = (req) => (process.env.SITE_URL || `${req.protocol}://${req.get('host')}`).replace(/\/$/, '')
+const xml = (v = '') => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+const absolute = (base, url) => (url.startsWith('http') ? url : `${base}${url}`)
+
+app.get('/rss.xml', (req, res) => {
+  const base = siteUrl(req)
+  const items = list(`SELECT ${ARTICLE_COLUMNS} FROM articles a JOIN users u ON u.id = a.author_id ORDER BY a.published_at DESC LIMIT 30`)
+  res.type('application/rss+xml').send(`<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+  <title>Tech News Singapore</title>
+  <link>${base}/</link>
+  <atom:link href="${base}/rss.xml" rel="self" type="application/rss+xml" />
+  <description>Technology, business and world news from Singapore.</description>
+  <language>en-sg</language>
+${items.map((a) => `  <item>
+    <title>${xml(a.title)}</title>
+    <link>${base}/article/${a.slug}</link>
+    <guid isPermaLink="true">${base}/article/${a.slug}</guid>
+    <description>${xml(a.dek)}</description>
+    <category>${xml(sectionBySlug(a.section)?.name)}</category>
+    <dc:creator>${xml(a.author)}</dc:creator>
+    <pubDate>${new Date(a.publishedAt).toUTCString()}</pubDate>
+  </item>`).join('\n')}
+</channel>
+</rss>`)
+})
+
+app.get('/sitemap.xml', (req, res) => {
+  const base = siteUrl(req)
+  const stories = db.prepare('SELECT slug, updated_at FROM articles ORDER BY published_at DESC').all()
+  const authors = db.prepare(`SELECT slug FROM users WHERE role = 'creator'`).all()
+  const urls = [
+    `${base}/`,
+    ...SECTIONS.map((s) => `${base}/section/${s.slug}`),
+    ...authors.map((a) => `${base}/author/${a.slug}`),
+    ...['about', 'contact', 'corrections', 'privacy', 'newsletters'].map((p) => `${base}/${p}`),
+  ]
+  res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}
+${stories.map((s) => `  <url><loc>${base}/article/${s.slug}</loc><lastmod>${s.updated_at.slice(0, 10)}</lastmod></url>`).join('\n')}
+</urlset>`)
+})
+
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain').send(`User-agent: *
+Disallow: /studio
+Disallow: /login
+Disallow: /api/
+
+Sitemap: ${siteUrl(req)}/sitemap.xml
+`)
+})
+
 /* ---------- Static files ---------- */
 
 app.use('/uploads', express.static(UPLOADS, { maxAge: '30d', immutable: true }))
 app.use('/api', (_req, res) => res.status(404).json({ error: 'Not found.' }))
 
+// In production, story pages get their own title, description and preview image in the HTML,
+// so links shared on WhatsApp, Telegram, X or LinkedIn show a proper preview card.
 if (existsSync(DIST)) {
+  const shell = readFileSync(join(DIST, 'index.html'), 'utf8')
+  const page = (req, { title, description, image, type = 'website' }) => {
+    const base = siteUrl(req)
+    const tags = [
+      `<title>${xml(title)}</title>`,
+      `<meta name="description" content="${xml(description)}" />`,
+      `<link rel="canonical" href="${base}${req.path}" />`,
+      `<meta property="og:type" content="${type}" />`,
+      `<meta property="og:title" content="${xml(title)}" />`,
+      `<meta property="og:description" content="${xml(description)}" />`,
+      `<meta property="og:url" content="${base}${req.path}" />`,
+      image && `<meta property="og:image" content="${xml(absolute(base, image))}" />`,
+      `<meta name="twitter:card" content="${image ? 'summary_large_image' : 'summary'}" />`,
+    ].filter(Boolean).join('\n    ')
+    return shell
+      .replace(/<title>.*?<\/title>/s, '')
+      .replace(/<meta name="description"[^>]*>/, '')
+      .replace('</head>', `    ${tags}
+  </head>`)
+  }
+
   app.use(express.static(DIST, { index: false }))
-  app.get('*', (_req, res) => res.sendFile(join(DIST, 'index.html')))
+  app.get('/article/:slug', (req, res) => {
+    const a = db.prepare('SELECT title, dek, image_url FROM articles WHERE slug = ?').get(req.params.slug)
+    if (!a) return res.status(404).send(page(req, { title: 'Page not found | Tech News Singapore', description: 'This page has moved or never existed.' }))
+    res.send(page(req, { title: `${a.title} | Tech News Singapore`, description: a.dek, image: a.image_url, type: 'article' }))
+  })
+  app.get('*', (req, res) =>
+    res.send(page(req, { title: 'Tech News Singapore', description: 'Technology, business and world news from Singapore.' }))
+  )
 }
 
 // Errors from multer and elsewhere come back as plain JSON messages.
