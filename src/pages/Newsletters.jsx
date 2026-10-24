@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NEWSLETTERS } from '../data/articles.js'
+import { NEWSLETTERS } from '../data/site.js'
 import { usePageTitle } from '../lib.js'
 
 export default function Newsletters() {
@@ -31,7 +31,7 @@ export default function Newsletters() {
       {done ? (
         <div className="form-done" role="status">
           <h2>You’re subscribed</h2>
-          <p>You chose {names.join(', ')}. This is a demo site, so no emails will be sent to {email}.</p>
+          <p>You chose {names.join(', ')}. Newsletter emails are not switched on yet, so nothing will be sent to {email} for now.</p>
           <button className="btn btn--ghost" onClick={() => setDone(false)}>Change my choices</button>
         </div>
       ) : (

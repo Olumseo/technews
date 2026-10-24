@@ -23,6 +23,7 @@ export function About() {
     >
       <h2>What we cover</h2>
       <p>We focus on the stories that shape daily life in Singapore and the region: how people work, travel, pay, build and adapt. We follow technology closely, but we write for everyone, not only for experts.</p>
+      <p>Many of our stories are short explainers of news first reported elsewhere. We write them in our own words and link to the original report at the end of each story, so you can always read the full source.</p>
       <h2>How we work</h2>
       <ul>
         <li>We explain what happened, why it matters and what happens next.</li>
@@ -31,8 +32,7 @@ export function About() {
         <li>We keep news and opinion clearly apart. Opinion pieces are labelled.</li>
       </ul>
       <h2>Our newsroom</h2>
-      <p>Our reporters are based in Singapore, Jakarta, Tokyo, Sydney, Dubai, London and New York. Every reporter has a page listing their stories, linked from their name on each article.</p>
-      <p className="info__note">This website is a design demo. The newsroom, reporters and stories are fictional.</p>
+      <p>Our writers cover Singapore, Southeast Asia and the wider world. Every writer has a page listing their stories, linked from their name on each article.</p>
     </InfoPage>
   )
 }
@@ -43,20 +43,7 @@ export function Corrections() {
       title="Corrections"
       lede="When we get something wrong, we fix it and say so. Here are our most recent corrections."
     >
-      <ul className="corrections">
-        <li>
-          <p className="corrections__date">22 October 2026</p>
-          <p>An earlier version of a story on <Link to="/article/jakarta-mrt-line-opens-early">Jakarta’s new MRT line</Link> gave the number of stations as 19. It is 21.</p>
-        </li>
-        <li>
-          <p className="corrections__date">20 October 2026</p>
-          <p>A caption in <Link to="/article/hawker-centre-cool-roofs">our story on hawker centre roofs</Link> named the wrong centre. It has been corrected.</p>
-        </li>
-        <li>
-          <p className="corrections__date">17 October 2026</p>
-          <p>A market report misstated the closing level of the Hang Seng index. The correct figure has been added.</p>
-        </li>
-      </ul>
+      <p className="corrections__empty">There are no corrections to show right now. When we change a story because of a mistake, we will list it here with the date and what changed.</p>
       <h2>Spotted a mistake?</h2>
       <p>Tell us on the <Link to="/contact">contact page</Link>. Please include the story’s headline and what you think is wrong.</p>
     </InfoPage>
@@ -72,7 +59,7 @@ export function Privacy() {
       <p>This site does not use advertising or tracking cookies.</p>
       <h2>Your choices</h2>
       <p>Every newsletter has an unsubscribe link at the bottom. You can also ask us to delete your details at any time through the <Link to="/contact">contact page</Link>.</p>
-      <p className="info__note">This website is a design demo, so the forms on it do not send or store anything.</p>
+      <p className="info__note">The newsletter and contact forms on this site are not connected to an email service yet, so they do not send or store anything.</p>
     </InfoPage>
   )
 }
@@ -101,7 +88,7 @@ export function Contact() {
       {sent ? (
         <div className="form-done" role="status">
           <h2>Thanks, {form.name.split(' ')[0]}</h2>
-          <p>This is a demo site, so your message was not sent anywhere. On the real site, a member of the newsroom would reply to {form.email}.</p>
+          <p>Our contact form is not connected to email yet, so this message was not sent. Once it is, a member of the newsroom will reply to {form.email}.</p>
           <button className="btn btn--ghost" onClick={() => { setSent(false); setForm({ ...form, message: '' }) }}>Write another message</button>
         </div>
       ) : (

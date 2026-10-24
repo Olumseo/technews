@@ -1,32 +1,61 @@
 import { Link } from 'react-router-dom'
-import { articleBySlug, bySection, latest, sectionBySlug } from '../data/articles.js'
+import { sectionBySlug } from '../data/site.js'
+import { normalize, useApi } from '../api.js'
 import Story, { SectionHead } from '../components/Story.jsx'
 import { LatestTimeline, Markets, MostRead, Newsletter, WorldClock } from '../components/Widgets.jsx'
-import { initials } from '../lib.js'
+import { Loading, LoadError } from '../components/State.jsx'
+import { initials, usePageTitle } from '../lib.js'
 
-const pick = (...slugs) => slugs.map(articleBySlug)
+// Hands out stories newest-first without showing the same one twice on the page.
+function picker(stories) {
+  const used = new Set()
+  return (test, n) => {
+    const out = []
+    for (const a of stories) {
+      if (out.length === n) break
+      if (!used.has(a.slug) && test(a)) {
+        used.add(a.slug)
+        out.push(a)
+      }
+    }
+    return out
+  }
+}
+
+const inSection = (...slugs) => (a) => slugs.includes(a.section)
+const isNews = (a) => a.section !== 'opinion'
 
 export default function Home() {
-  const lead = articleBySlug('malacca-strait-record-traffic')
-  const top = pick('hdb-rooftop-farms-pilot', 'sovereign-ai-model-open-source', 'asian-stocks-inflation')
-  const secondary = pick('coastal-adaptation-fund-draft', 'jakarta-mrt-line-opens-early', 'vietnam-chip-packaging-boom', 'sailors-qualify-world-championships')
-  const [asiaLead, ...asiaRest] = pick('japan-four-day-week-trial', 'changi-t5-structural-milestone', 'hawker-centre-cool-roofs', 'europe-single-rail-ticket')
-  const features = pick('reflective-streets-cooling-trial', 'mangrove-restoration-outpacing-loss', 'undersea-cable-singapore-australia')
-  const opinion = bySection('opinion').slice(0, 3)
-  const mostRead = pick('hawker-stalls-worth-queue', 'malacca-strait-record-traffic', 'sodium-batteries-phones', 'padel-car-park-rooftops', 'kopitiam-design-refresh')
-  const rails = ['business', 'tech', 'world']
-  const life = bySection('life')
+  usePageTitle(null)
+  const { data, error, loading, reload } = useApi('/api/home')
+  if (loading && !data) return <Loading />
+  if (error) return <LoadError error={error} onRetry={reload} />
+
+  const stories = data.latest.map(normalize)
+  const mostRead = data.mostRead.map(normalize)
+  const take = picker(stories)
+
+  const [lead] = take(isNews, 1)
+  const top = take(isNews, 3)
+  const secondary = take(isNews, 4)
+  const [asiaLead, ...asiaRest] = take(inSection('asia', 'singapore'), 4)
+  const features = take(inSection('climate', 'tech'), 3)
+  const opinion = take(inSection('opinion'), 3)
+  const rails = ['business', 'tech', 'world'].map((slug) => ({ slug, items: take(inSection(slug), 3) }))
+  const life = take(inSection('life', 'sport'), 4)
 
   return (
     <>
-      <section className="container hero" aria-label="Top story">
-        <Story article={lead} variant="hero" dek as="h1" />
-      </section>
+      {lead && (
+        <section className="container hero" aria-label="Top story">
+          <Story article={lead} variant="hero" dek as="h1" />
+        </section>
+      )}
 
       <section className="container top-grid" aria-label="Top stories">
         {top.map((a) => <Story key={a.slug} article={a} variant="card" dek />)}
         <aside className="top-grid__latest">
-          <LatestTimeline items={latest(6)} />
+          <LatestTimeline items={stories.slice(0, 6)} />
         </aside>
       </section>
 
@@ -36,15 +65,17 @@ export default function Home() {
 
       <Markets />
 
-      <section className="container block">
-        <SectionHead title="Asia and Singapore" to="/section/asia" linkLabel="More from Asia" />
-        <div className="split">
-          <Story article={asiaLead} variant="feature" dek />
-          <div className="split__list">
-            {asiaRest.map((a) => <Story key={a.slug} article={a} variant="row" />)}
+      {asiaLead && (
+        <section className="container block">
+          <SectionHead title="Asia and Singapore" to="/section/asia" linkLabel="More from Asia" />
+          <div className="split">
+            <Story article={asiaLead} variant="feature" dek />
+            <div className="split__list">
+              {asiaRest.map((a) => <Story key={a.slug} article={a} variant="row" />)}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="band" aria-labelledby="band-title">
         <div className="container">
@@ -61,24 +92,26 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container block">
-        <SectionHead title="Opinion" to="/section/opinion" linkLabel="All opinion" />
-        <div className="opinion">
-          {opinion.map((a) => (
-            <article key={a.slug} className="opinion__item">
-              <div className="opinion__who">
-                <span className="avatar" aria-hidden="true">{initials(a.author)}</span>
-                <div>
-                  <p className="opinion__author">{a.author}</p>
-                  <p className="opinion__role">{a.role}</p>
+      {opinion.length > 0 && (
+        <section className="container block">
+          <SectionHead title="Opinion" to="/section/opinion" linkLabel="All opinion" />
+          <div className="opinion">
+            {opinion.map((a) => (
+              <article key={a.slug} className="opinion__item">
+                <div className="opinion__who">
+                  <span className="avatar" aria-hidden="true">{initials(a.author)}</span>
+                  <div>
+                    <Link to={`/author/${a.authorSlug}`} className="opinion__author">{a.author}</Link>
+                    <p className="opinion__role">{a.role}</p>
+                  </div>
                 </div>
-              </div>
-              <h3 className="opinion__title"><Link to={`/article/${a.slug}`}>{a.title}</Link></h3>
-              <p className="opinion__dek">{a.dek}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+                <h3 className="opinion__title"><Link to={`/article/${a.slug}`}>{a.title}</Link></h3>
+                <p className="opinion__dek">{a.dek}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="container block duo">
         <MostRead items={mostRead} />
@@ -86,24 +119,23 @@ export default function Home() {
       </section>
 
       <section className="container block rails">
-        {rails.map((slug) => {
-          const items = bySection(slug).slice(0, 3)
-          return (
-            <div key={slug} className="rail">
-              <SectionHead title={sectionBySlug(slug).name} to={`/section/${slug}`} />
-              <Story article={items[0]} variant="card" kicker={false} />
-              {items.slice(1).map((a) => <Story key={a.slug} article={a} variant="compact" kicker={false} />)}
-            </div>
-          )
-        })}
+        {rails.filter((r) => r.items.length).map(({ slug, items }) => (
+          <div key={slug} className="rail">
+            <SectionHead title={sectionBySlug(slug).name} to={`/section/${slug}`} />
+            <Story article={items[0]} variant="card" kicker={false} />
+            {items.slice(1).map((a) => <Story key={a.slug} article={a} variant="compact" kicker={false} />)}
+          </div>
+        ))}
       </section>
 
-      <section className="container block">
-        <SectionHead title="Life and weekend" to="/section/life" linkLabel="More from Life" />
-        <div className="cards cards--4 cards--flush">
-          {life.map((a) => <Story key={a.slug} article={a} variant="card" />)}
-        </div>
-      </section>
+      {life.length > 0 && (
+        <section className="container block">
+          <SectionHead title="Life and sport" to="/section/life" linkLabel="More from Life" />
+          <div className="cards cards--4 cards--flush">
+            {life.map((a) => <Story key={a.slug} article={a} variant="card" />)}
+          </div>
+        </section>
+      )}
     </>
   )
 }

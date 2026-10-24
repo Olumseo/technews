@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SECTIONS } from '../data/articles.js'
+import { SECTIONS } from '../data/site.js'
 
 export default function Footer() {
   return (
@@ -33,11 +33,12 @@ export default function Footer() {
               <li><Link to="/contact">Contact the newsroom</Link></li>
               <li><Link to="/corrections">Corrections</Link></li>
               <li><Link to="/privacy">Privacy</Link></li>
+              <li><Link to="/login">Creator sign-in</Link></li>
             </ul>
           </div>
         </div>
         <p className="footer__mark" aria-hidden="true">Tech News Singapore</p>
-        <p className="footer__legal">© {new Date().getFullYear()} Tech News Singapore. A design demo. All stories on this site are fictional.</p>
+        <p className="footer__legal">© {new Date().getFullYear()} Tech News Singapore. Our stories summarise and link to the original reporting.</p>
       </div>
     </footer>
   )

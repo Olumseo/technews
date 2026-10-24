@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CITIES, MARKETS } from '../data/articles.js'
+import { CITIES, MARKETS } from '../data/site.js'
 import { formatClock, publishedAt, useNow } from '../lib.js'
 
 export function Markets() {
@@ -93,7 +93,7 @@ export function Newsletter() {
       <h2 id="newsletter-title" className="newsletter__title">The TNS Morning Brief</h2>
       <p className="newsletter__lede">Five stories that matter, in your inbox by 7am Singapore time. Read it in four minutes, over your kopi.</p>
       {state === 'done' ? (
-        <p className="newsletter__done" role="status">Thanks for subscribing. This is a demo site, so no email will be sent to {email}.</p>
+        <p className="newsletter__done" role="status">Thanks for subscribing. Newsletter emails are not switched on yet, so nothing will be sent to {email} for now.</p>
       ) : (
         <form className="newsletter__form" onSubmit={submit} noValidate>
           <label htmlFor="nl-email" className="sr-only">Email address</label>

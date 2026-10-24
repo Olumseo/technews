@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { articleBySlug, authorSlug, bySection, latest, sectionBySlug } from '../data/articles.js'
+import { sectionBySlug } from '../data/site.js'
+import { normalize, useApi } from '../api.js'
+import { Loading, LoadError } from '../components/State.jsx'
 import Story from '../components/Story.jsx'
 import { LinkIcon, PauseIcon, PlayIcon } from '../components/Icons.jsx'
-import { initials, publishedAt, timeAgo, usePageTitle } from '../lib.js'
+import { fullDate, initials, timeAgo, usePageTitle } from '../lib.js'
 import NotFound from './NotFound.jsx'
 
 function useReadingProgress() {
@@ -73,17 +75,19 @@ function CopyLink() {
 
 export default function Article() {
   const { slug } = useParams()
-  const article = articleBySlug(slug)
+  const { data, error, loading, reload } = useApi(`/api/articles/${slug}`)
   const progress = useReadingProgress()
+  usePageTitle(data?.article?.title)
 
-  usePageTitle(article?.title)
+  if (loading && !data) return <Loading label="Loading story…" />
+  if (error?.status === 404) return <NotFound />
+  if (error) return <LoadError error={error} onRetry={reload} />
 
-  if (!article) return <NotFound />
-
+  const article = normalize(data.article)
+  const more = data.related.map(normalize)
   const section = sectionBySlug(article.section)
-  const related = bySection(article.section).filter((a) => a.slug !== slug)
-  const more = (related.length >= 3 ? related : [...related, ...latest(8).filter((a) => a.slug !== slug && a.section !== article.section)]).slice(0, 3)
   const [first, ...paras] = article.body
+  const edited = new Date(article.updatedAt) - new Date(article.publishedAt) > 10 * 60e3
 
   return (
     <>
@@ -101,12 +105,14 @@ export default function Article() {
             <div className="article__author">
               <span className="avatar avatar--sm" aria-hidden="true">{initials(article.author)}</span>
               <div>
-                <Link to={`/author/${authorSlug(article.author)}`} className="article__name">{article.author}</Link>
+                <Link to={`/author/${article.authorSlug}`} className="article__name">{article.author}</Link>
                 <p className="article__role">{article.role}</p>
               </div>
             </div>
             <p className="article__time">
-              Published {publishedAt(article.minutesAgo)} SGT, {timeAgo(article.minutesAgo)}
+              <time dateTime={article.publishedAt}>{fullDate(article.publishedAt)}</time>
+              {article.minutesAgo < 7 * 1440 && <span>, {timeAgo(article.minutesAgo)}</span>}
+              {edited && <span className="article__updated">Updated {fullDate(article.updatedAt)}</span>}
             </p>
             <div className="article__tools">
               <ListenButton article={article} />
@@ -116,8 +122,8 @@ export default function Article() {
         </header>
 
         <figure className="container article__figure">
-          <img src={article.hero} alt={article.caption} />
-          <figcaption>{article.caption}</figcaption>
+          <img src={article.image} alt={article.caption || ''} />
+          {article.caption && <figcaption>{article.caption}</figcaption>}
         </figure>
 
         <div className="container article__body">
@@ -132,16 +138,20 @@ export default function Article() {
               )}
             </div>
           ))}
-          <p className="article__end">This story is part of a design demo. The reporting, people and figures are fictional.</p>
+          {article.source && (
+            <p className="article__source">
+              Source: <a href={article.source.url} target="_blank" rel="noopener noreferrer">{article.source.name}</a>. This summary is written in our own words; read the original report for full details.
+            </p>
+          )}
         </div>
       </article>
 
-      <section className="container block related" aria-labelledby="related-title">
+      {more.length > 0 && <section className="container block related" aria-labelledby="related-title">
         <h2 id="related-title" className="block-title">Read next</h2>
         <div className="related__grid">
           {more.map((a) => <Story key={a.slug} article={a} variant="card" />)}
         </div>
-      </section>
+      </section>}
     </>
   )
 }

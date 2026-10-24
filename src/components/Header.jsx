@@ -1,21 +1,28 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { SECTIONS, BREAKING } from '../data/articles.js'
+import { SECTIONS } from '../data/site.js'
+import { useApi } from '../api.js'
+import { useAuth } from '../auth.jsx'
 import { formatClock, formatDate, useNow } from '../lib.js'
 import { SearchIcon, CloudIcon, MenuIcon, CloseIcon } from './Icons.jsx'
 
 const LINKS = [{ to: '/', name: 'Home' }, ...SECTIONS.map((s) => ({ to: `/section/${s.slug}`, name: s.name }))]
 
 function Ticker() {
-  const items = [...BREAKING, ...BREAKING]
+  const { data } = useApi('/api/articles?limit=6')
+  const latest = data?.items || []
+  if (!latest.length) return <div className="ticker ticker--empty" aria-hidden="true" />
+  const items = [...latest, ...latest]
   return (
     <div className="ticker" role="region" aria-label="Breaking news">
       <div className="container ticker__inner">
         <span className="ticker__live"><span className="pulse" aria-hidden="true" />Live</span>
         <div className="ticker__viewport">
           <ul className="ticker__track">
-            {items.map((t, i) => (
-              <li key={i} aria-hidden={i >= BREAKING.length}>{t}</li>
+            {items.map((a, i) => (
+              <li key={i} aria-hidden={i >= latest.length}>
+                <Link to={`/article/${a.slug}`} tabIndex={i >= latest.length ? -1 : 0}>{a.title}</Link>
+              </li>
             ))}
           </ul>
         </div>
@@ -26,6 +33,7 @@ function Ticker() {
 
 export default function Header({ onSearch }) {
   const now = useNow()
+  const { user } = useAuth()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
@@ -51,7 +59,10 @@ export default function Header({ onSearch }) {
           <span className="topbar__time">{formatClock(now)} SGT</span>
           <span className="topbar__weather"><CloudIcon /> 31°C</span>
         </div>
-        <Link className="btn btn--solid topbar__subscribe" to="/newsletters">Subscribe</Link>
+        <div className="topbar__actions">
+          {user && <Link className="btn btn--ghost" to="/studio">Studio</Link>}
+          <Link className="btn btn--solid" to="/newsletters">Subscribe</Link>
+        </div>
       </div>
 
       <nav className={`nav${scrolled ? ' is-scrolled' : ''}`} aria-label="Sections">

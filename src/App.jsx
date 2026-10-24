@@ -11,6 +11,9 @@ import Author from './pages/Author.jsx'
 import Newsletters from './pages/Newsletters.jsx'
 import { About, Contact, Corrections, Privacy } from './pages/Info.jsx'
 import BackToTop from './components/BackToTop.jsx'
+import Login from './pages/Login.jsx'
+import { StudioEditor, StudioHome } from './pages/Studio.jsx'
+import { AuthProvider, RequireAuth } from './auth.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -36,7 +39,7 @@ export default function App() {
   }, [])
 
   return (
-    <>
+    <AuthProvider>
       <a className="skip-link" href="#main">Skip to content</a>
       <ScrollToTop />
       <Header onSearch={() => setSearchOpen(true)} />
@@ -51,12 +54,16 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/corrections" element={<Corrections />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/studio" element={<RequireAuth><StudioHome /></RequireAuth>} />
+          <Route path="/studio/new" element={<RequireAuth><StudioEditor /></RequireAuth>} />
+          <Route path="/studio/edit/:slug" element={<RequireAuth><StudioEditor key="edit" /></RequireAuth>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
       <BackToTop />
       {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
-    </>
+    </AuthProvider>
   )
 }

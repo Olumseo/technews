@@ -5,3 +5,7 @@ dist
 .env
 .env.local
 .claude
+data/
+uploads/*
+!uploads/.gitkeep
+server/seed-credentials.local.md

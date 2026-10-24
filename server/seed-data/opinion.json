@@ -1,0 +1,54 @@
+[
+  {
+    "title": "The quiet case for slower cities",
+    "dek": "We design streets to move people quickly. Perhaps the better question is how long they want to stay.",
+    "section": "opinion",
+    "date": "2026-03-14",
+    "body": [
+      "Every city plan I have read in the past decade promises to shave minutes off journeys. Few promise to make the minutes themselves better.",
+      "The places people love most, the old shophouse rows and the void decks where neighbours linger, are not efficient. They are generous.",
+      "A slower city is not a less ambitious one. It is one that measures success by how people feel when they arrive, not how quickly they leave."
+    ],
+    "caption": "A shophouse street lined with small businesses.",
+    "photo_topic": "city"
+  },
+  {
+    "title": "ASEAN’s next decade will be decided at sea",
+    "dek": "Ports, cables and fishing grounds matter more to the region’s future than any summit communiqué.",
+    "section": "opinion",
+    "date": "2026-06-06",
+    "body": [
+      "Most of Southeast Asia’s trade, data and protein crosses water. Yet regional diplomacy still treats the sea as a backdrop rather than the stage.",
+      "The countries that invest in shared maritime rules now will set the terms of the region’s economy for a generation.",
+      "That means joint patrols, common standards for cable protection and a fisheries agreement with real enforcement."
+    ],
+    "caption": "Fishing boats moored in open water.",
+    "photo_topic": "sea"
+  },
+  {
+    "title": "We should teach children to argue well, not just to answer well",
+    "dek": "Exam systems reward the right answer. Life rewards the person who can change their mind in public.",
+    "section": "opinion",
+    "date": "2026-08-22",
+    "body": [
+      "Our schools are superb at producing students who can find the right answer. They are less good at producing adults who can disagree without falling out.",
+      "Structured debate, taught early and often, is one of the cheapest ways to change that.",
+      "The goal is not to win arguments but to understand the strongest version of the other side."
+    ],
+    "caption": "Students follow a teacher’s presentation.",
+    "photo_topic": "school"
+  },
+  {
+    "title": "Our parents need tech help too, not just our children",
+    "dek": "We worry about screen time for kids. We should worry just as much about elders left behind by every new app.",
+    "section": "opinion",
+    "date": "2026-10-11",
+    "body": [
+      "Every month, another everyday task moves into an app: booking a clinic visit, paying a bill, ordering a meal.",
+      "For many older people, each change is a small wall. Most will not complain. They will simply stop doing the thing.",
+      "Patient, in-person help at community centres works. It deserves the same attention and funding we give to children’s digital lessons."
+    ],
+    "caption": "An older woman smiles at a message on her phone.",
+    "photo_topic": "phone"
+  }
+]

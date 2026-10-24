@@ -1,14 +1,21 @@
 import { useParams } from 'react-router-dom'
-import { authorBySlug } from '../data/articles.js'
+import { normalize, useApi } from '../api.js'
 import Story from '../components/Story.jsx'
+import { Loading, LoadError } from '../components/State.jsx'
 import { initials, usePageTitle } from '../lib.js'
 import NotFound from './NotFound.jsx'
 
 export default function Author() {
   const { slug } = useParams()
-  const author = authorBySlug(slug)
-  usePageTitle(author?.name)
-  if (!author) return <NotFound />
+  const { data, error, loading, reload } = useApi(`/api/authors/${slug}`)
+  usePageTitle(data?.author?.name)
+
+  if (loading && !data) return <Loading />
+  if (error?.status === 404) return <NotFound />
+  if (error) return <LoadError error={error} onRetry={reload} />
+
+  const { author } = data
+  const stories = data.stories.map(normalize)
 
   return (
     <>
@@ -23,11 +30,15 @@ export default function Author() {
 
       <section className="container" aria-labelledby="author-stories">
         <h2 id="author-stories" className="block-title">
-          Latest from {author.name.split(' ')[0]} <span className="block-title__count">{author.stories.length} {author.stories.length === 1 ? 'story' : 'stories'}</span>
+          Latest from {author.name.split(' ')[0]} <span className="block-title__count">{stories.length} {stories.length === 1 ? 'story' : 'stories'}</span>
         </h2>
-        <div className="story-list">
-          {author.stories.map((a) => <Story key={a.slug} article={a} variant="row" dek />)}
-        </div>
+        {stories.length ? (
+          <div className="story-list">
+            {stories.map((a) => <Story key={a.slug} article={a} variant="row" dek />)}
+          </div>
+        ) : (
+          <p className="state">No stories yet.</p>
+        )}
       </section>
     </>
   )

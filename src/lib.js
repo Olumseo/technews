@@ -6,17 +6,25 @@ export function timeAgo(minutes) {
   if (minutes < 1) return 'Just now'
   if (minutes < 60) return `${minutes} min ago`
   if (minutes < 1440) return `${Math.floor(minutes / 60)}h ago`
-  return `${Math.floor(minutes / 1440)}d ago`
+  if (minutes < 7 * 1440) return `${Math.floor(minutes / 1440)}d ago`
+  return shortDate(new Date(Date.now() - minutes * 60000))
 }
 
-// Clock time of a story in Singapore, derived from how long ago it was published.
+export function shortDate(date) {
+  const sameYear = date.getFullYear() === new Date().getFullYear()
+  return date.toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric', timeZone: SG })
+}
+
+// Clock time for today's stories, short date for anything older.
 export function publishedAt(minutes, now = Date.now()) {
-  return new Date(now - minutes * 60000).toLocaleTimeString('en-SG', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-    timeZone: SG,
-  })
+  const date = new Date(now - minutes * 60000)
+  if (minutes >= 1440) return shortDate(date)
+  return date.toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: SG })
+}
+
+export function fullDate(iso) {
+  const d = new Date(iso)
+  return `${d.toLocaleDateString('en-SG', { day: 'numeric', month: 'long', year: 'numeric', timeZone: SG })}, ${d.toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: SG })} SGT`
 }
 
 export function formatClock(date, timeZone = SG) {

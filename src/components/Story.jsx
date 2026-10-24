@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { authorSlug, sectionBySlug } from '../data/articles.js'
+import { sectionBySlug } from '../data/site.js'
 import { timeAgo } from '../lib.js'
 
 export function Kicker({ article }) {
@@ -10,7 +10,7 @@ export function Kicker({ article }) {
 export function Byline({ article, showAuthor = true }) {
   return (
     <p className="byline">
-      {showAuthor && <Link to={`/author/${authorSlug(article.author)}`} className="byline__author">{article.author}</Link>}
+      {showAuthor && <Link to={`/author/${article.authorSlug}`} className="byline__author">{article.author}</Link>}
       <span className="byline__time">{timeAgo(article.minutesAgo)}</span>
       <span className="byline__time">{article.read} min read</span>
     </p>
