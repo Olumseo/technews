@@ -48,6 +48,18 @@ Anyone can open a creator account at `/join` and publish through the studio.
 - **Instant publishing for everyone:** set `REQUIRE_REVIEW=false`. Not recommended for a public site.
 - **Email:** new accounts are not email-verified yet, because the site has no email service. Add verification before opening sign-up widely.
 
+### Story formatting
+
+Story bodies are split into blocks by blank lines. In the studio, creators can also use:
+
+- `## Heading` on its own line for a subheading
+- lines starting with `- ` for a bullet list
+- `[link text](https://example.com)` for a link (only `http` and `https` links become clickable)
+
+Everything is rendered as text, so a story can't inject HTML into the page.
+
+`server/seed-data/features.json` holds full-length features written for the site, such as the October tech-stocks analysis. `npm run seed` loads them with their real dates and named creators.
+
 ### Breaking news
 
 - Creators flag a story as breaking with the **Breaking news** switch in the studio. The flag lasts 12 hours (`breaking_until` in the database), then the story becomes a normal story again.

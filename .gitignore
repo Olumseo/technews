@@ -5,7 +5,8 @@ dist
 .env
 .env.local
 .claude
-data/
-uploads/*
-!uploads/.gitkeep
+# SQLite database (top-level folder only; src/data is source code)
+/data/
+/uploads/*
+!/uploads/.gitkeep
 server/seed-credentials.local.md
