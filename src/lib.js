@@ -15,10 +15,12 @@ export function shortDate(date) {
   return date.toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric', timeZone: SG })
 }
 
-// Clock time for today's stories, short date for anything older.
+const sgDay = (date) => date.toLocaleDateString('en-CA', { timeZone: SG })
+
+// Clock time for stories from today (in Singapore), short date for anything from an earlier day.
 export function publishedAt(minutes, now = Date.now()) {
   const date = new Date(now - minutes * 60000)
-  if (minutes >= 1440) return shortDate(date)
+  if (sgDay(date) !== sgDay(new Date(now))) return shortDate(date)
   return date.toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: SG })
 }
 

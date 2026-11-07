@@ -12,6 +12,7 @@ const DATA = join(ROOT, 'server', 'seed-data')
 const stories = JSON.parse(readFileSync(join(DATA, 'stories-2026.json'), 'utf8'))
 const columns = JSON.parse(readFileSync(join(DATA, 'opinion.json'), 'utf8'))
 const breaking = JSON.parse(readFileSync(join(DATA, 'breaking.json'), 'utf8'))
+const features = JSON.parse(readFileSync(join(DATA, 'features.json'), 'utf8'))
 
 // Sample creator accounts. These are fictional people: replace them with real staff before launch.
 const CREATORS = [
@@ -125,6 +126,18 @@ for (const s of breaking) {
     slugFor(s.title), s.section, s.title, s.dek, JSON.stringify(s.body), s.photo_id ? photoUrl(s.photo_id) : photoFor(s.photo_topic),
     s.caption || '', null, s.source_name, s.source_url, authorFor(s.section),
     Math.max(2, Math.ceil(words / 200)), views(when), when.toISOString(), when.toISOString(), breakingUntil
+  )
+  count++
+}
+
+// Full-length features written for the site, credited to a named creator. Sources are linked in the body.
+for (const s of features) {
+  const when = new Date(s.published) > new Date() ? new Date(Date.now() - 30 * 60e3) : new Date(s.published)
+  const words = s.body.join(' ').split(/\s+/).length
+  insertArticle.run(
+    slugFor(s.title), s.section, s.title, s.dek, JSON.stringify(s.body), photoUrl(s.photo_id),
+    s.caption || '', s.quote || null, null, null, ids[s.author] ?? authorFor(s.section),
+    Math.max(2, Math.ceil(words / 200)), views(when), when.toISOString(), when.toISOString(), null
   )
   count++
 }

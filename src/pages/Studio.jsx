@@ -4,6 +4,7 @@ import { SECTIONS, sectionBySlug } from '../data/site.js'
 import { api, normalize, useApi } from '../api.js'
 import { useAuth } from '../auth.jsx'
 import { Loading, LoadError } from '../components/State.jsx'
+import { Block } from '../components/RichText.jsx'
 import { initials, shortDate, usePageTitle } from '../lib.js'
 
 const STATUS = {
@@ -277,7 +278,7 @@ export function StudioEditor() {
           </div>
           {field('caption', 'Photo caption', <input {...a11y('caption')} value={form.caption} onChange={set('caption')} maxLength={200} />)}
 
-          {field('body', 'Story', <textarea {...a11y('body', true)} rows={14} value={form.body} onChange={set('body')} />, 'Leave a blank line between paragraphs.')}
+          {field('body', 'Story', <textarea {...a11y('body', true)} rows={14} value={form.body} onChange={set('body')} />, 'Leave a blank line between paragraphs. Start a line with ## for a subheading or - for a bullet point, and write links as [text](https://link).')}
           {field('quote', 'Pull quote (optional)', <input {...a11y('quote')} value={form.quote} onChange={set('quote')} maxLength={300} />)}
 
           <div className="form__pair">
@@ -443,7 +444,7 @@ export function StudioReview() {
 
               <details className="review-card__body" open={open === a.slug} onToggle={(e) => e.currentTarget.open && setOpen(a.slug)}>
                 <summary>Read the full story</summary>
-                {a.body.map((p, i) => <p key={i}>{p}</p>)}
+                {a.body.map((p, i) => <Block key={i} block={p} />)}
               </details>
 
               <div className="review-card__actions">

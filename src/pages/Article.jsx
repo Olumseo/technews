@@ -4,6 +4,7 @@ import { sectionBySlug } from '../data/site.js'
 import { normalize, useApi } from '../api.js'
 import { Loading, LoadError } from '../components/State.jsx'
 import Story from '../components/Story.jsx'
+import { Block, blockType, plainText } from '../components/RichText.jsx'
 import { LinkIcon, PauseIcon, PlayIcon } from '../components/Icons.jsx'
 import { fullDate, initials, timeAgo, usePageTitle } from '../lib.js'
 import NotFound from './NotFound.jsx'
@@ -37,7 +38,7 @@ function ListenButton({ article }) {
       setPlaying(false)
       return
     }
-    const u = new SpeechSynthesisUtterance([article.title, article.dek, ...article.body].join('. '))
+    const u = new SpeechSynthesisUtterance([article.title, article.dek, ...article.body.map(plainText)].join('. '))
     u.lang = 'en-SG'
     u.rate = 1.02
     u.onend = () => setPlaying(false)
@@ -169,10 +170,10 @@ export default function Article() {
         </figure>
 
         <div className="container article__body">
-          <p className="article__first">{first}</p>
+          <Block block={first} className={blockType(first) === 'paragraph' ? 'article__first' : undefined} />
           {paras.map((p, i) => (
             <div key={i}>
-              <p>{p}</p>
+              <Block block={p} />
               {i === 0 && article.quote && (
                 <blockquote className="pullquote">
                   <p>{article.quote}</p>
