@@ -278,7 +278,7 @@ export function StudioEditor() {
           </div>
           {field('caption', 'Photo caption', <input {...a11y('caption')} value={form.caption} onChange={set('caption')} maxLength={200} />)}
 
-          {field('body', 'Story', <textarea {...a11y('body', true)} rows={14} value={form.body} onChange={set('body')} />, 'Leave a blank line between paragraphs. Start a line with ## for a subheading or - for a bullet point, and write links as [text](https://link).')}
+          {field('body', 'Story', <textarea {...a11y('body', true)} rows={14} value={form.body} onChange={set('body')} />, 'Leave a blank line between paragraphs. Start a line with ## or ### for a subheading, - for a bullet point or 1. for a numbered list. Write **bold** and links as [text](https://link).')}
           {field('quote', 'Pull quote (optional)', <input {...a11y('quote')} value={form.quote} onChange={set('quote')} maxLength={300} />)}
 
           <div className="form__pair">
