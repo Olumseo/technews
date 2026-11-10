@@ -27,6 +27,8 @@ const CREATORS = [
   { name: 'Daniel Goh', title: 'Climate and science reporter', beats: ['climate'], bio: 'Writes about heat, water, energy and how the region is adapting to a warmer world.' },
   { name: 'Nurul Aisyah', title: 'Life and culture writer', beats: ['life'], bio: 'Writes about food, travel, design and culture.' },
   { name: 'Marcus Chia', title: 'Sports reporter', beats: ['sport'], bio: 'Covers sport in Singapore and Asia, from the national team to motor racing.' },
+  // Byline for staff reports, not a person.
+  { name: 'TNS Newsroom', title: 'Staff report', beats: [], bio: 'News reports and analysis from the Tech News Singapore newsroom.' },
   { name: 'Rebecca Teo', title: 'Columnist', beats: ['opinion'], bio: 'Writes a weekly column on cities, technology and how we live together.' },
 ]
 

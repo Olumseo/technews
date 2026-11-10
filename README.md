@@ -56,8 +56,9 @@ Anyone can open a creator account at `/join` and publish through the studio.
 
 Story bodies are split into blocks by blank lines. In the studio, creators can also use:
 
-- `## Heading` on its own line for a subheading
-- lines starting with `- ` for a bullet list
+- `## Heading` or `### Heading` on its own line for a subheading
+- lines starting with `- ` for a bullet list, or `1. ` for a numbered list
+- `**bold text**` for bold
 - `[link text](https://example.com)` for a link (only `http` and `https` links become clickable)
 
 Everything is rendered as text, so a story can't inject HTML into the page.
