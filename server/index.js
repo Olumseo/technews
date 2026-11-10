@@ -10,7 +10,7 @@ import { isSection, sectionBySlug, slugify, SECTIONS } from '../src/data/site.js
 const PORT = Number(process.env.PORT) || 5174
 // New creators' stories wait for an admin to approve them. Set REQUIRE_REVIEW=false to publish everything instantly.
 const REQUIRE_REVIEW = process.env.REQUIRE_REVIEW !== 'false'
-const UPLOADS = join(ROOT, 'uploads')
+const UPLOADS = process.env.UPLOADS_DIR || join(ROOT, 'uploads')
 const DIST = join(ROOT, 'dist')
 mkdirSync(UPLOADS, { recursive: true })
 
@@ -31,6 +31,14 @@ app.use(loadUser)
 
 // State-changing API calls must carry this header. Browsers can't add it cross-site
 // without a CORS preflight (which this server never approves), so it blocks CSRF.
+// On hosts with no permanent storage (Vercel), anything saved would soon vanish, so writes are refused.
+if (process.env.READ_ONLY) {
+  app.use('/api', (req, res, next) => {
+    if (req.method === 'GET') return next()
+    res.status(503).json({ error: 'Accounts and publishing aren’t available on this version of the site yet.' })
+  })
+}
+
 app.use('/api', (req, res, next) => {
   if (req.method !== 'GET' && req.get('X-Requested-With') !== 'tns') {
     return res.status(403).json({ error: 'Request blocked.' })
@@ -623,4 +631,7 @@ app.use((err, _req, res, _next) => {
   res.status(status).json({ error: message })
 })
 
-app.listen(PORT, () => console.log(`API ready on http://localhost:${PORT}`))
+// On Vercel the platform calls the app directly (see api/index.js).
+if (!process.env.READ_ONLY) app.listen(PORT, () => console.log(`API ready on http://localhost:${PORT}`))
+
+export default app

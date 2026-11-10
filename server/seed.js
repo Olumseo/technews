@@ -150,5 +150,9 @@ writeFileSync(
     .join('\n')}\n`
 )
 
+// Write everything into the main database file, so it can be copied on its own (Vercel builds do this).
+db.exec('PRAGMA wal_checkpoint(TRUNCATE)')
+db.close()
+
 console.log(`Seeded ${CREATORS.length} creators, 1 admin and ${count} stories.`)
 console.log(`Sign-in details written to ${file}`)

@@ -26,6 +26,10 @@ npm start
 
 `npm start` serves the built site, the API and uploaded photos from one Node process on `PORT` (default 5174). Run it behind HTTPS so the session cookie is marked secure (`NODE_ENV=production`). Keep the `data/` and `uploads/` folders on persistent storage.
 
+### Deploying on Vercel
+
+Vercel works, but **read-only**, because it has no permanent storage for the database or uploaded photos. The build creates a database from the seed data (`npm run seed`), and `api/index.js` serves it as a serverless function. Readers get the full site, but sign-up, sign-in and publishing are switched off, and new stories only appear by adding them to `server/seed-data/` and redeploying. For accounts and the studio, use a host with a permanent disk (`npm start`, as above).
+
 ## How it fits together
 
 | Part | Where |

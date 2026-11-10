@@ -29,8 +29,10 @@ export async function api(path, { method = 'GET', json, form } = {}) {
   } catch {
     throw new ApiError('Can’t reach the server. Check your connection and try again.', 0)
   }
-  const data = await res.json().catch(() => ({}))
-  if (!res.ok) throw new ApiError(data.error || 'Something went wrong.', res.status, data.fields)
+  const data = await res.json().catch(() => null)
+  if (!res.ok) throw new ApiError(data?.error || 'Something went wrong.', res.status, data?.fields)
+  // A 200 that isn't JSON means the API isn't behind this address (for example, a static-only deployment).
+  if (data === null) throw new ApiError('The news service isn’t responding. Try again in a moment.', res.status)
   return data
 }
 
