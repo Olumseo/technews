@@ -116,11 +116,11 @@ for (const s of [...stories, ...columns].sort((a, b) => a.date.localeCompare(b.d
   count++
 }
 
-// Breaking stories keep their real publish times and stay flagged for 24 hours after seeding.
-// Editors set or clear the flag from the studio; it expires on its own.
-const breakingUntil = new Date(Date.now() + 24 * 3600e3).toISOString()
+// Breaking stories keep their real publish times and count as breaking for 48 hours after publication,
+// so reseeding or redeploying later can't announce old news as breaking again.
 for (const s of breaking) {
   const when = new Date(s.published) > new Date() ? new Date(Date.now() - 30 * 60e3) : new Date(s.published)
+  const breakingUntil = new Date(when.getTime() + 48 * 3600e3).toISOString()
   const words = s.body.join(' ').split(/\s+/).length
   insertArticle.run(
     slugFor(s.title), s.section, s.title, s.dek, JSON.stringify(s.body), s.photo_id ? photoUrl(s.photo_id) : photoFor(s.photo_topic),
@@ -149,6 +149,10 @@ writeFileSync(
     .map((c) => `| ${c.join(' | ')} |`)
     .join('\n')}\n`
 )
+
+// Write everything into the main database file, so it can be copied on its own (Vercel builds do this).
+db.exec('PRAGMA wal_checkpoint(TRUNCATE)')
+db.close()
 
 console.log(`Seeded ${CREATORS.length} creators, 1 admin and ${count} stories.`)
 console.log(`Sign-in details written to ${file}`)

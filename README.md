@@ -26,6 +26,10 @@ npm start
 
 `npm start` serves the built site, the API and uploaded photos from one Node process on `PORT` (default 5174). Run it behind HTTPS so the session cookie is marked secure (`NODE_ENV=production`). Keep the `data/` and `uploads/` folders on persistent storage.
 
+### Deploying on Vercel
+
+Vercel works, but **read-only**, because it has no permanent storage for the database or uploaded photos. The build creates a database from the seed data (`npm run seed`), and `api/index.js` serves it as a serverless function. Readers get the full site, but sign-up, sign-in and publishing are switched off, and new stories only appear by adding them to `server/seed-data/` and redeploying. For accounts and the studio, use a host with a permanent disk (`npm start`, as above).
+
 ## How it fits together
 
 | Part | Where |
@@ -65,7 +69,7 @@ Everything is rendered as text, so a story can't inject HTML into the page.
 - Creators flag a story as breaking with the **Breaking news** switch in the studio. The flag lasts 12 hours (`breaking_until` in the database), then the story becomes a normal story again.
 - While anything is breaking, a red banner replaces the "Latest" ticker on every page, the home page opens with a Breaking news block, and a red **Breaking** link appears in the menu.
 - `/breaking` lists current breaking stories, newest first. Readers can hide the banner for the rest of their visit.
-- `npm run seed` loads the stories in `server/seed-data/breaking.json` and flags them for 24 hours. They are real news from 22–24 October 2026, each linked to its source; replace them with current stories when you reseed later.
+- `npm run seed` loads the stories in `server/seed-data/breaking.json`. They count as breaking for 48 hours after their publish time, so older ones load as normal stories and never bring the banner back.
 
 ### Feeds and sharing
 

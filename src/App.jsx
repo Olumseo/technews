@@ -11,6 +11,7 @@ import Author from './pages/Author.jsx'
 import Newsletters from './pages/Newsletters.jsx'
 import { About, Contact, Corrections, Guidelines, Privacy } from './pages/Info.jsx'
 import BackToTop from './components/BackToTop.jsx'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
 import Login from './pages/Login.jsx'
 import BreakingPage from './pages/BreakingPage.jsx'
 import { StudioCreators, StudioEditor, StudioHome, StudioProfile, StudioReview } from './pages/Studio.jsx'
@@ -28,6 +29,7 @@ function ScrollToTop() {
 
 export default function App() {
   const [searchOpen, setSearchOpen] = useState(false)
+  const { pathname } = useLocation()
 
   useEffect(() => {
     const onKey = (e) => {
@@ -47,6 +49,7 @@ export default function App() {
       <ScrollToTop />
       <Header onSearch={() => setSearchOpen(true)} />
       <main id="main">
+        <ErrorBoundary key={pathname}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/section/:slug" element={<Section />} />
@@ -70,6 +73,7 @@ export default function App() {
           <Route path="/studio/edit/:slug" element={<RequireAuth><StudioEditor key="edit" /></RequireAuth>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </ErrorBoundary>
       </main>
       <Footer />
       <BackToTop />
