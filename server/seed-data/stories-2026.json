@@ -11,7 +11,9 @@
     ],
     "source_name": "AP (via The Gleaner)",
     "source_url": "https://jamaica-gleaner.com/article/news/20260103/us-strikes-venezuela-and-says-nicolas-maduro-has-been-captured-and-flown-out",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1714594923299-e915b7d71701",
+    "caption": "Caracas, with the mountains behind the city."
   },
   {
     "title": "Nvidia says its next Rubin AI chips are already in full production",
@@ -25,7 +27,8 @@
     ],
     "source_name": "Bloomberg",
     "source_url": "https://news.bgov.com/artificial-intelligence/nvidia-ceo-says-new-rubin-chips-are-on-track-helping-speed-ai",
-    "photo_topic": "chips"
+    "photo_topic": "chips",
+    "photo_id": "1587845323226-bad89242c735"
   },
   {
     "title": "Trump orders US exit from 66 international bodies, including the UN climate treaty",
@@ -39,7 +42,8 @@
     ],
     "source_name": "Jurist",
     "source_url": "https://www.jurist.org/news/2026/01/trump-orders-us-withdrawal-from-66-international-organizations-including-un-climate-bodies/",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1645705315654-019e91990d4f"
   },
   {
     "title": "Indonesia and Malaysia become the first countries to block Grok over deepfakes",
@@ -53,7 +57,8 @@
     ],
     "source_name": "NPR",
     "source_url": "https://www.npr.org/2026/01/12/nx-s1-5674660/malaysia-indonesia-block-grok-ai-deepfakes",
-    "photo_topic": "internet"
+    "photo_topic": "internet",
+    "photo_id": "1604869515882-4d10fa4b0492"
   },
   {
     "title": "Apple picks Google’s Gemini to power the next version of Siri",
@@ -67,7 +72,9 @@
     ],
     "source_name": "Gulf News",
     "source_url": "https://gulfnews.com/technology/media/google-will-power-apples-next-siri-with-gemini-ai-in-multiyear-deal-1.500406234",
-    "photo_topic": "phone"
+    "photo_topic": "phone",
+    "photo_id": "1523206489230-c012c64b2b48",
+    "caption": "An iPhone."
   },
   {
     "title": "2025 ranked as the planet’s third-hottest year on record",
@@ -81,7 +88,9 @@
     ],
     "source_name": "Copernicus Climate Change Service",
     "source_url": "https://climate.copernicus.eu/copernicus-2025-was-third-hottest-year-record",
-    "photo_topic": "nature"
+    "photo_topic": "nature",
+    "photo_id": "1594315590298-329f49c8dcb9",
+    "caption": "The sun in a hazy orange sky."
   },
   {
     "title": "TSMC posts 35% jump in quarterly profit and plans record investment",
@@ -95,7 +104,8 @@
     ],
     "source_name": "AP (via Business Standard)",
     "source_url": "https://www.business-standard.com/world-news/tsmc-to-boost-capital-spending-as-quarterly-profit-jumps-35-on-ai-boom-126011500539_1.html",
-    "photo_topic": "chips"
+    "photo_topic": "chips",
+    "photo_id": "1562408590-e32931084e23"
   },
   {
     "title": "PM Wong removes Pritam Singh as Leader of the Opposition",
@@ -109,7 +119,9 @@
     ],
     "source_name": "South China Morning Post",
     "source_url": "https://www.scmp.com/week-asia/politics/article/3340003/singapores-pm-lawrence-wong-removes-pritam-singh-leader-opposition",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1775152495896-2bd742e85c96",
+    "caption": "Historic buildings in Singapore’s civic district."
   },
   {
     "title": "OpenAI to begin testing ads inside ChatGPT for free and low-cost users",
@@ -123,7 +135,8 @@
     ],
     "source_name": "Bloomberg",
     "source_url": "https://news.bloomberglaw.com/tech-and-telecom-law/openai-to-test-targeted-ads-in-chatgpt-stepping-up-revenue-push",
-    "photo_topic": "ai"
+    "photo_topic": "ai",
+    "photo_id": "1677442136019-21780ecad995"
   },
   {
     "title": "Gold and silver plunge after Trump names Kevin Warsh to lead the Fed",
@@ -137,7 +150,9 @@
     ],
     "source_name": "The National",
     "source_url": "https://www.thenationalnews.com/business/markets/2026/01/30/gold-plummets-and-dollar-strengthens-on-trumps-fed-chair-nomination/",
-    "photo_topic": "markets"
+    "photo_topic": "markets",
+    "photo_id": "1534951009808-766178b47a4f",
+    "caption": "Gold coins."
   },
   {
     "title": "SpaceX buys Elon Musk’s AI company xAI in a record-breaking deal",
@@ -151,7 +166,8 @@
     ],
     "source_name": "Reuters (via New Straits Times)",
     "source_url": "https://www.nst.com.my/amp/business/corporate/2026/02/1370202/spacex-acquires-xai-musk-moves-unite-ai-space-ambitions",
-    "photo_topic": "space"
+    "photo_topic": "space",
+    "photo_id": "1517976487492-5750f3195933"
   },
   {
     "title": "Data and legal software stocks slide after Anthropic launches a legal AI tool",
@@ -165,7 +181,8 @@
     ],
     "source_name": "Reuters (via Yahoo Finance)",
     "source_url": "https://finance.yahoo.com/news/anthropics-ai-tools-deepen-selloff-054551832.html",
-    "photo_topic": "markets"
+    "photo_topic": "markets",
+    "photo_id": "1611974789855-9c2a0a7236a3"
   },
   {
     "title": "Milan Cortina Winter Olympics open with a ceremony spread across four sites",
@@ -179,7 +196,9 @@
     ],
     "source_name": "AP (via OPB)",
     "source_url": "https://www.opb.org/article/2026/02/06/the-latest-milan-cortina-winter-olympics-kicks-off-with-a-four-site-two-cauldron-opening-ceremony",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1642367943176-d1b7d3ce4100",
+    "caption": "A ski jumper in mid-air."
   },
   {
     "title": "Japan’s ruling LDP wins a landslide in Takaichi’s snap election",
@@ -193,7 +212,8 @@
     ],
     "source_name": "Euronews",
     "source_url": "https://www.euronews.com/2026/02/08/takaichis-ruling-party-on-course-for-landslide-win-in-japan-election",
-    "photo_topic": "election"
+    "photo_topic": "election",
+    "photo_id": "1540910419892-4a36d2c3266c"
   },
   {
     "title": "Bad Bunny headlines the Super Bowl halftime show in Spanish",
@@ -207,7 +227,9 @@
     ],
     "source_name": "TVLine",
     "source_url": "https://tvline.com/2096263/bad-bunny-super-bowl-halftime-2026-performance-review",
-    "photo_topic": "football"
+    "photo_topic": "football",
+    "photo_id": "1470229722913-7c0e2dbbafd3",
+    "caption": "Stage lights over a concert crowd."
   },
   {
     "title": "Singapore Budget 2026 sets out national AI push and support for households",
@@ -221,7 +243,8 @@
     ],
     "source_name": "The Straits Times (via Asia News Network)",
     "source_url": "https://asianews.network/singapore-pm-wong-unveils-155b-budget-with-nationwide-ai-push-more-support-for-firms-and-families/",
-    "photo_topic": "money"
+    "photo_topic": "money",
+    "photo_id": "1580519542036-c47de6196ba5"
   },
   {
     "title": "US government repeals the scientific finding behind its climate rules",
@@ -235,7 +258,9 @@
     ],
     "source_name": "ESG Today",
     "source_url": "https://www.esgtoday.com/trump-repeals-landmark-endangerment-finding-underlying-major-climate-regulations/",
-    "photo_topic": "ev"
+    "photo_topic": "ev",
+    "photo_id": "1552783160-27bfdb2625d5",
+    "caption": "Smoke rising from a factory."
   },
   {
     "title": "Bangladesh’s BNP wins first election since the 2024 uprising",
@@ -249,7 +274,8 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/2/13/bangladeshs-bnp-claims-landslide-win-in-first-election-since-2024-uprising",
-    "photo_topic": "election"
+    "photo_topic": "election",
+    "photo_id": "1782998307726-f93ec14eda24"
   },
   {
     "title": "US Supreme Court strikes down Trump’s sweeping emergency tariffs",
@@ -263,7 +289,8 @@
     ],
     "source_name": "AP (via WTTW)",
     "source_url": "https://news.wttw.com/2026/02/20/supreme-court-strikes-down-trump-s-sweeping-tariffs-upending-central-plank-economic",
-    "photo_topic": "shipping"
+    "photo_topic": "shipping",
+    "photo_id": "1578575437130-527eed3abbec"
   },
   {
     "title": "India’s AI summit ends with a non-binding declaration backed by 88 parties",
@@ -277,7 +304,8 @@
     ],
     "source_name": "Fortune",
     "source_url": "https://fortune.com/2026/02/23/indias-ai-impact-summit-closes-with-the-new-delhi-declaration-and-a-200-billion-boost",
-    "photo_topic": "ai"
+    "photo_topic": "ai",
+    "photo_id": "1485827404703-89b55fcc595e"
   },
   {
     "title": "Apple unveils the MacBook Neo, its cheapest laptop yet at US$599",
@@ -291,7 +319,9 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/03/04/apple-macbook-neo-budget-laptop.html",
-    "photo_topic": "office"
+    "photo_topic": "office",
+    "photo_id": "1580927752452-89d86da3fa0a",
+    "caption": "A MacBook on a wooden table."
   },
   {
     "title": "China sets its lowest growth target in decades at 4.5% to 5%",
@@ -305,7 +335,9 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/03/05/china-gdp-two-sessions-.html",
-    "photo_topic": "markets"
+    "photo_topic": "markets",
+    "photo_id": "1627484986972-e544190b8abb",
+    "caption": "Shanghai’s skyline at night."
   },
   {
     "title": "Iran names Mojtaba Khamenei as supreme leader after his father’s killing",
@@ -319,7 +351,9 @@
     ],
     "source_name": "NPR",
     "source_url": "https://www.npr.org/2026/03/08/nx-s1-5741654/israel-iran-oil-ayatollah-successor",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1771090848226-d135eff12bff",
+    "caption": "Tehran’s skyline in haze."
   },
   {
     "title": "Oil closes above US$100 despite record release of emergency reserves",
@@ -333,7 +367,9 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/03/12/oil-prices-jump-iea-record-reserve-release-markets-doubt-relief.html",
-    "photo_topic": "energy"
+    "photo_topic": "energy",
+    "photo_id": "1516199423456-1f1e91b06f25",
+    "caption": "An oil pump jack at sunset."
   },
   {
     "title": "Nvidia expects US$1 trillion in orders for its Blackwell and Vera Rubin chips",
@@ -347,7 +383,8 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html",
-    "photo_topic": "chips"
+    "photo_topic": "chips",
+    "photo_id": "1760842543713-108c3cadbba1"
   },
   {
     "title": "US Federal Reserve holds rates steady as oil shock lifts inflation forecasts",
@@ -361,7 +398,8 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/03/18/fed-interest-rate-decision-march-2026.html",
-    "photo_topic": "money"
+    "photo_topic": "money",
+    "photo_id": "1586974710160-55f48f417990"
   },
   {
     "title": "Singapore and Japan upgrade ties to a strategic partnership",
@@ -375,7 +413,9 @@
     ],
     "source_name": "Mothership",
     "source_url": "https://mothership.sg/2026/03/pm-wong-japans-takaichi-strategic-partnership/",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1783142980713-abee43ecf5c9",
+    "caption": "Singapore’s skyline at night."
   },
   {
     "title": "Trump cites Pearl Harbor in Oval Office talks with Japan’s Takaichi",
@@ -389,7 +429,8 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/3/19/trump-references-pearl-harbor-during-meeting-with-japanese-pm-on-iran-war",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1763811939760-4923aa62d7f6"
   },
   {
     "title": "BTS returns with a free comeback concert in central Seoul",
@@ -403,7 +444,9 @@
     ],
     "source_name": "CNN",
     "source_url": "https://www.cnn.com/2026/03/21/style/bts-arirang-comeback-concert-korea-intl-hnk",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1540039155733-5bb30b53aa14",
+    "caption": "A crowd facing a lit concert stage."
   },
   {
     "title": "UN weather agency says the past 11 years were the hottest on record",
@@ -417,7 +460,9 @@
     ],
     "source_name": "World Meteorological Organization",
     "source_url": "https://wmo.int/news/media-centre/earths-climate-swings-increasingly-out-of-balance",
-    "photo_topic": "nature"
+    "photo_topic": "nature",
+    "photo_id": "1575881875475-31023242e3f9",
+    "caption": "The sun low in the sky."
   },
   {
     "title": "Artemis II launches four astronauts on the first crewed Moon trip since 1972",
@@ -431,7 +476,8 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/4/1/nasas-artemis-ii-lifts-off-to-the-moon",
-    "photo_topic": "space"
+    "photo_topic": "space",
+    "photo_id": "1517976487492-5750f3195933"
   },
   {
     "title": "US and Iran agree to a two-week ceasefire brokered by Pakistan",
@@ -445,7 +491,8 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/04/07/trump-iran-ceasefire-hormuz-strait.html",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1761301643520-49c1ee626e72"
   },
   {
     "title": "Hungary’s Viktor Orbán concedes defeat to Péter Magyar after 16 years",
@@ -459,7 +506,8 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/4/12/hungary-election-early-results-show-magyars-tisza-ahead-of-orbans-fidesz",
-    "photo_topic": "election"
+    "photo_topic": "election",
+    "photo_id": "1494172961521-33799ddd43a5"
   },
   {
     "title": "Rory McIlroy wins a second straight Masters title",
@@ -473,7 +521,9 @@
     ],
     "source_name": "NPR",
     "source_url": "https://www.npr.org/2026/04/13/g-s1-117215/rory-mcilroy-wins-the-masters",
-    "photo_topic": "nature"
+    "photo_topic": "nature",
+    "photo_id": "1637345853431-2ad143458e7a",
+    "caption": "A flag on a golf green."
   },
   {
     "title": "MAS tightens monetary policy as energy costs raise inflation risks",
@@ -487,7 +537,9 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/04/14/singapore-central-bank-tightens-monetary-policy-as-iran-war-stokes-price-risks.html",
-    "photo_topic": "money"
+    "photo_topic": "money",
+    "photo_id": "1580519542036-c47de6196ba5",
+    "caption": "Banknotes from around the world."
   },
   {
     "title": "TSMC posts record quarterly profit, up 58% on AI chip demand",
@@ -501,7 +553,8 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/04/16/tsmc-q1-profit-58-percent-ai-chip-demand-record.html",
-    "photo_topic": "chips"
+    "photo_topic": "chips",
+    "photo_id": "1592659762303-90081d34b277"
   },
   {
     "title": "Tim Cook to step down as Apple CEO, with John Ternus taking over",
@@ -515,7 +568,9 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/04/20/tim-cook-stepping-down-as-apple-ceo-john-ternus-taking-over/",
-    "photo_topic": "phone"
+    "photo_topic": "phone",
+    "photo_id": "1563203369-26f2e4a5ccf7",
+    "caption": "An Apple Store shop front."
   },
   {
     "title": "Clean power met all new global electricity demand in 2025, Ember finds",
@@ -529,7 +584,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/4/21/clean-electricity-meets-all-new-demand-curbing-fossil-fuels-says-ember",
-    "photo_topic": "energy"
+    "photo_topic": "energy",
+    "photo_id": "1508790762848-8a3096277c8f",
+    "caption": "Rows of solar panels."
   },
   {
     "title": "OpenAI releases GPT-5.5, pitching it as stronger at coding and research",
@@ -543,7 +600,8 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/04/23/openai-announces-latest-artificial-intelligence-model.html",
-    "photo_topic": "ai"
+    "photo_topic": "ai",
+    "photo_id": "1737644467636-6b0053476bb2"
   },
   {
     "title": "ICC commits former Philippine president Duterte to trial over drug war killings",
@@ -557,7 +615,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/4/23/icc-confirms-crimes-against-humanity-trial-of-ex-philippine-leader-duterte",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1589391886645-d51941baf7fb",
+    "caption": "A judge’s gavel."
   },
   {
     "title": "Singapore to merge its skills and jobs agencies as PM Wong addresses AI disruption",
@@ -571,7 +631,8 @@
     ],
     "source_name": "NTUC",
     "source_url": "https://www.ntuc.org.sg/seeu/news/May-Day-Rally-2026-PM-Wong-says-CTC-success-led-to-formation-of-Tripartite-Jobs-Council/",
-    "photo_topic": "office"
+    "photo_topic": "office",
+    "photo_id": "1615392105814-c9fbad4d25a2"
   },
   {
     "title": "AI chipmaker Cerebras raises $5.5bn in the year's biggest US tech listing so far",
@@ -585,7 +646,8 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang",
-    "photo_topic": "chips"
+    "photo_topic": "chips",
+    "photo_id": "1518770660439-4636190af475"
   },
   {
     "title": "Trump claims big trade wins after Beijing summit, but China confirms few details",
@@ -599,7 +661,9 @@
     ],
     "source_name": "BBC, via Hellenic Shipping News",
     "source_url": "https://www.hellenicshippingnews.com/trump-and-xi-conclude-very-successful-talks-but-no-deals-confirmed/",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1584872589930-e99fe5bf4408",
+    "caption": "The Temple of Heaven in Beijing."
   },
   {
     "title": "NextEra agrees to buy Dominion Energy in a $67bn all-stock utility deal",
@@ -613,7 +677,8 @@
     ],
     "source_name": "VPM News",
     "source_url": "https://www.vpm.org/news/2026-05-18/dominion-energy-nextera-merger-electric-utility-virginia-florida-67b",
-    "photo_topic": "energy"
+    "photo_topic": "energy",
+    "photo_id": "1766246719951-0d21674dd9b2"
   },
   {
     "title": "Google makes Gemini 3.5 Flash its default AI model and bets on agents",
@@ -627,7 +692,8 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/05/19/with-gemini-3-5-flash-google-bets-its-next-ai-wave-on-agents-not-chatbots/",
-    "photo_topic": "ai"
+    "photo_topic": "ai",
+    "photo_id": "1655393001768-d946c97d6fd1"
   },
   {
     "title": "Putin and Xi sign dozens of agreements in Beijing but leave gas pipeline unresolved",
@@ -641,7 +707,9 @@
     ],
     "source_name": "Meduza",
     "source_url": "https://meduza.io/en/feature/2026/05/21/putin-met-with-xi-jinping-in-beijing-the-leaders-signed-dozens-of-documents-but-failed-to-agree-on-the-power-of-siberia-2-pipeline-construction-timeline-or-the-price-of-russian-gas",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1547981609-4b6bfe67ca0b",
+    "caption": "The Forbidden City in Beijing."
   },
   {
     "title": "Meta begins cutting about 8,000 jobs as it reorganises around AI",
@@ -655,7 +723,9 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/05/20/meta-layoffs-zuckerberg-says-success-isnt-a-given-in-memo.html",
-    "photo_topic": "office"
+    "photo_topic": "office",
+    "photo_id": "1600506451234-9e555c0c8d05",
+    "caption": "Colleagues around a meeting table."
   },
   {
     "title": "Singapore commits S$350m to research on living longer and healthier lives",
@@ -669,7 +739,8 @@
     ],
     "source_name": "NutraIngredients",
     "source_url": "https://www.nutraingredients.com/Article/2026/05/25/singapore-pours-350m-into-healthy-longevity-research/",
-    "photo_topic": "health"
+    "photo_topic": "health",
+    "photo_id": "1519494026892-80bbd2d6fd0d"
   },
   {
     "title": "Romanian director Cristian Mungiu wins his second Palme d'Or at Cannes with Fjord",
@@ -683,7 +754,9 @@
     ],
     "source_name": "TheWrap",
     "source_url": "https://www.thewrap.com/industry-news/awards/cannes-film-festival-2026-winners-fjord/",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1489599849927-2ee91cede3ba",
+    "caption": "Red cinema seats."
   },
   {
     "title": "Hegseth urges Asian allies to spend more on defence but softens tone on China",
@@ -697,7 +770,8 @@
     ],
     "source_name": "NPR",
     "source_url": "https://www.hppr.org/npr-news/2026-05-30/hegseth-urges-asian-leaders-to-boost-military-spending-against-china",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1535483102974-fa1e64d0ca86"
   },
   {
     "title": "Nvidia unveils RTX Spark, its first chip for Windows laptops and desktops",
@@ -711,7 +785,8 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/06/01/nvidia-chases-200b-cpu-market-with-ai-agent-pcs-from-microsoft-dell-and-hp/",
-    "photo_topic": "chips"
+    "photo_topic": "chips",
+    "photo_id": "1580584126903-c17d41830450"
   },
   {
     "title": "Xi Jinping makes rare visit to North Korea and pledges closer ties with Kim",
@@ -725,7 +800,8 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/amp/economy/2026/6/9/xi-kim-pledge-to-boost-ties-at-rare-pyongyang-summit",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1512076249812-fd58fb2c8748"
   },
   {
     "title": "Apple unveils a rebuilt, conversational Siri at its WWDC developer conference",
@@ -739,7 +815,9 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/06/08/apples-long-awaited-ai-siri-overhaul-is-finally-here/",
-    "photo_topic": "phone"
+    "photo_topic": "phone",
+    "photo_id": "1511707171634-5f897ff02aa9",
+    "caption": "A smartphone beside a laptop keyboard."
   },
   {
     "title": "US forecasters confirm El Niño has arrived and could become very strong",
@@ -753,7 +831,9 @@
     ],
     "source_name": "Qatar Tribune (dpa)",
     "source_url": "https://www.qatar-tribune.com/article/238829/world/el-nino-has-arrived-says-us-weather-authority/amp",
-    "photo_topic": "sea"
+    "photo_topic": "sea",
+    "photo_id": "1613026113231-ba81a6e4dd01",
+    "caption": "Waves breaking on rocks."
   },
   {
     "title": "Mexico beat South Africa 2-0 to open the first 48-team World Cup",
@@ -767,7 +847,8 @@
     ],
     "source_name": "ESPN",
     "source_url": "https://global.espn.com/football/story/_/id/49033183/mexico-south-africa-2026-world-cup-azetca-opening-game",
-    "photo_topic": "football"
+    "photo_topic": "football",
+    "photo_id": "1629217855633-79a6925d6c47"
   },
   {
     "title": "SpaceX shares jump on debut after the largest stock market listing in history",
@@ -781,7 +862,9 @@
     ],
     "source_name": "CNBC",
     "source_url": "https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html",
-    "photo_topic": "space"
+    "photo_topic": "space",
+    "photo_id": "1770461846516-b7e5993a8e4f",
+    "caption": "A stock exchange building."
   },
   {
     "title": "South Korea's former president Yoon Suk Yeol jailed for 30 years over drone flights",
@@ -795,7 +878,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/6/12/south-koreas-ex-president-yoon-gets-30-years-over-drone-operation",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1767972159871-b9f5d320be2b",
+    "caption": "A judge’s gavel on a book."
   },
   {
     "title": "US and Iran sign interim deal as American naval blockade is lifted",
@@ -809,7 +894,8 @@
     ],
     "source_name": "Military Times",
     "source_url": "https://www.militarytimes.com/news/your-navy/2026/06/18/us-military-lifts-navy-blockade-in-strait-of-hormuz-after-two-months/",
-    "photo_topic": "shipping"
+    "photo_topic": "shipping",
+    "photo_id": "1518527989017-5baca7a58d3c"
   },
   {
     "title": "Twin powerful earthquakes strike northern Venezuela, collapsing buildings near Caracas",
@@ -823,7 +909,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/gallery/2026/6/25/in-pictures-aftermath-of-the-twin-earthquakes-in-venezuela",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1677233860259-ce1a8e0f8498",
+    "caption": "A building destroyed by an earthquake."
   },
   {
     "title": "Late-June heatwave smashes temperature records across Europe",
@@ -837,7 +925,9 @@
     ],
     "source_name": "World Meteorological Organization",
     "source_url": "https://wmo.int/media/news/record-breaking-heat-spreads-through-europe",
-    "photo_topic": "nature"
+    "photo_topic": "nature",
+    "photo_id": "1504386106331-3e4e71712b38",
+    "caption": "Hills under an orange, overheated sky."
   },
   {
     "title": "Trump declares Iran ceasefire over after new US and Iranian attacks",
@@ -851,7 +941,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/7/8/trump-says-ceasefire-over-after-us-iran-trade-attacks",
-    "photo_topic": "energy"
+    "photo_topic": "energy",
+    "photo_id": "1767611104349-bd9e4f49d137",
+    "caption": "Tehran at night."
   },
   {
     "title": "OpenAI launches GPT-5.6 family in three sizes aimed at coding and business",
@@ -865,7 +957,8 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
-    "photo_topic": "ai"
+    "photo_topic": "ai",
+    "photo_id": "1498050108023-c5249f4df085"
   },
   {
     "title": "Singapore economy grows 5.7% in second quarter on strong AI-driven chip demand",
@@ -879,7 +972,9 @@
     ],
     "source_name": "Ministry of Trade and Industry",
     "source_url": "https://www.mti.gov.sg/newsroom/singapore-s-gdp-grew-by-5-7-per-cent-in-the-second-quarter-of-2026/",
-    "photo_topic": "markets"
+    "photo_topic": "markets",
+    "photo_id": "1525625293386-3f8f99389edd",
+    "caption": "Marina Bay, Singapore."
   },
   {
     "title": "Mira Murati's Thinking Machines releases Inkling, its first open-weight AI model",
@@ -893,7 +988,8 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/",
-    "photo_topic": "ai"
+    "photo_topic": "ai",
+    "photo_id": "1555066931-4365d14bab8c"
   },
   {
     "title": "Databricks valued at US$188 billion in new Coatue-led funding round",
@@ -907,7 +1003,8 @@
     ],
     "source_name": "Reuters (via The Star)",
     "source_url": "https://www.thestar.com.my/tech/tech-news/2026/07/17/databricks-valued-at-188-billion-after-coatue-led-investment-wsj-reports",
-    "photo_topic": "datacentre"
+    "photo_topic": "datacentre",
+    "photo_id": "1584169417032-d34e8d805e8b"
   },
   {
     "title": "Japan protests Chinese live-fire drill inside its claimed waters near Okinotori",
@@ -921,7 +1018,9 @@
     ],
     "source_name": "The Maritime Executive",
     "source_url": "https://maritime-executive.com/article/japan-protests-chinese-live-fire-drill-inside-its-eez",
-    "photo_topic": "sea"
+    "photo_topic": "sea",
+    "photo_id": "1508530786855-dfea35260b8d",
+    "caption": "A grey warship."
   },
   {
     "title": "Spain beat Argentina 1-0 in extra time to win the 2026 World Cup",
@@ -935,7 +1034,8 @@
     ],
     "source_name": "CBS News",
     "source_url": "https://www.cbsnews.com/news/2026-fifa-world-cup-final-spain-argentina-sunday/",
-    "photo_topic": "football"
+    "photo_topic": "football",
+    "photo_id": "1679391029864-d46f366a456b"
   },
   {
     "title": "EU adopts 21st sanctions package against Russia, targeting shadow fleet and banks",
@@ -949,7 +1049,9 @@
     ],
     "source_name": "Hill Dickinson",
     "source_url": "https://www.hilldickinson.com/our-view/articles/eu-adopts-21st-package-of-sanctions-against-russia/",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1719553946838-1190abdeee92",
+    "caption": "A large ship at sea."
   },
   {
     "title": "US Federal Reserve holds rates steady as three officials vote for a hike",
@@ -963,7 +1065,8 @@
     ],
     "source_name": "US Federal Reserve",
     "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
-    "photo_topic": "markets"
+    "photo_topic": "markets",
+    "photo_id": "1645226880663-81561dcab0ae"
   },
   {
     "title": "Nepal's prime minister appeals for calm after deadly religious clashes in the south",
@@ -977,7 +1080,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/7/31/nepals-pm-urges-calm-as-three-people-killed-after-hindu-muslim-unrest",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1623492701902-47dc207df5dc",
+    "caption": "Kathmandu with mountains behind."
   },
   {
     "title": "Spider-Man: Brand New Day sets record for biggest North American opening weekend",
@@ -991,7 +1096,9 @@
     ],
     "source_name": "ABC News",
     "source_url": "https://abcnews.com/culture/story/spider-man-brand-new-day-biggest-opening-weekend-135310254",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1688678004647-945d5aaf91c1",
+    "caption": "An audience watching a cinema screen."
   },
   {
     "title": "Jeff Dean and fellow Google veterans leave to found AI science start-up Discovery Loop",
@@ -1005,7 +1112,8 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
-    "photo_topic": "office"
+    "photo_topic": "office",
+    "photo_id": "1600506451234-9e555c0c8d05"
   },
   {
     "title": "Typhoon Dolphin hits eastern China after more than one million people evacuated",
@@ -1019,7 +1127,8 @@
     ],
     "source_name": "Reuters (via The Kathmandu Post)",
     "source_url": "https://kathmandupost.com/world/2026/08/10/typhoon-dolphin-hits-china-s-east-coast-over-1-million-evacuated",
-    "photo_topic": "storm"
+    "photo_topic": "storm",
+    "photo_id": "1769411972457-e89bb3350ac6"
   },
   {
     "title": "Google unveils Pixel 11 phones with new Tensor G6 chip and higher starting prices",
@@ -1033,7 +1142,9 @@
     ],
     "source_name": "Khaleej Times",
     "source_url": "https://www.khaleejtimes.com/tech/google-pixel-11-review",
-    "photo_topic": "phone"
+    "photo_topic": "phone",
+    "photo_id": "1592890288564-76628a30a657",
+    "caption": "An Android smartphone in a hand."
   },
   {
     "title": "Putin warns Russia will retaliate if European states seize its ships",
@@ -1047,7 +1158,8 @@
     ],
     "source_name": "Reuters (via Internazionale)",
     "source_url": "https://www.internazionale.it/ultime-notizie-reuters/2026/08/12/putin-says-russia-will-respond-in-kind-if-eu-nations-seize-russian-vessels",
-    "photo_topic": "shipping"
+    "photo_topic": "shipping",
+    "photo_id": "1650900426337-0f7c0e0f86ea"
   },
   {
     "title": "July 2026 ranks among the hottest months on record as oceans hit new highs",
@@ -1061,7 +1173,9 @@
     ],
     "source_name": "World Meteorological Organization",
     "source_url": "https://wmo.int/media/news/record-breaking-heat-and-extreme-weather-continue",
-    "photo_topic": "nature"
+    "photo_topic": "nature",
+    "photo_id": "1540206395-68808572332f",
+    "caption": "An ocean wave."
   },
   {
     "title": "Amazon plans to expand Prime Air drone deliveries to nearly 500 US cities",
@@ -1075,7 +1189,9 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/08/19/amazons-prime-air-is-taking-off-in-nearly-500-u-s-cities/",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1788146532890-1c49d7e86536",
+    "caption": "A delivery drone carrying a package."
   },
   {
     "title": "US and South Korea cut annual military drills short at Trump's request",
@@ -1089,7 +1205,8 @@
     ],
     "source_name": "AAP (via The Canberra Times)",
     "source_url": "https://www.canberratimes.com.au/story/9333328/us-south-korea-drills-to-be-cut-short-after-trump-order/",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1726450663094-b90adfeea0f8"
   },
   {
     "title": "National Day Rally 2026: more childcare leave and lower preschool fees for families",
@@ -1103,7 +1220,8 @@
     ],
     "source_name": "Human Resources Online",
     "source_url": "https://www.humanresourcesonline.net/national-day-rally-2026-ai-advances-increased-childcare-leave-stronger-family-support-among-key-workforce-measures-announced",
-    "photo_topic": "school"
+    "photo_topic": "school",
+    "photo_id": "1509062522246-3755977927d7"
   },
   {
     "title": "Nvidia revenue doubles to US$96.2 billion as demand for AI data centres surges",
@@ -1117,7 +1235,8 @@
     ],
     "source_name": "Nvidia (SEC filing)",
     "source_url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000073/q2fy27pr.htm",
-    "photo_topic": "chips"
+    "photo_topic": "chips",
+    "photo_id": "1587845323226-bad89242c735"
   },
   {
     "title": "John Ternus takes over as Apple chief executive from Tim Cook",
@@ -1131,7 +1250,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/economy/2026/9/1/john-ternus-succeeds-tim-cook-as-apple-ceo-after-15-years",
-    "photo_topic": "phone"
+    "photo_topic": "phone",
+    "photo_id": "1585184394271-4c0a47dc59c9",
+    "caption": "The Apple logo on a glass window."
   },
   {
     "title": "Norway seizes Russian-owned ship in the Arctic over Ukraine compensation claim",
@@ -1145,7 +1266,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/9/3/norway-seizes-russian-ship-in-arctic-over-crimea-compensation-claim",
-    "photo_topic": "sea"
+    "photo_topic": "sea",
+    "photo_id": "1561553797-81f7083bb21b",
+    "caption": "A cargo ship in icy water."
   },
   {
     "title": "US safety regulator opens probe into Tesla’s Cybercab robotaxi",
@@ -1159,7 +1282,8 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/09/04/feds-launch-investigation-into-teslas-cybercab-deployment/",
-    "photo_topic": "ev"
+    "photo_topic": "ev",
+    "photo_id": "1763543007050-4dac73ffc67f"
   },
   {
     "title": "Malaysia declares haze emergency in part of Sarawak and starts cloud seeding",
@@ -1173,7 +1297,9 @@
     ],
     "source_name": "France 24 (AFP)",
     "source_url": "https://www.france24.com/en/live-news/20260904-malaysia-declares-haze-emergency-in-sarawak-state-on-borneo",
-    "photo_topic": "nature"
+    "photo_topic": "nature",
+    "photo_id": "1729904884750-949d50748ff2",
+    "caption": "Smoke from a forest fire."
   },
   {
     "title": "Argentina orders return of Nazi-looted painting to Jewish dealer’s heir",
@@ -1187,7 +1313,9 @@
     ],
     "source_name": "France 24 (AFP)",
     "source_url": "https://www.france24.com/en/live-news/20260904-argentina-to-return-nazi-looted-painting-to-jewish-collector-s-heir",
-    "photo_topic": "books"
+    "photo_topic": "books",
+    "photo_id": "1569783721854-33a99b4c0bae",
+    "caption": "Visitors in front of a painting."
   },
   {
     "title": "European Central Bank raises rates again as energy prices lift inflation",
@@ -1201,7 +1329,9 @@
     ],
     "source_name": "Euronews",
     "source_url": "https://www.euronews.com/2026/09/10/ecb-hikes-rates-to-25-as-energy-shock-pushes-eurozone-inflation-higher",
-    "photo_topic": "money"
+    "photo_topic": "money",
+    "photo_id": "1621280336935-ed7cae618aac",
+    "caption": "Euro banknotes."
   },
   {
     "title": "US and China agree tariff cuts on $30 billion of goods and launch AI talks",
@@ -1215,7 +1345,8 @@
     ],
     "source_name": "Reuters (via Yahoo News)",
     "source_url": "https://www.yahoo.com/news/articles/china-us-agree-30-billion-083836628.html",
-    "photo_topic": "shipping"
+    "photo_topic": "shipping",
+    "photo_id": "1604506522146-316c8bedd874"
   },
   {
     "title": "Bangkok declares a flood disaster across all 50 districts after heavy rain",
@@ -1229,7 +1360,9 @@
     ],
     "source_name": "France 24 (AFP)",
     "source_url": "https://www.france24.com/en/live-news/20260926-bangkok-declares-flood-disaster-across-city",
-    "photo_topic": "water"
+    "photo_topic": "water",
+    "photo_id": "1761252987176-c450c43f5cbb",
+    "caption": "Cars driving through a flooded street."
   },
   {
     "title": "Singapore bus and train fares to rise by up to 13 cents from 26 December",
@@ -1243,7 +1376,8 @@
     ],
     "source_name": "AsiaOne",
     "source_url": "https://www.asiaone.com/singapore/public-transport-council-fare-hike-bus-train-fares",
-    "photo_topic": "rail"
+    "photo_topic": "rail",
+    "photo_id": "1604995118751-3f765d45cad9"
   },
   {
     "title": "Pakistan carries out air strikes in Afghanistan as border tensions flare again",
@@ -1257,7 +1391,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/amp/news/2026/10/1/afghanistan-says-nine-killed-in-pakistani-air-raids-on-kunar-helmand",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1593031376239-a2551cc09c3e",
+    "caption": "Mountains in the region."
   },
   {
     "title": "Ethiopian government forces take control of Tigray’s capital, Mekelle",
@@ -1271,7 +1407,9 @@
     ],
     "source_name": "Al Jazeera",
     "source_url": "https://www.aljazeera.com/news/2026/10/4/government-forces-seize-capital-of-ethiopias-tigray-region-from-rebels",
-    "photo_topic": "diplomacy"
+    "photo_topic": "diplomacy",
+    "photo_id": "1572888195250-3037a59d3578",
+    "caption": "Ethiopia’s highlands from the air."
   },
   {
     "title": "Flávio Bolsonaro edges Lula in Brazil’s first round, setting up a runoff",
@@ -1285,7 +1423,8 @@
     ],
     "source_name": "France 24 (AFP)",
     "source_url": "https://www.france24.com/en/live-news/20261005-brazilian-stocks-surge-to-record-after-bolsonaro-election-lead",
-    "photo_topic": "election"
+    "photo_topic": "election",
+    "photo_id": "1540908390241-82158ab62887"
   },
   {
     "title": "Max Verstappen wins the Singapore Grand Prix for the first time",
@@ -1299,7 +1438,8 @@
     ],
     "source_name": "Formula1.com",
     "source_url": "https://www.formula1.com/en/latest/article/verstappen-seals-commanding-singapore-grand-prix-victory-from-leclerc-and-antonelli.49wDzysiVqi5cloGjle40A",
-    "photo_topic": "motorsport"
+    "photo_topic": "motorsport",
+    "photo_id": "1699138346782-8a8b211c3da2"
   },
   {
     "title": "MAS holds monetary policy steady, surprising economists who expected tightening",
@@ -1313,7 +1453,8 @@
     ],
     "source_name": "Monetary Authority of Singapore",
     "source_url": "https://www.mas.gov.sg/news/monetary-policy-statements/2026/mas-monetary-policy-statement-14oct26",
-    "photo_topic": "markets"
+    "photo_topic": "markets",
+    "photo_id": "1560221328-12fe60f83ab8"
   },
   {
     "title": "Haze pushes Singapore’s air quality into the unhealthy range",
@@ -1327,7 +1468,9 @@
     ],
     "source_name": "National Environment Agency",
     "source_url": "https://www.nea.gov.sg/media/news/advisories/index/haze-situation-update-14-october-2026",
-    "photo_topic": "city"
+    "photo_topic": "city",
+    "photo_id": "1765867197306-c8b338ebe1ae",
+    "caption": "A city skyline in haze."
   },
   {
     "title": "Brazil’s Amazon deforestation falls to the lowest level on record",
@@ -1341,7 +1484,9 @@
     ],
     "source_name": "France 24 (AFP)",
     "source_url": "https://www.france24.com/en/live-news/20261016-deforestation-in-brazil-amazon-hits-nearly-four-decade-low",
-    "photo_topic": "nature"
+    "photo_topic": "nature",
+    "photo_id": "1646928234724-ddfac30993e6",
+    "caption": "Rainforest from the air."
   },
   {
     "title": "Vietnam signs free trade agreement with four European EFTA nations",
@@ -1355,7 +1500,8 @@
     ],
     "source_name": "EFTA",
     "source_url": "https://www.efta.int/media-resources/news/efta-and-viet-nam-sign-free-trade-agreement",
-    "photo_topic": "shipping"
+    "photo_topic": "shipping",
+    "photo_id": "1598408745613-178751e2ccde"
   },
   {
     "title": "Browsers stop trusting Indian certificate issuer eMudhra after key compromise",
@@ -1369,7 +1515,8 @@
     ],
     "source_name": "The Register",
     "source_url": "https://www.theregister.com/security/2026/10/20/indian-certification-authority-emudhras-private-keys-compromised-one-of-them-was-the-number-4/5304312",
-    "photo_topic": "internet"
+    "photo_topic": "internet",
+    "photo_id": "1558494949-ef010cbdcc31"
   },
   {
     "title": "Critical PHP flaws push websites offline as patches roll out",
@@ -1383,7 +1530,8 @@
     ],
     "source_name": "NBC News",
     "source_url": "https://www.nbcnews.com/tech/security/critical-vulnerabilities-php-update-systems-rcna604751",
-    "photo_topic": "datacentre"
+    "photo_topic": "datacentre",
+    "photo_id": "1762163516269-3c143e04175c"
   },
   {
     "title": "OpenAI says it will stop training its AI models on the live internet",
@@ -1397,6 +1545,7 @@
     ],
     "source_name": "TechCrunch",
     "source_url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
-    "photo_topic": "ai"
+    "photo_topic": "ai",
+    "photo_id": "1607705703571-c5a8695f18f6"
   }
 ]

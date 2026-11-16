@@ -110,7 +110,7 @@ for (const s of [...stories, ...columns].sort((a, b) => a.date.localeCompare(b.d
   const when = publishedAt(s.date)
   const words = s.body.join(' ').split(/\s+/).length
   insertArticle.run(
-    slugFor(s.title), s.section, s.title, s.dek, JSON.stringify(s.body), photoFor(s.photo_topic),
+    slugFor(s.title), s.section, s.title, s.dek, JSON.stringify(s.body), s.photo_id ? photoUrl(s.photo_id) : photoFor(s.photo_topic),
     s.caption || '', s.quote || null, s.source_name || null, s.source_url || null,
     s.section === 'opinion' ? ids['Rebecca Teo'] : authorFor(s.section),
     Math.max(2, Math.ceil(words / 200)), views(when), when.toISOString(), when.toISOString(), null
@@ -135,11 +135,13 @@ for (const s of breaking) {
 // Full-length features written for the site, credited to a named creator. Sources are linked in the body.
 for (const s of features) {
   const when = new Date(s.published) > new Date() ? new Date(Date.now() - 30 * 60e3) : new Date(s.published)
+  // A feature updated after publication (for example, with an editor's update note) shows "Updated …".
+  const updated = s.updated && new Date(s.updated) > when && new Date(s.updated) <= new Date() ? new Date(s.updated) : when
   const words = s.body.join(' ').split(/\s+/).length
   insertArticle.run(
     slugFor(s.title), s.section, s.title, s.dek, JSON.stringify(s.body), photoUrl(s.photo_id),
     s.caption || '', s.quote || null, null, null, ids[s.author] ?? authorFor(s.section),
-    Math.max(2, Math.ceil(words / 200)), views(when), when.toISOString(), when.toISOString(), null
+    Math.max(2, Math.ceil(words / 200)), views(when), when.toISOString(), updated.toISOString(), null
   )
   count++
 }
